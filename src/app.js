@@ -22,7 +22,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 const ragApp=await new  RAGApplicationBuilder()
-                .setTemperature(0.7)
+                .setTemperature(0.5)
                 .setModel(SIMPLE_MODELS["OPENAI_GPT3.5_TURBO"])
                 .setVectorDb(new LanceDb({path: path.resolve('./src/RAG/db')}))
                 .addLoader(new PdfLoader({filePathOrUrl: path.resolve('./src/RAG/data/merged.pdf')}))
