@@ -1,8 +1,11 @@
 FROM node:21.7.0
+
 WORKDIR /app
-COPY package.json package-lock.json
+COPY package.json package-lock.json ./
+
 RUN npm install 
-COPY ..
+
+COPY . .
 
 EXPOSE 3000
 
