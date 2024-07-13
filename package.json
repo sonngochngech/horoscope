@@ -1,0 +1,24 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./src/app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@llm-tools/embedjs": "^0.0.91",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "embedjs": "^0.0.11",
+    "express": "^4.19.2",
+    "lmdb": "^3.0.12",
+    "nodemon": "^3.1.0",
+    "pdf-merger-js": "^5.1.2",
+    "vectordb": "^0.5.0"
+  },
+  "type": "module"
+}
