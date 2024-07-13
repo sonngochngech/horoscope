@@ -34,7 +34,7 @@ setRagApp(ragApp);
 app.use("",router);
 
 app.listen(port, () => {
-    console.log(`Server running on port  8081`);
+    console.log(`Server running on port  3000`);
   });
 
   
