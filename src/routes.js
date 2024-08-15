@@ -3,8 +3,8 @@ import fs from 'fs';
 import path from "path";
 import { fileURLToPath } from 'url';
 const router=express.Router();
-const data = fs.readFileSync('./src/yearData/age.json', 'utf-8');
-const yearData = JSON.parse(data);
+// const data = fs.readFileSync('./src/yearData/age.json', 'utf-8');
+// const yearData = JSON.parse(data);
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -49,6 +49,5 @@ router.post("/hello",async(req,res)=>{
     }
 
 });
-
 
 export default router;
