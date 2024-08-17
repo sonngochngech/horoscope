@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="vn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucky Trip</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="vietjet.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <style>
+        .hero-section {
+            background: url('images/hero_banner.svg') no-repeat center center;
+            background-size: cover;
+            height: 110vh;
+            width: 100vw;
+            flex-shrink: 0;
+            /* Đảm bảo chiều rộng bằng với chiều rộng màn hình */
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        .container {
+            position: relative;
+            z-index: 5;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            height: 100vh;
+            width: 100%;
+            margin-left: auto;
+            margin-right: 104px;
+            padding-right: 50px;
+        }
+
+        .card {
+            width: 100%;
+            max-width: 600px;
+            padding: 24px;
+            margin-right: 10%;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-control {
+            padding: 8px;
+        }
+
+        button[type="submit"] {
+            margin-top: 16px;
+            height: 60px;
+            border-radius: 50px;
+        }
+
+        /* Chỉnh cho mobile */
+        @media (max-width: 768px) {
+            .container {
+                justify-content: center;
+                margin-right: auto;
+                margin-left: auto;
+                padding: 0 15px;
+            }
+
+            .card {
+                width: 100%;
+                max-width: 100%;
+                margin-right: 0;
+                padding: 16px;
+            }
+
+            .form-group {
+                margin-bottom: 16px;
+            }
+
+            button[type="submit"] {
+                margin-top: 16px;
+            }
+        }
+
+        /* Chỉnh cho desktop */
+        @media (min-width: 769px) {
+            .container {
+                justify-content: flex-end;
+                margin-right: 104px;
+            }
+
+            .card {
+                top: -100px;
+                height: 540px;
+                width: 250%;
+                /* Tăng kích thước cho desktop */
+                max-width: 700px;
+                padding: 32px;
+            }
+
+            .form-control {
+                width: 100%;
+                /* Điều chỉnh chiều rộng form để phù hợp */
+                padding: 16px;
+            }
+
+            .form-group {
+                margin-bottom: 16px;
+            }
+
+            button[type="submit"] {
+                margin-top: 16px;
+            }
+        }
+
+
+        .content-section-yellow {
+            background-color: #f9e31f;
+            padding: 50px 0;
+        }
+
+        .content-section-red {
+            background-color: #DA0530;
+            color: white;
+            padding: 50px 0;
+        }
+
+        .content-section-white {
+            background-color: #ffffff;
+            padding: 50px 0;
+        }
+
+        .content-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .icon-section {
+            font-size: 3rem;
+            color: #ff7a59;
+        }
+
+        .list-unstyled li {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .vietjet-brand-VJ {
+            font-family: 'Lobster', cursive;
+            /* Assuming you have the Lobster font loaded */
+            font-size: px;
+            /* Font size set to 24px */
+            color: var(--vietjet-color-brand-VJ);
+            /* Using the variable for color */
+            letter-spacing: 0px;
+            /* Setting letter spacing to 0 */
+            font-weight: normal;
+            /* Normal font weight */
+            text-align: start;
+            /* Center text alignment */
+            /* text-transform: uppercase; Uppercase transformation for text */
+        }
+
+        .form-check {
+            margin-right: 195px;
+        }
+
+        .form-check:last-child {
+            margin-left: auto;
+        }
+
+        .required {
+            color: red;
+            /* Màu đỏ cho dấu * */
+            margin-left: 2px;
+            /* Khoảng cách nhỏ giữa chữ và dấu * */
+        }
+
+
+        /* Ẩn xuống dòng cho mobile và hiển thị cho desktop */
+        @media only screen and (min-width: 768px) {
+            .mobile-br {
+                display: none;
+                /* Ẩn xuống dòng trên mobile */
+            }
+
+            .desktop-br {
+                display: inline;
+                /* Hiển thị xuống dòng trên desktop */
+            }
+        }
+
+        /* Hiển thị xuống dòng cho mobile và ẩn cho desktop */
+        @media only screen and (max-width: 767px) {
+            .mobile-br {
+                display: inline;
+                /* Hiển thị xuống dòng trên mobile */
+            }
+
+            .desktop-br {
+                display: none;
+                /* Ẩn xuống dòng trên desktop */
+            }
+        }
+    </style>
+</head>
+<div class="hero-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="card p-4">
+                    <div style="height: 16px;"></div>
+                    <h4 class="text-danger vietjet-brand-VJ" style="margin-bottom: 24px;">Vận may sẽ dẫn bạn tới
+                        đâu?</h4>
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="name">Họ và tên<span class="required">*</span></label>
+                                <input type="text" class="form-control" id="name" placeholder="Họ và tên"
+                                    style="height: 48px;">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="phone">Số điện thoại<span class="required">*</span></label>
+                                <input type="text" class="form-control" id="phone" placeholder="Số điện thoại"
+                                    style="height: 48px;">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="birthdate">Ngày / tháng / năm sinh</label>
+                                <input type="date" class="form-control" id="birthdate" style="height: 48px;">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="birthtime">Giờ sinh</label>
+                                <div class="d-flex">
+                                    <input type="text" class="form-control mr-2" id="hour" placeholder="hh"
+                                        style="height: 48px;">
+                                    <input type="text" class="form-control" id="minute" placeholder="mm"
+                                        style="height: 48px;">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="birthplace">Nơi sinh</label>
+                            <input type="text" class="form-control" id="birthplace" placeholder="Nơi sinh"
+                                style="height: 48px;">
+                        </div>
+                        <div class="form-group">
+                            <label>Bạn muốn du lịch</label><br>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="travelOption" id="domestic"
+                                    value="domestic" checked>
+                                <label class="form-check-label" for="domestic">Trong nước</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="travelOption" id="international"
+                                    value="international">
+                                <label class="form-check-label" for="international">Nước ngoài</label>
+                            </div>
+                        </div>
+                        <div style="height: 8px;"></div>
+                        <button type="submit" class="btn btn-danger btn-block"
+                            style="height: 60px; border-radius: 8px; margin-bottom: 24px;">
+                            <img src="images/icons/flight.svg" alt="icon"
+                                style="width: 24px; height: 24px; margin-right: 8px;">
+                            Khám phá vận may
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="quote-section">
+    <p class="quote">“Mỗi bước chân trên hành trình đều đưa bạn đến gần <br class="desktop-br"> hơn với những giấc
+        mơ của mình”</p>
+    <p class="sub-quote">Hãy để chúng tôi giúp bạn <span class="highlight">chữa lành, nạp năng lượng, tìm lại sự cân
+            bằng trong cuộc sống</span> <br class="desktop-br"> qua từng bước chân trên hành trình tuyệt vời này.
+    </p>
+</div>
+
+<div class="bg-yellow vietjet-color-yellow">
+    <img src="images/batquai.svg" alt="Bát Quái" class="batquai-image">
+    <div class="content-overlay">
+        <img src="images/vongtronbatquai.svg" alt="Vòng Tròn Bát Quái" class="vongtronbatquai-image">
+        <h2 class="main-title vietjet-color-brand-VJ-text">Du lịch theo phong thủy</h2>
+        <h3 class="sub-title">Xu thế "chữa lành"</h3>
+
+        <div class="peace-discovery-section">
+            <div class="peace-discovery-title">
+                Thượng Lộ Bình An &#183; An Tâm Khám Phá
+            </div>
+
+        </div>
+        <div class="cards-container">
+            <div class="card-super">
+                <img src="images/image13.png" alt="Bơm năng lượng cực đã" class="card-image">
+                <div class="card-text-container">
+                    <h4 class="card-title">Bơm năng lượng cực đã</h4>
+                    <p class="card-text">Check-in ngay những điểm đến giúp bạn bật tung năng lượng, bye bye mệt mỏi ốm
+                        yếu</p>
+                </div>
+            </div>
+            <div class="card-super">
+                <img src="images/image13-1.png" alt="Tươi vui & Phục hồi" class="card-image">
+                <div class="card-text-container">
+                    <h4 class="card-title">Tươi vui & Phục hồi</h4>
+                    <p class="card-text">Nguồn năng lượng tươi mới, cân bằng, tích cực, tràn đầy sức sống. Không còn
+                        những muộn phiền hay căng thẳng</p>
+                </div>
+            </div>
+            <div class="card-super">
+                <img src="images/image13-2.png" alt="May mắn & Thịnh vượng" class="card-image">
+                <div class="card-text-container">
+                    <h4 class="card-title">May mắn & Thịnh vượng</h4>
+                    <p class="card-text">Đi du lịch tới những nơi có yếu tố ngũ hành hợp với năm tháng ngày giờ sinh
+                        (Bát Tự), năng lượng cá nhân của bạn sẽ được nâng cao, từ đó thu hút nhiều may mắn & cơ hội phát
+                        triển bất ngờ trong cuộc sống. </p>
+                </div>
+            </div>
+            <div class="card-super">
+                <img src="images/image13-3.png" alt="Phát triển sự nghiệp" class="card-image">
+                <div class="card-text-container">
+                    <h4 class="card-title">Phát triển sự nghiệp</h4>
+                    <p class="card-text">Một khi năng lượng cá nhân được cân bằng, bạn sẽ có tinh thần minh mẫn và năng
+                        lượng sáng tạo dồi dào để phát triển sự nghiệp. Từ đó quyết định & hành động sẽ chính xác hơn,
+                        giúp bạn đạt được các mục tiêu trong công việc.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section-container">
+    <div class="text-button-container">
+        <p class="section-text">Khi mọi yếu tố trong cuộc sống được cân bằng, bạn sẽ cảm thấy hài hòa và hạnh phúc hơn,
+            từ đó tận hưởng cuộc sống một cách trọn vẹn.</p>
+            <button id="khamphangay-button" class="khamphangay-button">
+                <img src="images/flight.svg" alt="Flight Icon" class="button-icon">
+                Khám phá ngay
+            </button>
+    </div>
+</div>
+
+
+<div class="lucky-section-container">
+    <img src="images/pave way.svg" alt="Pave Way" class="lucky-section-icon">
+    <h1 class="lucky-main-title">Để vận may dẫn bạn</h1>
+    <h2 class="lucky-sub-title">tới chuyến phiêu lưu</h2>
+    
+    <div class="lucky-cards-container">
+            <img src="images/item1.svg" style="width: 282px; height: 282px;" alt="An Tâm" class="lucky-card-icon">
+            <img src="images/item2.svg" style="width: 282px; height: 282px;" alt="Bình An" class="lucky-card-icon">
+            <img src="images/item3.svg" style="width: 282px; height: 282px;" alt="Vui Vẻ" class="lucky-card-icon">
+            <img src="images/item4.svg" style="width: 282px; height: 282px;" alt="Chữa Lành" class="lucky-card-icon">
+    </div>
+    
+    <button id="lucky-khamphangay-button" class="lucky-khamphangay-button" >
+        <img src="images/icons/flight.svg" alt="Flight Icon" class="lucky-button-icon" id="khamphangay-button">
+        Thử ngay
+    </button>
+</div>
+
+
+<div class="vietjet-container">
+    <div class="vietjet-text-container">
+        <h1 class="vietjet-main-title">Thoải mái healing cùng Vietjet Air</h1>
+        <h1 class="vietjet-sub-title">Vé máy bay SIÊU HỜI </h1> 
+        <h1 class="vietjet-sub-title"> Du lịch ĐÃ ĐỜI</h1>
+    </div>
+    <div class="vietjet-content">
+        <div class="vietjet-image-container">
+            <img src="images/vietjet.svg" alt="Vietjet Air" class="vietjet-image">
+        </div>
+        <div class="vietjet-features-container">
+            <div class="vietjet-features">
+                <div><img src="images/heart.svg" alt="Fast Procedures" class="feature-icon"> Thủ tục nhanh chóng</div>
+                <div><img src="images/heart.svg" alt="Affordable Prices" class="feature-icon"> Giá cả phải chăng</div>
+                <div><img src="images/heart.svg" alt="On-time Flights" class="feature-icon"> Chuyến bay đúng giờ</div>
+                <div><img src="images/heart.svg" alt="Extensive Network" class="feature-icon"> Đa dạng tuyến bay</div>
+                <div><img src="images/heart.svg" alt="Dynamic Space" class="feature-icon"> Phong cách trẻ trung, năng động</div>
+            </div>
+        </div>
+    </div>
+</div>
+<image src="images/footer.png" class="footer">
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<script src="script.js"></script>
+</body>
+
+</html>

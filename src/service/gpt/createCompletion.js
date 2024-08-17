@@ -14,6 +14,7 @@ export const createCompletion = async (prompt) => {
     try {
         const response = await openai.chat.completions.create({
             model: modelName,
+            temperature: 0.7,
             messages: [{ role: 'user', content: prompt }],
         });
         return response.choices[0].message.content;
@@ -23,4 +24,4 @@ export const createCompletion = async (prompt) => {
     }
 };
 
-console.log(await createCompletion("what is your name ? "));
+

@@ -2,3 +2,5 @@ node_modules
 db
 .env
 cache
+src/RAG/pdfDB/
+src/RAG/webDB
