@@ -16,7 +16,6 @@ const calculate = async (birthdate, hour, minute, sex) => {
     const ragApp = await new RAGApplicationBuilder()
         .setVectorDb(new LanceDb({path: path.resolve(`./src/RAG/webDB/${randomNumber}`)}))
         .addLoader(new WebLoader({ urlOrContent: `https://www.xemlicham.com/am-lich/nam/${year}/thang/${month}/ngay/${day}` }))
-        .addLoader(new TextLoader({ text: calculate_can_chi_gio }))
         .build();
     const res = await ragApp.query(`Hãy tính lịch can chi của tháng,năm, ngày  với case là  người A với ngày sinh  ${birthdate} lúc ${hour} giờ ${minute}
         Chỉ ghi kết quả theo format 
@@ -67,29 +66,32 @@ const calculate = async (birthdate, hour, minute, sex) => {
     let menh_cc = get_menh(can_chi_nam);
     console.log(menh_cc);
     console.log("per_nc",per_nc);
+    let hy_than;
     if (per_nc < 8) {
         let maxElement = Math.max(...elements);
-        return menh[elements.indexOf(maxElement)];
+        hy_than= menh[elements.indexOf(maxElement)];
     } else if (per_nc >= 8 && per_nc <= 19) {
         let index = menh_sinh.indexOf(menh_cc);
-        if (index==0) return menh_sinh[menh_sinh.length -1];
-        return menh_sinh[index - 1];
-    } else if (per_nc == 20) {
+        if (index===0) hy_than= menh_sinh[menh_sinh.length -1];
+        else hy_than= menh_sinh[index - 1];
+    } else if (per_nc === 20) {
         let maxElement = Math.max(...elements);
-        return menh[elements.indexOf(maxElement)];
+        hy_than= menh[elements.indexOf(maxElement)];
     } else if (per_nc >= 21 && per_nc <= 50) {
         let index = menh_khac.indexOf(menh_cc);
-        if (index==0) return menh_khac[menh_khac.length -1];
-        return menh_khac[index - 1];
+        if (index===0) hy_than= menh_khac[menh_khac.length -1];
+        else hy_than= menh_khac[index - 1];
     } else if (per_nc >= 51 && per_nc <= 80) {
         let index = menh_sinh.indexOf(menh_cc);
         index = index + 1 > 4 ? 0 : index + 1;
-        return menh_sinh[index];
+        hy_than= menh_sinh[index];
     } else if (per_nc > 80) {
         let index = menh_sinh.indexOf(menh_cc);
-        if (index==0) return menh_sinh[menh_sinh.length -1];
-        return menh_sinh[index - 1];
+        if (index===0) hy_than= menh_sinh[menh_sinh.length -1];
+        else hy_than= menh_sinh[index - 1];
     }
+    console.log(hy_than);
+    return [menh_cc,hy_than];
 }
 
 const calculate_gio_sinh=(hour, minute,thien_can_ngay)=>{

@@ -1,8 +1,9 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { locationQuery } from '../data/queryGPT';
-import { ten_tinh } from '../data/key';
+import { locationQuery } from '../data/queryGPT.js';
+import { mo_ta_tinh, ten_tinh } from '../data/key.js';
+import { position } from '../data/location.js';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 console.log(__filename);
@@ -21,19 +22,24 @@ export async function destination(thanhpho, hythan,ragApp){
     const queryRes = extractAndParseJSON((await ragApp.query(query)).content);
     
     let provinces = queryRes[ten_tinh];
-    const imagePaths = getImagePaths(provinces);
-    return imagePaths;
+    let provincesDescriptions=queryRes[mo_ta_tinh];
+    const cities = getCities(provinces,provincesDescriptions);
+
+    return [cities,queryRes];
 }
 
-function getImagePaths(provinceNames) {
+function getCities(provinceNames,provincesDescriptions) {
     const jsonFilePath = path.join(__dirname, '../data/image.json');
     const jsonData = JSON.parse(fs.readFileSync(jsonFilePath, 'utf-8'));
 
     const result = {};
 
-    provinceNames.forEach(province => {
+    provinceNames.forEach((province,index) => {
         if (jsonData[province]) {
-            result[province] = jsonData[province].map(image => image.path);
+            result[province] = {
+                image: jsonData[province].map(image => image.path),
+                description: provincesDescriptions[index]
+            };
         } else {
             result[province] = 'No images found for this province';
         }
@@ -73,7 +79,14 @@ function extractAndParseJSON(text) {
         return null;
     }
 }
-   
+
+export function getPositionNumber(hy_tan){
+
+    let letters=position[hy_tan]["letters"];
+    let numbers=position[hy_tan]["numbers"];
+    
+    return ['1'+ numbers[0]+ letters[0],'1'+numbers[1]+ letters[0],'2'+ numbers[0]+ letters[0]];
+
+}
 
 
-console.log(getImagePaths(["Hà Nội","Thanh Hóa"]));

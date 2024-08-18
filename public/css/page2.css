@@ -24,8 +24,8 @@ left: 15% !important;
     right:10% !important ;
 }
 .special-img{
-    width: 628px;
-    height: 420px;
+    width: 50% !important;
+    height: auto;
     gap: 0px;
     border-radius: 16px 16px 16px 16px;
     opacity: 0px;
@@ -34,11 +34,14 @@ left: 15% !important;
 
 }
 .normal-img{
-    width: 411px;
-    height: 275px;
+    width: 20% !important;
+    height:  auto;
     gap: 0px;
     border-radius: 16px 16px 16px 16px;
     opacity: 0px;
+    
+}
+.mr-16{
     margin-right: 16px; 
 }
 .w-10{
@@ -53,7 +56,7 @@ left: 15% !important;
 }
 
 .custom-chair {
-    width: 411px;
+    /* width: 411px; */
     height: 659px;
     padding: 40px 24px 24px 24px;
     gap: 24px;
@@ -89,7 +92,7 @@ left: 15% !important;
     width: 363px;
     height: 56px;
     padding: 10px 24px;
-    gap: 8px;
+    
     border-radius: 8px 8px 8px 8px;
     border-width: 0px 0px 0px 0px;
     background-color: #DA0530;
@@ -193,4 +196,169 @@ left: 15% !important;
     margin-right: 16px; 
     
 
+}
+.span-text-regular {
+    color: #DA0530;
+    font-family: 'Barlow', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+  }
+
+.brand-vj{
+    color: #DA0530;
+}
+.p-row{
+ padding-right: 80px !important;
+}
+
+.vietjet-main-title, .vietjet-sub-title, .footer {
+    font-family: 'Barlow', sans-serif; /* Apply Barlow font to specific classes */
+}
+.vietjet-main-title {
+    font-size: 48px;
+    background: linear-gradient(45deg, #FF1018, #FF8125); /* Màu gradient từ #FF1018 đến #FF8125, đường chéo 45 độ */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 10px 0;
+    font-weight: 600;
+
+}
+
+.vietjet-sub-title {
+    font-size: 48px;
+    color: #222222; /* Đổi màu sang #222222 */
+    margin: 20px 0;
+    font-weight: 600;
+}
+
+.vietjet-text-container {
+    width: 100%;
+    text-align: left; /* Căn lề trái */
+    margin-bottom: 20px;
+}
+
+.vietjet-features-container {
+    flex: 1;
+    padding-left: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.vietjet-features {
+    margin: 30px 0;
+    text-align: left;
+}
+
+.vietjet-features div {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.vietjet-image-container {
+    flex: 0 0 849px;
+    height: 422px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.vietjet-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    flex-grow: 1; /* Đảm bảo phần nội dung chiếm không gian còn lại */
+}
+
+.section-container {
+    position: relative;
+    background-image: url('/public/images/page2/icons/fly.svg'); 
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-position: bottom; 
+    background-color: #DA0530; 
+    height: 224px; 
+    width: 100%; 
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    overflow: hidden; 
+    padding-left: 298px; /* Căn chỉnh phần nội dung từ bên trái */
+}
+
+.text-button-container {
+    display: flex;
+    align-items: center; /* Căn giữa nội dung theo chiều dọc */
+    justify-content: center; /* Căn giữa nội dung theo chiều ngang */
+    padding-left: 100px; /* Dịch chuyển toàn bộ container sang phải 100px */
+}
+.feature-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+.section-text {
+    font-size: 32px;
+    line-height: 40px;
+    font-weight: 600px;
+    color: #fff; /* Màu chữ trắng */
+    margin-right: 56px; /* Khoảng cách giữa text và nút */
+    max-width: 600px; /* Tăng độ rộng tối đa cho text */
+}
+
+.vietjet-container {
+    width: 1439px; /* Kích thước chiều rộng */
+    height: 808px; /* Kích thước chiều cao */
+    background-color: #FFFFFF;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin: auto; /* Căn giữa container */
+}
+.button-icon {
+    width: 24px; /* Điều chỉnh kích thước icon */
+    height: 24px;
+    margin-right: 10px; /* Khoảng cách giữa icon và chữ trong nút */
+}
+.khamphangay-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    color: #222222;
+    font-size: 16px;
+    font-weight: 600;
+    width: 264px; /* Chiều rộng của nút */
+    height: 64px; /* Chiều cao của nút */
+    cursor: pointer;
+}
+
+.footer-container {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+.pr-10{
+    padding-left: 5% !important;
+}
+.pe-10{
+    padding-right: 5% !important;
+}
+.w-32{
+    width: 32% !important;
+}
+
+.pt-80{
+    padding-top: 80px;
+    padding-bottom: 80px;
 }
