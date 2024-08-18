@@ -24,8 +24,8 @@ left: 15% !important;
     right:10% !important ;
 }
 .special-img{
-    width: 50% !important;
-    height: auto;
+    width: 628px !important;
+    height: 420px;
     gap: 0px;
     border-radius: 16px 16px 16px 16px;
     opacity: 0px;
@@ -34,8 +34,8 @@ left: 15% !important;
 
 }
 .normal-img{
-    width: 20% !important;
-    height:  auto;
+    width: 411px !important;
+    height: 275px;
     gap: 0px;
     border-radius: 16px 16px 16px 16px;
     opacity: 0px;
@@ -221,22 +221,23 @@ left: 15% !important;
     background: linear-gradient(45deg, #FF1018, #FF8125); /* Màu gradient từ #FF1018 đến #FF8125, đường chéo 45 độ */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    margin: 10px 0;
+    margin: 5px 0;
     font-weight: 600;
+    padding-top: 24px;
 
 }
 
 .vietjet-sub-title {
     font-size: 48px;
     color: #222222; /* Đổi màu sang #222222 */
-    margin: 20px 0;
+    margin: 10px 0;
     font-weight: 600;
 }
 
 .vietjet-text-container {
     width: 100%;
     text-align: left; /* Căn lề trái */
-    margin-bottom: 20px;
+
 }
 
 .vietjet-features-container {
@@ -282,12 +283,11 @@ left: 15% !important;
     background-size: cover; 
     background-position: bottom; 
     background-color: #DA0530; 
-    height: 224px; 
+    min-height: 224px; 
     width: 100%; 
     display: flex;
-    justify-content: center; 
-    align-items: center; 
-    overflow: hidden; 
+    /* justify-content: center;  */
+    /* align-items: center;  */
     padding-left: 298px; /* Căn chỉnh phần nội dung từ bên trái */
 }
 
@@ -362,3 +362,23 @@ left: 15% !important;
     padding-top: 80px;
     padding-bottom: 80px;
 }
+.custom-image-item {
+    width: 845px;
+    height: 422px;
+    left: 4px;
+    gap: 0px;
+    border-radius: 16px 0px 0px 0px;
+/* Note: opacity of 0 means the item will be completely transparent */
+  }
+
+  .custom-carousel-inner {
+    width: 1500px !important;
+  }
+
+  /* Fluid width for smaller screens */
+  @media (max-width: 1500px) {
+    .custom-carousel-inner {
+      width: 100% !important;
+      max-width: none; /* Remove any max-width constraints */
+    }
+  }

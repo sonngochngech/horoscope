@@ -11,18 +11,18 @@
 <body>
 
     <!-- Header Section -->
-    <main class="container" >
-        <div class="row pr-10 pt-80">
-            <div class="col-7 ">
-                <div class="col-10">
+    <main class="p-0 m-0 text-center" >
+        <div class="row pr-10 pt-80 d-flex">
+            <div class="col-6 ">
+                <div class="col-11">
                     <h1 class="desktop-bold-64">Đây là chuyến đi may mắn của bạn</h1>
                 </div>
                 <p class="desktop-regular-20"><span class="fw-bolder fw-bolder">Dành cho khách hàng </span> <span ><%= customer.name %>, sinh ngày <%= customer.birthdate %>, <%= customer.location %></span></p>
                 <p class="desktop-regular-20">Theo kiến thức Phong Thủy Bát Tự, bạn thuộc <span  class="text-danger fw-bolder">mệnh <%= customer["mệnh"] %>, khuyết <%= customer["dụng-hỷ thần"] %></span>. Có điểm mạnh <span class="text-danger fw-bolder"><%= customer["Điểm mạnh"] %></span> . Tuy nhiên lại <span class="text-danger fw-bolder"><%= customer["Cải thiện"] %></span>.</p>
                 <p class="desktop-regular-20">Để cân bằng mệnh cách và bổ sung nhiều may mắn & niềm vui, bạn nên <span class="text-danger fw-bolder">đi du lịch về hướng <%= customer["Hướng"] %></span>, tới <span class="text-danger fw-bolder">các địa điểm <%= customer["Đặc trưng của địa điểm"] %></span> . <%= customer["Lý do"] %></p>
             </div>
-            <div class="col-4 offset-1 d-flex justify-content-center position-relative">
-                <div style="width: 411px; height: 111px; position: absolute;">
+            <div class=" col-md-6 d-flex justify-content-center position-relative"  >
+                <div style="width: 411px; height: 111px; position: absolute;margin-left: 10% !important ;">
                     <img src="/public/images/page2/icons/sun.svg" class="position-absolute" style="z-index: 1;top: 10px; left: 44px;"></img>
                     <div style="width: 311px;height: 333px " class="position-absolute">
                         <img src="/public/images/page2/icons/location.svg" class="position-absolute"  style=" z-index: 3;left: 102px; top: 46px;"></img>
@@ -33,127 +33,138 @@
             </div>
         </div>
         <div class="row pr-10 pt-80"  style="background-color: #f6f6f6;">
-            <div class="col-12">
-                <div class="col-7">
-                    <div class="col-10">
-                        <h1  class="desktop-bold-64" style="margin-bottom: 48px;">Đây là các địa điểm phù hợp với bạn nhất</h1>
-                    </div>     
-                </div>
-            </div>
-            <% Object.keys(cities).forEach((city) =>{ %>
-                <div class="col-12" style="margin-bottom: 48px !important">
-                    <p class="desktop-semiBold-48" style="margin-bottom: 48px;"><%= city %></p>
-                    <div id="<%= 'carouselExampleControls'+ city.split(' ').join('') %>" class=" w-100 carousel slide d-flex desktop-quote" data-bs-ride="carousel">
-                        <div class="carousel-inner">
-                            <% for(let index=0; index< cities[city].image.length;index++) { %>
-                            <div class="carousel-item <%= index === 0 ? 'active' : '' %> ">
-                                <div class="d-flex align-items-end ">
-                                    <img src="<%= cities[city].image[index] %>" class="special-img" alt="Phú Quốc Island">
-                                    <img src="<%= cities[city].image[index+1>4?index+1-5 : index+1] %>" class="normal-img mr-16" alt="Tourist on Boat">
-                                    <img src="<%= cities[city].image[index+2>4?index+2-5 : index+2] %>" class="normal-img" alt="Tourist on Boat">
-                                </div>
-                            </div>
-                            <% } %>
-                            <div class=" arrow-container position-absolute end-5 d-flex justify-content-evenl">
-                                <button class="carousel-control-prev " type="button" data-bs-target="<%='#carouselExampleControls'+ city.split(' ').join('') %>" data-bs-slide="prev">
-                                    <img src="/public/images/page2/icons/next_icon.svg">
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="<%='#carouselExampleControls'+ city.split(' ').join('') %>" data-bs-slide="next">
-                                    <img src="/public/images/page2/icons/pre_icon.svg">
-                                </button>
-                            </div>
-                        </div>
+            <div class="container position-relative">
+                <div class="col-12">
+                    <div class="col-7">
+                        <div class="col-10">
+                            <h1  class="desktop-bold-64" style="margin-bottom: 48px;">Đây là các địa điểm phù hợp với bạn nhất</h1>
+                        </div>     
                     </div>
-                    <div id="<%= 'carouselExampleControlsMobile'+ city.split(' ').join('') %>" class="carousel slide d-flex mobile-quote " data-bs-ride="carousel">
-                        <div class="carousel-inner">
-                            <% for(let index=0; index< cities[city].image.length;index++){ %>
-                                <div class="carousel-item <%= index === 0 ? 'active' : '' %>  ">
-                                    <div class="d-flex align-items-end">
+                </div>
+                <% Object.keys(cities).forEach((city) =>{ %>
+                    <div class="col-12" style="margin-bottom: 48px !important">
+                        <p class="desktop-semiBold-48" style="margin-bottom: 48px;"><%= city %></p>
+                        <div id="<%= 'carouselExampleControls'+ city.split(' ').join('') %>" class=" w-100 carousel slide d-flex desktop-quote" data-bs-ride="carousel">
+                            <div class="carousel-inner custom-carousel-inner">
+                                <% for(let index=0; index< cities[city].image.length;index++) { %>
+                                <div class="carousel-item <%= index === 0 ? 'active' : '' %> ">
+                                    <div class="d-flex align-items-end ">
                                         <img src="<%= cities[city].image[index] %>" class="special-img" alt="Phú Quốc Island">
-                                        <img src="<%= cities[city].image[index+1>4?index+1-5 : index+1] %>" class="special-img" alt="Tourist on Boat">
+                                        <img src="<%= cities[city].image[index+1>4?index+1-5 : index+1] %>" class="normal-img mr-16" alt="Tourist on Boat">
+                                        <img src="<%= cities[city].image[index+2>4?index+2-5 : index+2] %>" class="normal-img" alt="Tourist on Boat">
                                     </div>
                                 </div>
-                            <% } %>
-                    
-                            <button class="carousel-control-prev" type="button" data-bs-target="<%='#carouselExampleControlsMobile'+ city.split(' ').join('') %>" data-bs-slide="prev">
-                                <img src="/public/images/page2/icons/next_icon.svg">
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="<%='#carouselExampleControlsMobile'+ city.split(' ').join('') %>" data-bs-slide="next">
-                                <img src="/public/images/page2/icons/pre_icon.svg">
-                                </button>
+                                <% } %>
+                                <div class=" arrow-container position-absolute end-5 d-flex justify-content-evenl">
+                                    <button class="carousel-control-prev " type="button" data-bs-target="<%='#carouselExampleControls'+ city.split(' ').join('') %>" data-bs-slide="prev">
+                                        <img src="/public/images/page2/icons/next_icon.svg">
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-bs-target="<%='#carouselExampleControls'+ city.split(' ').join('') %>" data-bs-slide="next">
+                                        <img src="/public/images/page2/icons/pre_icon.svg">
+                                    </button>
+                                </div>
+                            </div>
                         </div>
+                        <div id="<%= 'carouselExampleControlsMobile'+ city.split(' ').join('') %>" class="carousel slide d-flex mobile-quote " data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <% for(let index=0; index< cities[city].image.length;index++){ %>
+                                    <div class="carousel-item <%= index === 0 ? 'active' : '' %>  ">
+                                        <div class="d-flex align-items-end">
+                                            <img src="<%= cities[city].image[index] %>" class="special-img" alt="Phú Quốc Island">
+                                            <img src="<%= cities[city].image[index+1>4?index+1-5 : index+1] %>" class="special-img" alt="Tourist on Boat">
+                                        </div>
+                                    </div>
+                                <% } %>
+                        
+                                <button class="carousel-control-prev" type="button" data-bs-target="<%='#carouselExampleControlsMobile'+ city.split(' ').join('') %>" data-bs-slide="prev">
+                                    <img src="/public/images/page2/icons/next_icon.svg">
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-bs-target="<%='#carouselExampleControlsMobile'+ city.split(' ').join('') %>" data-bs-slide="next">
+                                    <img src="/public/images/page2/icons/pre_icon.svg">
+                                    </button>
+                            </div>
+                        </div>
+                        <p class=" desktop-regular-20 col-8" style="margin-top: 48px !important"><%= cities[city].description %></p>
+                    </div>   
+                <% }); %>
+            </div>  
+        </div>
+        <div class="row pr-10 pt-80" >
+            <div class="container" >
+                <div class="row">
+                    <div class="col-9 mb-4">
+                        <h3 class="desktop-semiBold-40">Để chuyến đi tới những địa điểm trên thêm phần thuận lợi & may mắn, bạn nên chọn ghế ngồi có </h3>
                     </div>
-                    <p class=" desktop-regular-20 col-8" style="margin-top: 48px !important"><%= cities[city].description %></p>
                 </div>
-                
-                
-            <% }); %>
-        </div>  
-        <div class="row  pr-10 pe-10  pt-80">
-            <div>
-                <div class="col-9">
-                    <h3 class="desktop-semiBold-40">Để chuyến đi tới những địa điểm trên thêm phần thuận lợi & may mắn, bạn nên chọn ghế ngồi có </h3>
+                <div class="row">
+                    <div class="col-12">
+                        <div  class="d-flex position-relative" style="overflow: hidden">
+                            <div class="d-flex flex-column custom-chair justify-content-center align-items-center me-4 ">
+                                <p class="font-chair">Ghế <%= chairList[0] %></p>
+                                <div class="inner-chair  container">
+                                    <img src="/public/images/page2/icons/chair.svg">  
+                                </div>
+                                <div class=" d-flex align-items-end mt-2  container p-0" style="width: 363px !important;">
+                                    <img src="/public/images/page2/icons/fire.svg" class="me-2">
+                                    <p class="m-0 desktop-regular-24">Hiện tại còn trống <span>5 ghế</span></p>
+                                </div>
+                                <button class="chair-button desktop-semiBold-16 "  > Xem ngay</button>
+                            </div>
+                            <div class="d-flex flex-column custom-chair  justify-content-center align-items-center me-4  ">
+                                <p class="font-chair">Ghế <%= chairList[1] %></p>
+                                <div class="inner-chair  container">
+                                    <img src="/public/images/page2/icons/chair.svg">  
+                                </div>
+                                <div class=" d-flex align-items-end mt-2  container p-0" style="width: 363px !important;">
+                                    <img src="/public/images/page2/icons/fire.svg" class="me-2">
+                                    <p class="m-0 desktop-regular-24">Hiện tại còn trống <span>5 ghế</span></p>
+                                </div>
+                                <button class="chair-button desktop-semiBold-16 "  > Xem ngay</button>
+                            </div>
+                            <div class="d-flex flex-column custom-chair  justify-content-center align-items-center  ">
+                                <p class="font-chair">Ghế <%= chairList[2] %></p>
+                                <div class="inner-chair  container">
+                                    <img src="/public/images/page2/icons/chair.svg">  
+                                </div>
+                                <div class=" d-flex align-items-end mt-2  container p-0" style="width: 363px !important;">
+                                    <img src="/public/images/page2/icons/fire.svg" class="me-2">
+                                    <p class="m-0 desktop-regular-24">Hiện tại còn trống <span>5 ghế</span></p>
+                                </div>
+                                <button class="chair-button desktop-semiBold-16 "  > Xem ngay</button>
+                            </div>
+                           
+                        </div>  
+                    </div>
                 </div>
-            </div>
-            <div class="d-flex justify-content-between ">
-                <div class="d-flex flex-column custom-chair w-32 justify-content-center align-items-center">
-                    <p class="font-chair">Ghế <%= chairList[0] %></p>
-                    <div class="inner-chair  container">
-                        <img src="/public/images/page2/icons/chair.svg">  
-                    </div>
-                    <div class=" d-flex align-items-end mt-2  container p-0" style="width: 363px !important;">
-                        <img src="/public/images/page2/icons/fire.svg" class="me-2">
-                        <p class="m-0 desktop-regular-24">Hiện tại còn trống <span>5 ghế</span></p>
-                    </div>
-                    <button class="chair-button desktop-semiBold-16 "  > Xem ngay</button>
-                </div>
-                <div class="d-flex flex-column custom-chair w-32 justify-content-center align-items-center">
-                    <p class="font-chair">Ghế <%= chairList[1] %></p>
-                    <div class="inner-chair  container">
-                        <img src="/public/images/page2/icons/chair.svg">  
-                    </div>
-                    <div class=" d-flex align-items-end mt-2  container p-0" style="width: 363px !important;">
-                        <img src="/public/images/page2/icons/fire.svg" class="me-2">
-                        <p class="m-0 desktop-regular-24">Hiện tại còn trống <span>5 ghế</span></p>
-                    </div>
-                    <button class="chair-button desktop-semiBold-16 "  > Xem ngay</button>
-                </div>
-                <div class="d-flex flex-column custom-chair w-32 justify-content-center align-items-center">
-                    <p class="font-chair">Ghế <%= chairList[2] %></p>
-                    <div class="inner-chair  container">
-                        <img src="/public/images/page2/icons/chair.svg">  
-                    </div>
-                    <div class=" d-flex align-items-end mt-2  container p-0" style="width: 363px !important;">
-                        <img src="/public/images/page2/icons/fire.svg" class="me-2">
-                        <p class="m-0 desktop-regular-24">Hiện tại còn trống <span>5 ghế</span></p>
-                    </div>
-                    <button class="chair-button desktop-semiBold-16 "  > Xem ngay</button>
-                </div>
-                
+                      
+            
 
             </div>
-            
+
         </div>
+        
+        
+        
         <div class="row section-container">
             <div class="text-button-container">
-                <p class="section-text">Tặng ngay voucher giảm giá 15% khi đặt vé tại những ngày này! (Áp dụng trong duy nhất 1 tuần)</p>
+                <p class="section-text " style="text-align: left;">Tặng ngay voucher giảm giá 15% khi đặt vé tại những ngày này! (Áp dụng trong duy nhất 1 tuần)</p>
                     <button id="khamphangay-button" class="khamphangay-button fw-bolder">
                         <!-- <img src="/public/images/page2/icons/flight.svg" alt="Flight Icon" class="button-icon"> -->
                         Nhận voucher
                     </button>
             </div>
         </div>
-        <div class="row vietjet-container ">
-            <div class="vietjet-text-container">
+        <div class="container " style="margin-left: 0px !important;">
+            <div class="vietjet-text-container row pr-10 ">
                 <h1 class="vietjet-main-title">Thoải mái healing cùng Vietjet Air</h1>
                 <h1 class="vietjet-sub-title">Vé máy bay SIÊU HỜI </h1> 
                 <h1 class="vietjet-sub-title"> Du lịch ĐÃ ĐỜI</h1>
             </div>
-            <div class="vietjet-content">
-                <div class="vietjet-image-container">
-                    <img src="/public/images/page2/vietjet.svg" alt="Vietjet Air" class="vietjet-image">
+            <div class="row pr-10 pt-80">
+                <div class="col">
+                    <img src="/public/images/page2/vietjet.svg" alt="Vietjet Air" class="custom-image-item">
                 </div>
-                <div class="vietjet-features-container">
+                <div class="col">
                     <div class="vietjet-features">
                         <div><img src="/public/images/page2/icons/heart.svg" alt="Fast Procedures" class="feature-icon"> Thủ tục nhanh chóng</div>
                         <div><img src="/public/images/page2/icons/heart.svg" alt="Affordable Prices" class="feature-icon"> Giá cả phải chăng</div>
@@ -162,7 +173,10 @@
                         <div><img src="/public/images/page2/icons/heart.svg" alt="Dynamic Space" class="feature-icon"> Phong cách trẻ trung, năng động</div>
                     </div>
                 </div>
+
             </div>
+            
+            
         </div>
         <image src="/public/images/page2/footer.png" style="width: 100% !important;">  
     </main>
