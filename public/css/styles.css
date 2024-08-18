@@ -1,0 +1,541 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+}
+
+
+/* HEADER FORM  */
+
+.background-image {
+    background: url('/public/img/banner1.png') no-repeat center center;
+    background-size: cover;
+    height: 120vh; /* Đảm bảo chiều cao của phần tử đủ để phủ toàn bộ chiều cao của trang */
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-container {
+    position: absolute;
+    left: 76%;
+    top: 46%;
+    transform: translate(-50%, -50%);
+    background-color: #FFFFFF;
+    padding: 20px;
+    border-radius: 12px;
+    width: 34vw;
+    height: auto;
+}
+
+
+.form-container h2 {
+    text-align: left;
+    margin-bottom: 20px;
+    color: #DA0530;
+    font-size: 24px;
+    font-family: 'Lobster', cursive;
+    font-weight: normal;
+}
+
+.form-container label {
+    display: block;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.form-group {
+    display: flex;
+    justify-content: space-between; 
+    gap: 10px; 
+    margin-bottom: 10px; 
+}
+
+.form-group div {
+    flex: 1; 
+}
+
+
+.form-group input[type="date"]{
+    width: 90%; 
+    padding: 8px;
+    border: 1px solid #dadada;
+    border-radius: 5px;
+}
+
+.form-group input[type="number"] {
+    width: 50%; 
+    padding: 8px;
+    border: 1px solid #dadada;
+    border-radius: 5px;
+}
+
+#birth-hour {
+    width: 36%; 
+}
+
+#birth-minute {
+    width: 36%; 
+}
+
+.form-container input,
+.form-container textarea {
+    width: 45%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #dadada;
+    border-radius: 5px;
+}
+
+.form-container button:hover {
+    background-color: #b30323; 
+}
+
+.form-container input[type="number"] {
+    width: calc(20% - 16px); 
+}
+
+.input-group input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #dadada;
+    border-radius: 5px;
+}
+
+.checkbox-group {
+    display: flex; 
+    gap: 25%; 
+    margin-bottom: 10px;
+}
+
+.checkbox-group label {
+    font-size: 14px;
+    display: flex; 
+    align-items: center; 
+    cursor: pointer;
+    white-space: nowrap; 
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.form-container button {
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    width: 100%;
+    height: 65px;
+    padding: 10px;
+    background-color: #DA0530;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.button-icon {
+    width: 25px; 
+    height: 25px; 
+}
+
+.form-container button img.button-icon {
+    margin-right: 10px; 
+}
+
+/* END FORM  */
+
+/* small content  */
+.small-content {
+    width: 60%;
+    text-align: left;
+    margin-top: 10px;
+    margin-left: 5%;
+    padding: 10px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.small-content h1 {
+    font-size: 40px;
+    color: #333333;
+    margin-bottom: 10px;
+}
+
+.small-content p {
+    width: 68%;
+    font-size: 16px;
+    color: #666666;
+    line-height: 1.5;
+}
+
+.small-content .highlight {
+    color: #DA0530; 
+    font-weight: bold;
+}
+
+/* end small content  */
+
+
+/* BODY 1  */
+.background-body-image1 {
+    margin-top: 5%;
+    background-color: #FFDB59; 
+    height: 120vh; 
+    width: 100vw;
+    position: relative;
+}
+.background-inbody {
+    background: url('/public/img/bg\ yin-yang.png') no-repeat center center;
+    background-size: cover;
+    height: 120vh; 
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative; 
+    z-index: 1;
+    gap: 1px
+}
+.bq {
+    position: relative; 
+    bottom: 5%;
+}
+.headline {
+    font-size: 45px; 
+    color: #000000; 
+    margin: 5px 0; 
+    text-align: center;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; 
+}
+
+.tlba {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.frame-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    grid-template-rows: repeat(2, auto); 
+    gap: 24px; 
+    justify-items: center; 
+    align-items: center;
+    width: 100%;
+}
+
+
+.frame {
+    width: 604px; 
+    height: 200px; 
+    background-color: #FFFFFF; 
+    border-radius: 16px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: #333333;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.frame img {
+    flex: 1;
+    display: flex;
+    margin-right: 10px; 
+}
+
+.frame:hover {
+    transform: scale(1.05); 
+}
+
+.text-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center; 
+    margin-right: 10px; 
+}
+
+.text-content strong {
+    display: block;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.text-content p {
+    font-size: 5px;
+    color: #666666;
+}
+
+/* END BODY 1  */
+
+/* BODY 2  */
+.background-body-image2 {
+    background: url('/public/img/Rectangle\ 45660.png') no-repeat center center;
+    background-size: cover;
+    height: auto; /* Chiều cao tự động điều chỉnh dựa trên nội dung */
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Căn giữa nội dung theo cả chiều ngang và chiều dọc */
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative; /* Đặt vị trí tương đối để hỗ trợ định vị hình ảnh mb */
+}
+
+.body2 {
+    position: relative;
+    width: 100%; 
+    height: auto; 
+    display: flex;
+    justify-content: flex-start; 
+    align-items: center; 
+    padding: 20px 0; 
+}
+
+.mb {
+    margin-left: 0; 
+    margin-right: 6%; 
+    height: auto;
+    width: auto;
+}
+
+.description {
+    font-size: 20px;
+    color: #ffffff;
+    line-height: 1.5;
+    margin: 0;
+    max-width: 46%; /* Giới hạn chiều rộng của văn bản để không vượt quá nửa chiều rộng màn hình */
+}
+
+.cta-button {
+    padding: 20px 60px; /* Tăng kích thước padding để nút lớn hơn */
+    background-color: #ffffff;
+    color: #000000;
+    border: none;
+    border-radius: 10px; /* Tăng kích thước border-radius để nút trông mềm mại hơn */
+    cursor: pointer;
+    font-size: 20px; /* Tăng kích thước font để văn bản trong nút lớn hơn */
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative; /* Giữ vị trí tương đối trong container */
+}
+
+.cta-button .button-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px; /* Khoảng cách giữa biểu tượng và văn bản */
+}
+
+.cta-button:hover {
+    transform: scale(1.05);
+}
+
+/* END BODY 2 */
+
+/* BODY 3  */
+.background-body-image3 {
+    background-color: #F6F6F6;
+    background-size: cover;
+    height: 120vh; 
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative; 
+    z-index: 1;
+    gap: 1px
+}     
+
+.bq {
+    position: relative; 
+    bottom: 5%;
+}
+
+.headline {
+    font-size: 45px; 
+    color: #000000; 
+    margin: 5px 0; 
+    text-align: center;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; 
+}
+
+.card-container {
+    display: flex;
+    justify-content: center; /* Căn giữa các thẻ */
+    align-items: center; /* Đảm bảo các thẻ được căn giữa theo chiều dọc */
+    gap: 20px; /* Khoảng cách giữa các thẻ */
+    margin-top: 40px;
+}
+
+.card {
+    width: 300px; /* Điều chỉnh kích thước thẻ nếu cần */
+    height: auto;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.tr-button {
+    display: flex;
+    align-items: center;
+    padding: 15px 70px;
+    background-color: #DA0530;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.tr-button .button-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px; /* Khoảng cách giữa biểu tượng và văn bản */
+}
+
+/* END BODY 3 */
+
+/* BODY 4  */
+.background-body-image4 {
+    background-color: #ffffff;
+    background-size: cover;
+    height: 100vh; 
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative; 
+    z-index: 1;
+}     
+
+.ptsf {
+    position: absolute;
+    bottom: 10px; 
+    left: 5%; 
+    margin: 0; 
+    width: auto;
+    height: auto;
+}
+
+.text-ptsf {
+    position: absolute;
+    top: 8%; 
+    left: 5%; 
+    margin: 20px; 
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.headline-red {
+    color: #FF1018; 
+    font-size: 40px; 
+    margin: 0;
+}
+
+.headline-black {
+    color: #000; 
+    font-size: 35px; 
+    margin: 0;
+    line-height: 1.3; 
+}
+
+.icon-text-container {
+    position: absolute;
+    right: 15%; 
+    top: 60%; 
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    z-index: 10; 
+}
+
+.icon-text {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.icon-text p {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+}
+
+/* END BODY 4  */
+
+/* FOOTER */
+
+.background-footer {
+    background: url('/public/img/bgBannerHomePage.72a61446\ 1.png') no-repeat center center;
+    background-size: cover;
+    height: 150vh; 
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative; 
+    z-index: 1;
+}     
+
+.rmb {
+    position: absolute;
+    text-align: center;
+    margin: 0; 
+    width: auto;
+    height: 15%;
+    top: 20px;
+}
+
+.gradient-text {
+    background: linear-gradient(to right, #FF1018, #FF8125);
+    -webkit-background-clip: text;
+    color: transparent;
+    background-clip: text;
+    display: inline-block;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    position: absolute;
+    top: 15%;
+   
+}
+
+.DC {
+    position: absolute;
+    height: auto;
+    width: 95%;
+    top: 30%;
+}
+
+.flg {
+    position: absolute;
+    width: 20%;
+    top: 55%; 
+}
+
+.CN {
+    position: absolute;
+    height: auto;
+    width: 95%;
+    bottom: 0%;
+}
+
+
+

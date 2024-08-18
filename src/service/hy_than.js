@@ -9,92 +9,98 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const calculate = async (birthdate, hour, minute, sex) => {
-    const  randomNumber=Math.floor(Math.random()*1000000);
-    const [day, month, year] = birthdate.split('/').map(Number);
-    const dirPath = path.join(__dirname, `../RAG/webDB/${randomNumber}`);
-    await fs.promises.mkdir(dirPath, { recursive: true });
-    const ragApp = await new RAGApplicationBuilder()
-        .setVectorDb(new LanceDb({path: path.resolve(`./src/RAG/webDB/${randomNumber}`)}))
-        .addLoader(new WebLoader({ urlOrContent: `https://www.xemlicham.com/am-lich/nam/${year}/thang/${month}/ngay/${day}` }))
-        .build();
-    const res = await ragApp.query(`Hãy tính lịch can chi của tháng,năm, ngày  với case là  người A với ngày sinh  ${birthdate} lúc ${hour} giờ ${minute}
-        Chỉ ghi kết quả theo format 
-        {"năm": "quý mùi",
-        "tháng": "bính mùi",
-        "ngày": "ất dậu",
-        "ngày_âm_lịch":"14/06/2003"
-        }`);
-    const parseData = JSON.parse(res.content);
-
-    let { năm: can_chi_nam, tháng: can_chi_thang, ngày: can_chi_ngay, ngày_âm_lịch: ngay_am_lich } = parseData;
-    let can_chi_gio=calculate_gio_sinh(hour,minute,can_chi_ngay.split(' ')[0]);
-    console.log(ngay_am_lich);
-    console.log(can_chi_gio);
-
-    const [day_am, month_am, year_am] = ngay_am_lich.split('/').map(Number);
-
-    const can_chi_dai_van = calculate_dai_van(can_chi_thang, year, sex);
-
-    const [tc_dv, dc_dv] = can_chi_dai_van.split(' ');
-
-    const thien_can_keys = [can_chi_nam.split(' ')[0], can_chi_thang.split(' ')[0], can_chi_ngay.split(' ')[0], can_chi_gio.split(' ')[0]];
-    const dia_chi_keys = [can_chi_nam.split(' ')[1], can_chi_thang.split(' ')[1], can_chi_ngay.split(' ')[1], can_chi_gio.split(' ')[1]];
-    const can_chi_list = [can_chi_nam, can_chi_thang, can_chi_ngay, can_chi_gio];
-
-    const thien_can = {};
-    for (let i = 0; i < thien_can_keys.length; i++) {
-        const value = (1 + get_per_thien_can(tc_dv, thien_can_keys[i], day_am, month_am, can_chi_list[i]) / 100) * 36;
-        if (thien_can[thien_can_keys[i]]) thien_can[thien_can_keys[i]] += value > 0 ? value : 0;
-        else thien_can[thien_can_keys[i]] = value > 0 ? value : 0;
-    }
+    try{
+        const  randomNumber=Math.floor(Math.random()*1000000);
+        const [day, month, year] = birthdate.split('/').map(Number);
+        const dirPath = path.join(__dirname, `../RAG/webDB/${randomNumber}`);
+        await fs.promises.mkdir(dirPath, { recursive: true });
+        const ragApp = await new RAGApplicationBuilder()
+            .setVectorDb(new LanceDb({path: path.resolve(`./src/RAG/webDB/${randomNumber}`)}))
+            .addLoader(new WebLoader({ urlOrContent: `https://www.xemlicham.com/am-lich/nam/${year}/thang/${month}/ngay/${day}` }))
+            .build();
+        const res = await ragApp.query(`Hãy tính lịch can chi của tháng,năm, ngày  với case là  người A với ngày sinh  ${birthdate} lúc ${hour} giờ ${minute}
+            Chỉ ghi kết quả theo format 
+            {"năm": "quý mùi",
+            "tháng": "bính mùi",
+            "ngày": "ất dậu",
+            "ngày_âm_lịch":"14/06/2003"
+            }`);
+        const parseData = JSON.parse(res.content);
     
-
-    const can_tang = {};
-    for (let i = 0; i < dia_chi_keys.length; i++) {
-        for (let ct of can_tang_array[dia_chi_keys[i]]) {
-            const value = (1 + get_per_can_tang(dc_dv, dia_chi_keys[i], ct, day_am, month_am, can_chi_list[i]) / 100) * dia_chi_diem_co_ban[dia_chi_keys[i]]["can_tang"][ct];
-            if (can_tang[ct]) can_tang[ct] += value > 0 ? value : 0;
-            can_tang[ct] = value > 0 ? value : 0;
+        let { năm: can_chi_nam, tháng: can_chi_thang, ngày: can_chi_ngay, ngày_âm_lịch: ngay_am_lich } = parseData;
+        let can_chi_gio=calculate_gio_sinh(hour,minute,can_chi_ngay.split(' ')[0]);
+        console.log(ngay_am_lich);
+        console.log(can_chi_gio);
+    
+        const [day_am, month_am, year_am] = ngay_am_lich.split('/').map(Number);
+    
+        const can_chi_dai_van = calculate_dai_van(can_chi_thang, year, sex);
+    
+        const [tc_dv, dc_dv] = can_chi_dai_van.split(' ');
+    
+        const thien_can_keys = [can_chi_nam.split(' ')[0], can_chi_thang.split(' ')[0], can_chi_ngay.split(' ')[0], can_chi_gio.split(' ')[0]];
+        const dia_chi_keys = [can_chi_nam.split(' ')[1], can_chi_thang.split(' ')[1], can_chi_ngay.split(' ')[1], can_chi_gio.split(' ')[1]];
+        const can_chi_list = [can_chi_nam, can_chi_thang, can_chi_ngay, can_chi_gio];
+    
+        const thien_can = {};
+        for (let i = 0; i < thien_can_keys.length; i++) {
+            const value = (1 + get_per_thien_can(tc_dv, thien_can_keys[i], day_am, month_am, can_chi_list[i]) / 100) * 36;
+            if (thien_can[thien_can_keys[i]]) thien_can[thien_can_keys[i]] += value > 0 ? value : 0;
+            else thien_can[thien_can_keys[i]] = value > 0 ? value : 0;
         }
+        
+    
+        const can_tang = {};
+        for (let i = 0; i < dia_chi_keys.length; i++) {
+            for (let ct of can_tang_array[dia_chi_keys[i]]) {
+                const value = (1 + get_per_can_tang(dc_dv, dia_chi_keys[i], ct, day_am, month_am, can_chi_list[i]) / 100) * dia_chi_diem_co_ban[dia_chi_keys[i]]["can_tang"][ct];
+                if (can_tang[ct]) can_tang[ct] += value > 0 ? value : 0;
+                can_tang[ct] = value > 0 ? value : 0;
+            }
+        }
+    
+        let [kim, thuy, hoa, tho, moc] = calculate_nguyen_to(thien_can, can_tang);
+        let elements = [kim, thuy, hoa, tho, moc];
+        let nc = calculate_Nc(thien_can_keys, dia_chi_keys, tc_dv, dc_dv, day_am, month_am);
+        let per_nc = Math.floor((nc / (moc + hoa + tho + kim + thuy)) * 100);
+        console.log(per_nc);
+        let menh_cc = get_menh(can_chi_nam);
+        console.log(menh_cc);
+        console.log("per_nc",per_nc);
+        let hy_than;
+        if (per_nc < 8) {
+            let maxElement = Math.max(...elements);
+            hy_than= menh[elements.indexOf(maxElement)];
+        } else if (per_nc >= 8 && per_nc <= 19) {
+            let index = menh_sinh.indexOf(menh_cc);
+            if (index===0) hy_than= menh_sinh[menh_sinh.length -1];
+            else hy_than= menh_sinh[index - 1];
+        } else if (per_nc === 20) {
+            let maxElement = Math.max(...elements);
+            hy_than= menh[elements.indexOf(maxElement)];
+        } else if (per_nc >= 21 && per_nc <= 50) {
+            let index = menh_khac.indexOf(menh_cc);
+            if (index===0) hy_than= menh_khac[menh_khac.length -1];
+            else hy_than= menh_khac[index - 1];
+        } else if (per_nc >= 51 && per_nc <= 80) {
+            let index = menh_sinh.indexOf(menh_cc);
+            index = index + 1 > 4 ? 0 : index + 1;
+            hy_than= menh_sinh[index];
+        } else if (per_nc > 80) {
+            let index = menh_sinh.indexOf(menh_cc);
+            if (index===0) hy_than= menh_sinh[menh_sinh.length -1];
+            else hy_than= menh_sinh[index - 1];
+        }
+        console.log(hy_than);
+        return [menh_cc,hy_than];
+    }catch(error){
+        console.log(error);
+        return null;
     }
-
-    let [kim, thuy, hoa, tho, moc] = calculate_nguyen_to(thien_can, can_tang);
-    let elements = [kim, thuy, hoa, tho, moc];
-    let nc = calculate_Nc(thien_can_keys, dia_chi_keys, tc_dv, dc_dv, day_am, month_am);
-    let per_nc = Math.floor((nc / (moc + hoa + tho + kim + thuy)) * 100);
-    console.log(per_nc);
-    let menh_cc = get_menh(can_chi_nam);
-    console.log(menh_cc);
-    console.log("per_nc",per_nc);
-    let hy_than;
-    if (per_nc < 8) {
-        let maxElement = Math.max(...elements);
-        hy_than= menh[elements.indexOf(maxElement)];
-    } else if (per_nc >= 8 && per_nc <= 19) {
-        let index = menh_sinh.indexOf(menh_cc);
-        if (index===0) hy_than= menh_sinh[menh_sinh.length -1];
-        else hy_than= menh_sinh[index - 1];
-    } else if (per_nc === 20) {
-        let maxElement = Math.max(...elements);
-        hy_than= menh[elements.indexOf(maxElement)];
-    } else if (per_nc >= 21 && per_nc <= 50) {
-        let index = menh_khac.indexOf(menh_cc);
-        if (index===0) hy_than= menh_khac[menh_khac.length -1];
-        else hy_than= menh_khac[index - 1];
-    } else if (per_nc >= 51 && per_nc <= 80) {
-        let index = menh_sinh.indexOf(menh_cc);
-        index = index + 1 > 4 ? 0 : index + 1;
-        hy_than= menh_sinh[index];
-    } else if (per_nc > 80) {
-        let index = menh_sinh.indexOf(menh_cc);
-        if (index===0) hy_than= menh_sinh[menh_sinh.length -1];
-        else hy_than= menh_sinh[index - 1];
-    }
-    console.log(hy_than);
-    return [menh_cc,hy_than];
 }
 
 const calculate_gio_sinh=(hour, minute,thien_can_ngay)=>{
+    
     let timeSlot;
 
     if (hour >= 23 || (hour === 0 && minute < 60)) {
@@ -122,7 +128,7 @@ const calculate_gio_sinh=(hour, minute,thien_can_ngay)=>{
     } else if (hour >= 21 && hour < 23) {
         timeSlot = "21:00 - 22:59";
     }
-
+    console.log(timeSlot);
     const dia_chi = gio_sinh_map.get(timeSlot);
     const tc_gio_ty=thien_can_ngay_gio[thien_can_ngay];
     const index=gio_sinh_array.indexOf(dia_chi);

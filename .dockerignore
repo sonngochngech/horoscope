@@ -2,3 +2,7 @@ node_modules
 db
 .env
 cache
+src/RAG/pdfDB/*
+!src/RAG/pdfDB/
+src/RAG/webDB/*
+!src/RAG/webDB/
