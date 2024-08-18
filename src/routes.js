@@ -12,10 +12,8 @@ export const setRagApp = (app) => {
 };
 
 
-router.get("/",async(req,res)=>{
-     return res.status(200).send({
-        "hello":"hello world"
-     })
+router.get("/", async (req, res) => {
+  return res.redirect('/landingPage');
 });
 
 router.get("/landingPage",async(req,res)=>{
