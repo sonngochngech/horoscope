@@ -27,5 +27,7 @@ export const locationQuery=
       Lý do: 
       Tên các tỉnh: [ tỉnh 1, tỉnh 2, tỉnh 3]
       Mô tả các tỉnh: [câu văn mô tả tỉnh 1,câu văn mô tả tỉnh 1,câu văn mô tả tỉnh 1]
-    }(Chỉ ghi kết quả)
+    }
+    Đặc biệt lưu ý : lý do và mỗi câu văn miêu tả tỉnh phải có ít nhất hơn 200 chữ   
+    (Chỉ ghi kết quả)
 `

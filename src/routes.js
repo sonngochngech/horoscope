@@ -26,7 +26,7 @@ router.post("/information",async(req,res)=>{
   try{
     const{name,ns,dob,birth_minute,birth_hour,phone_basic,travel}=req.body;
     const [year, month, day] = dob.split('-');
-    const formattedDate = `${month}/${day}/${year}`;
+    const formattedDate = `${day}/${month}/${year}`;
     console.log(req.body);
     const sex="male";
     let  customer={

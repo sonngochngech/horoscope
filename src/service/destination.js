@@ -20,7 +20,23 @@ export async function destination(thanhpho, hythan, ragApp) {
                     3. tỉnh 3...
     ${locationQuery}
     `;
-        const queryRes = extractAndParseJSON((await ragApp.query(query)).content);
+        let maxRetries = 3; // Maximum number of retry attempts
+        let attempt = 0;
+        let queryRes;
+        while (attempt < maxRetries) {
+            try {
+                queryRes = extractAndParseJSON((await ragApp.query(query)).content);
+                break; // Exit the loop if successful
+            } catch (error) {
+                attempt++;
+                console.error(`Attempt ${attempt} failed:`, error);
+                if (attempt >= maxRetries) {
+                    console.error('Max retries reached. Handling error.');
+                    // Handle the error after all retries have failed
+                    throw new Error(error.message ||" Undefined message");
+                }
+            }
+        }
 
 
         let provinces = queryRes[ten_tinh];

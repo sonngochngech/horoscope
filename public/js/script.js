@@ -9,7 +9,7 @@ khamphangayButton.addEventListener('click', function () {
 });
 
 
-const luckykhamphangayButton = document.getElementById('lucky-khamphangay-button');
+const luckykhamphangayButton = document.getElementById('luckykhamphangayButton');
 
 luckykhamphangayButton.addEventListener('click', function () {
     window.scrollTo({

@@ -1,271 +1,433 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/public/css/styles.css">
-    <link rel="stylesheet" href="/public/css/styles-mobile.css" media="only screen and (max-width: 600px)">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lobster&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/public/css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="/public/css/styles-mobile.css"
+      media="only screen and (max-width: 600px)"
+    />
     <title>Lucky Trip</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- HEADER FORM  -->
     <div class="background-image">
-        <div class="form-container">
-            <form method="POST" action="/information">
-                <h2>Vận may sẽ dẫn bạn tới đâu? </h2>
-                <label>Thông tin cơ bản</label>
-                <input style="height: 48px; font-size: 16px;" type="text" id="name" name="name"
-                    placeholder="  Họ và tên" required>
-                <input style="height: 48px; font-size: 16px;" type="text" id="phone_basic" name="phone_basic"
-                    placeholder="  Số Điện Thoại" required>
-                <div class="form-group">
-                    <div>
-                        <label for="dob">Ngày / tháng / năm sinh</label>
-                        <input type="date" style="height: 48px;" id="dob" name="dob" required>
-                    </div>
-                    <div>
-                        <label>Giờ sinh:</label>
-                        <select style="height: 65px; font-size: 16px;" id="birth_hour" name="birth_hour" required>
-                            <option value="" disabled selected>hh</option>
-                        </select>
-                        :
-                        <select style="height: 65px; font-size: 16px;" id="birth_minute" name="birth_minute" required>
-                            <option value="" disabled selected>mm</option>
-                        </select>
+      <div class="form-container">
+        <form method="POST" action="/information">
+          <h2 style="font-size: 24px">Vận may sẽ dẫn bạn tới đâu?</h2>
+          <div style="height: 5px"></div>
+          <label>Thông tin cơ bản</label>
+          <input
+            style="height: 48px; font-size: 16px; border: 1px solid #ccc"
+            type="text"
+            id="name"
+            name="name"
+            placeholder="  Họ và tên"
+            required
+          />
+          <input
+            style="height: 48px; font-size: 16px; border: 1px solid #ccc"
+            type="text"
+            id="phone-basic"
+            name="phone-basic"
+            placeholder="  Số Điện Thoại"
+            required
+          />
+          <div class="form-group">
+            <div>
+              <label for="dob">Ngày / tháng / năm sinh</label>
+              <div style="height: 10px"></div>
+              <input
+                type="date"
+                style="height: 48px; border: 1px solid #ccc"
+                id="dob"
+                name="dob"
+                required
+              />
+            </div>
 
-                    </div>
-                    <script>
-                        // Hàm để tạo các tùy chọn giờ và phút
-                        function populateTimeOptions() {
-                            const hourSelect = document.getElementById('birth_hour');
-                            const minuteSelect = document.getElementById('birth_minute');
-
-                            // Thêm các tùy chọn cho giờ (0 đến 24)
-                            for (let i = 0; i < 24; i++) {
-                                const option = document.createElement('option');
-                                option.value = i;
-                                option.textContent = i;
-                                hourSelect.appendChild(option);
-                            }
-
-                            // Thêm các tùy chọn cho phút (0 đến 59)
-                            for (let i = 0; i <= 59; i++) {
-                                const option = document.createElement('option');
-                                option.value = i;
-                                option.textContent = i;
-                                minuteSelect.appendChild(option);
-                            }
-                        }
-
-                        // Gọi hàm để tạo tùy chọn khi trang được tải
-                        window.onload = populateTimeOptions;
-                    </script>
-                </div>
-
-                <label for="birthplace">Nơi sinh</label>
-                <select style="height: 48px; font-size: 16px; width: 45%;" id="ns" name="ns" required id="birthplace">
-                    <option value="" disabled selected>nơi sinh</option>
+            <div style="display: flex; flex-direction: column; width: 100%">
+              <label>Giờ sinh:</label>
+              <div style="display: flex; align-items: center; gap: 10px">
+                <select
+                  style="
+                    height: 68px;
+                    border-radius: 8px;
+                    background-color: #ffffff;
+                    font-size: 16px;
+                    border: 1px solid #ccc;
+                    width: 130px;
+                  "
+                  id="birth_hour"
+                  name="birth_hour"
+                  required
+                >
+                  <option value="" disabled selected>hh</option>
                 </select>
-                <script>
-                    document.addEventListener('DOMContentLoaded', function () {
-                        // Kiểm tra xem script có được tải thành công hay không
-                        console.log('Script loaded');
+                <span style="display: flex; align-items: center">:</span>
+                <select
+                  style="
+                    height: 68px;
+                    border-radius: 8px;
+                    background-color: #ffffff;
+                    font-size: 16px;
+                    border: 1px solid #ccc;
+                    width: 130px;
+                  "
+                  id="birth_minute"
+                  name="birth_minute"
+                  required
+                >
+                  <option value="" disabled selected>mm</option>
+                </select>
+              </div>
+            </div>
 
-                        // Fetch dữ liệu từ tệp provinces.json
-                        fetch('/public/data/provinces.json')
-                            .then(response => response.json())
-                            .then(data => {
-                                const provinceSelect = document.getElementById('ns');
-                                data.forEach(province => {
-                                    const option = document.createElement('option');
-                                    option.value = province.name;
-                                    option.text = province.name;
-                                    provinceSelect.appendChild(option);
-                                });
-                            })
-                            .catch(error => console.error('Error loading provinces:', error));
-                    });
+            <script>
+              document.addEventListener("DOMContentLoaded", function () {
+                const hourSelect = document.getElementById("birth_hour");
+                const minuteSelect = document.getElementById("birth_minute");
 
-                </script>
+                if (hourSelect && minuteSelect) {
+                  for (let i = 0; i <= 23; i++) {
+                    const option = document.createElement("option");
+                    option.value = i;
+                    option.textContent = i;
+                    hourSelect.appendChild(option);
+                  }
 
+                  for (let i = 0; i <= 59; i++) {
+                    const option = document.createElement("option");
+                    option.value = i;
+                    option.textContent = i;
+                    minuteSelect.appendChild(option);
+                  }
+                } else {
+                  console.error("Select elements not found");
+                }
+              });
+            </script>
+          </div>
 
-                <label> Bạn muốn du lịch</label>
-                <div class="checkbox-group">
-                    <label>
-                        <input type="checkbox" id="abroad" name="travel" value="abroad">
-                        Ngoài nước
-                    </label>
-                    <label>
-                        <input type="checkbox" id="domestic" name="travel" value="domestic">
-                        Trong nước
-                    </label>
-                </div>
-                <script>
-                document.addEventListener('DOMContentLoaded', function() {
-                    const abroadCheckbox = document.getElementById('abroad');
-                    const domesticCheckbox = document.getElementById('domestic');
-                
-                    abroadCheckbox.addEventListener('change', function() {
-                        if (this.checked) {
-                            domesticCheckbox.checked = false;
-                        }
-                    });
-                
-                    domesticCheckbox.addEventListener('change', function() {
-                        if (this.checked) {
-                            abroadCheckbox.checked = false;
-                        }
-                    });
-                });
-                </script>
-                
+          <label for="birthplace">Nơi sinh</label>
+          <select
+            style="
+              height: 48px;
+              background-color: #ffffff;
+              font-size: 16px;
+              width: 95%;
+              border: 1px solid #ccc;
+            "
+            id="ns"
+            name="ns"
+            required
+            id="birthplace"
+          >
+            <option value="" disabled selected>Nơi sinh</option>
+          </select>
+          <script>
+            document.addEventListener("DOMContentLoaded", function () {
+              fetch("/public/data/provinces.json")
+                .then((response) => response.json())
+                .then((data) => {
+                  const provinceSelect = document.getElementById("ns");
+                  data.forEach((province) => {
+                    const option = document.createElement("option");
+                    option.value = province.name;
+                    option.text = province.name;
+                    provinceSelect.appendChild(option);
+                  });
+                })
+                .catch((error) =>
+                  console.error("Error loading provinces:", error)
+                );
+            });
+          </script>
 
-                <button type="submit">
-                    <img src="/public/img/icon/flight@2x.png" alt="Icon" class="button-icon" style="font-size: 16px;">
-                    Khám phá vận may
-                </button>
-            </form>
-        </div>
+          <label> Bạn muốn du lịch</label>
+          <div class="checkbox-group">
+            <label>
+              <input type="checkbox" id="abroad" name="travel" value="abroad" />
+              Ngoài nước
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                id="domestic"
+                name="travel"
+                value="domestic"
+              />
+              Trong nước
+            </label>
+          </div>
+          <script>
+            document.addEventListener("DOMContentLoaded", function () {
+              const abroadCheckbox = document.getElementById("abroad");
+              const domesticCheckbox = document.getElementById("domestic");
+
+              abroadCheckbox.addEventListener("change", function () {
+                if (this.checked) {
+                  domesticCheckbox.checked = false;
+                }
+              });
+
+              domesticCheckbox.addEventListener("change", function () {
+                if (this.checked) {
+                  abroadCheckbox.checked = false;
+                }
+              });
+            });
+          </script>
+
+          <button type="submit">
+            <img
+              src="/public/img/icon/flight@2x.png"
+              alt="Icon"
+              class="button-icon"
+              style="font-size: 16px"
+            />
+            <p style="font-size: 16px">Khám phá vận may</p>
+          </button>
+          <div style="height: 1px"></div>
+        </form>
+      </div>
     </div>
 
     <!-- END FORM -->
 
     <!-- small content  -->
     <div class="small-content">
-        <h1>"Mỗi bước chân trên hành trình đều đưa bạn đến gần hơn với những giấc mơ của mình"</h1>
-        <p>Hãy để chúng tôi giúp bạn <span class="highlight">chữa lành,nạp năng lượng, tìm lại sự cân bằng trong cuộc
-                sống</span> qua từng bước chân trên hành trình tuyệt vời này.</p>
+      <h1>
+        "Mỗi bước chân trên hành trình đều đưa bạn đến gần
+        <br class="desktop-br" />
+        hơn với những giấc mơ của mình"
+      </h1>
+      <p>
+        Hãy để chúng tôi giúp bạn
+        <span class="highlight"
+          >chữa lành,nạp năng lượng, tìm lại sự cân bằng trong cuộc sống</span
+        >
+        <br class="desktop-br" />
+        qua từng bước chân trên hành trình tuyệt vời này.
+      </p>
     </div>
 
     <!-- end small content  -->
 
     <!-- BODY 1  -->
     <div class="background-body-image1">
-        <div class="background-inbody">
-            <img class="bq" src="/public/img/icon/yin-yang.png" alt="bq">
-            <h1 class="headline" style="color: #DA0530;">Du lịch theo phong thủy</h1>
-            <h1 class="headline">Xu thế “chữa lành”</h1>
-            <img class="tlba" src="/public/img/Frame 1171275287.png" alt="tlba">
-            <div class="frame-container">
-                <div class="frame">
-                    <img src="/public/img/frame1.png" alt="fr1">
-                    <div class="text-content">
-                        <strong>Bơm năng lượng cực đã</strong>
-                        <p style="font-size: 14px;">Check-in ngay những điểm đến giúp bạn bật tung năng lượng, bye bye mệt mỏi ốm yếu</p>
-                    </div>
-                </div>
-                <div class="frame">
-                    <img src="/public/img/frame2.png" alt="fr1">
-                    <div class="text-content">
-                        <strong>Tươi vui & Phấn khởi</strong>
-                        <p style="font-size: 14px;">Nguồn năng lượng tươi mới, cân bằng, tích cực, tràn đầy sức sống. Không còn những muộn phiền
-                            hay căng thẳng</p>
-                    </div>
-                </div>
-                <div class="frame">
-                    <img src="/public/img/frame3.png" alt="fr1">
-                    <div class="text-content">
-                        <strong>May mắn & Thịnh vượng</strong>
-                        <p style="font-size: 14px;">Đi du lịch tới những nơi có yếu tố ngũ hành hợp với năm tháng ngày giờ sinh (Bát Tự), năng
-                            lượng cá nhân của bạn sẽ được nâng cao, từ đó thu hút nhiều may mắn & cơ hội phát triển bất
-                            ngờ trong cuộc sống. </p>
-                    </div>
-                </div>
-                <div class="frame">
-                    <img src="/public/img/frame4.png" alt="fr1">
-                    <div class="text-content">
-                        <strong>Phát triển sự nghiệp</strong>
-                        <p style="font-size: 14px;">Một khi năng lượng cá nhân được cân bằng, bạn sẽ có tinh thần minh mẫn và năng lượng sáng tạo
-                            dồi dào để phát triển sự nghiệp. Từ đó quyết định & hành động sẽ chính xác hơn, giúp bạn đạt
-                            được các mục tiêu trong công việc.</p>
-                    </div>
-                </div>
+      <div class="background-inbody">
+        <img class="bq" src="/public/img/icon/yin-yang.png" alt="bq" />
+        <h1 class="headline" style="color: #da0530">Du lịch theo phong thủy</h1>
+        <h1 class="headline">Xu thế “chữa lành”</h1>
+        <img class="tlba" src="/public/img/Frame 1171275287.png" alt="tlba" />
+        <div style="height: 48px"></div>
+        <div class="frame-container">
+          <div class="frame">
+            <img src="/public/img/frame1.png" alt="fr1" />
+            <div class="text-content">
+              <strong>Bơm năng lượng cực đã</strong>
+              <p style="font-size: 14px">
+                Check-in ngay những điểm đến giúp bạn bật tung năng lượng, bye
+                bye mệt mỏi ốm yếu
+              </p>
             </div>
+          </div>
+          <div class="frame">
+            <img src="/public/img/frame2.png" alt="fr1" />
+            <div class="text-content">
+              <strong>Tươi vui & Phấn khởi</strong>
+              <p style="font-size: 14px">
+                Nguồn năng lượng tươi mới, cân bằng, tích cực, tràn đầy sức
+                sống. Không còn những muộn phiền hay căng thẳng
+              </p>
+            </div>
+          </div>
+          <div class="frame">
+            <img src="/public/img/frame3.png" alt="fr1" />
+            <div class="text-content">
+              <strong>May mắn & Thịnh vượng</strong>
+              <p style="font-size: 14px">
+                Đi du lịch tới những nơi có yếu tố ngũ hành hợp với năm tháng
+                ngày giờ sinh (Bát Tự), năng lượng cá nhân của bạn sẽ được nâng
+                cao, từ đó thu hút nhiều may mắn & cơ hội phát triển bất ngờ
+                trong cuộc sống.
+              </p>
+            </div>
+          </div>
+          <div class="frame">
+            <img src="/public/img/frame4.png" alt="fr1" />
+            <div class="text-content">
+              <strong>Phát triển sự nghiệp</strong>
+              <p style="font-size: 14px">
+                Một khi năng lượng cá nhân được cân bằng, bạn sẽ có tinh thần
+                minh mẫn và năng lượng sáng tạo dồi dào để phát triển sự nghiệp.
+                Từ đó quyết định & hành động sẽ chính xác hơn, giúp bạn đạt được
+                các mục tiêu trong công việc.
+              </p>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
     <!-- END BODY 1 -->
 
     <!-- BODY 2  -->
     <div class="background-body-image2">
-        <div class="body2">
-            <img class="mb" src="/public/img/icon/airplane.png" alt="mb">
-            <p class="description">
-                Khi mọi yếu tố trong cuộc sống được cân bằng, bạn sẽ cảm thấy hài hòa và hạnh phúc hơn, từ đó tận hưởng
-                cuộc
-                sống một cách trọn vẹn.
-            </p>
-            <button class="cta-button" id="khamphangay-button">
-                <img src="/public/img/icon/flight.png" alt="icon" class="button-icon">
-                Khám phá ngay
-            </button>
-        </div>
+      <div class="body2">
+        <div style="width: 298px"></div>
+        <p style="font-size: 24px" class="description">
+          Khi mọi yếu tố trong cuộc sống được cân bằng, bạn sẽ cảm thấy
+          <br class="desktop-br" />
+          hài hòa và hạnh phúc hơn, từ đó tận hưởng cuộc sống một cách
+          <br class="desktop-br" />
+          trọn vẹn.
+        </p>
+        <button class="cta-button" id="khamphangay-button">
+          <img src="/public/img/icon/flight.png" alt="icon" class="button-icon" />
+          Khám phá ngay
+        </button>
+      </div>
     </div>
 
     <!-- END BODY 2 -->
 
     <!-- BODY 3 -->
     <div class="background-body-image3">
-        <img src="/public/img/icon/pave way.png" alt="paveway">
-        <h1 class="headline" style="color: #FF1018;">Để vận may dẫn bạn</h1>
-        <h1 class="headline">tới chuyến phiêu lưu</h1>
-        <div class="card-container">
-            <img src="/public/img/card1.png" alt="c1" class="card">
-            <img src="/public/img/card2.png" alt="c2" class="card">
-            <img src="/public/img/card3.png" alt="c3" class="card">
-            <img src="/public/img/card4.png" alt="c4" class="card">
-        </div>
-        <button class="tr-button" id="luckykhamphangayButton">
-            <img src="/public/img/icon/flight@2x.png" alt="icon" class="button-icon">
-            Thử ngay
-        </button>
+      <img
+        src="/public/img/icon/pave way.png"
+        alt="paveway"
+        style="width: 48px; height: 48px"
+      />
+      <div style="height: 24px"></div>
+      <h1 class="headline" style="color: #ff1018">Để vận may dẫn bạn</h1>
+      <div style="height: 8px"></div>
+      <h1 class="headline">tới chuyến phiêu lưu</h1>
+      <div class="card-container">
+        <img src="/public/img/card1.png" alt="c1" class="card" />
+        <img src="/public/img/card2.png" alt="c2" class="card" />
+        <img src="/public/img/card3.png" alt="c3" class="card" />
+        <img src="/public/img/card4.png" alt="c4" class="card" />
+      </div>
+      <button class="tr-button" id="luckykhamphangayButton">
+        <img
+          src="/public/img/icon/flight@2x.png"
+          alt="icon"
+          class="button-icon"
+          style="color: #da0530"
+        />
+        Thử ngay
+      </button>
     </div>
 
     <!-- END BODY 3  -->
 
     <!-- BODY 4 -->
     <div class="background-body-image4">
-        <div class="text-ptsf">
-            <h1 class="headline-red">Thoải mái healing cùng Vietjet Air</h1>
-            <h1 class="headline-black">Vé máy bay SIÊU HỜI<br>Du lịch ĐÃ ĐỜI</h1>
-        </div>
-        <img class="ptsf" src="/public/img/img.png" alt="ptsf">
+      <div class="top-left-text">
+        <h1 class="red-text" style="font-size: 48px">
+          Thoải mái healing cùng Vietjet Air
+        </h1>
+        <h1 class="black-text">Vé máy bay SIÊU HỜI<br />Du lịch ĐÃ ĐỜI</h1>
+      </div>
+      <div class="wapper">
+        <img src="/public/img/img.png" alt="Image" class="bottom-left-image" />
         <div class="icon-text-container">
-            <div class="icon-text">
-                <img src="/public/img/icon/Group.png" alt="icon" class="icon">
-                <p>Thủ tục nhanh chóng</p>
-            </div>
-            <div class="icon-text">
-                <img src="/public/img/icon/Group.png" alt="icon" class="icon">
-                <p>Giá cả phải chăng</p>
-            </div>
-            <div class="icon-text">
-                <img src="/public/img/icon/Group.png" alt="icon" class="icon">
-                <p>Chuyến bay đúng giờ</p>
-            </div>
-            <div class="icon-text">
-                <img src="/public/img/icon/Group.png" alt="icon" class="icon">
-                <p>Dễ lựa tuyền bay</p>
-            </div>
-            <div class="icon-text">
-                <img src="/public/img/icon/Group.png" alt="icon" class="icon">
-                <p>Phong cách trẻ trung, năng động</p>
-            </div>
+          <div class="icon-text">
+            <img src="/public/img/icon/Group.png" alt="Icon 1" class="icon" />
+            <p style="font-size: 16px">Thủ tục nhanh chóng</p>
+          </div>
+          <div class="icon-text">
+            <img src="/public/img/icon/Group.png" alt="Icon 2" class="icon" />
+            <p style="font-size: 16px">Giá cả phải chăng</p>
+          </div>
+          <div class="icon-text">
+            <img src="/public/img/icon/Group.png" alt="Icon 3" class="icon" />
+            <p style="font-size: 16px">Chuyến bay đúng giờ</p>
+          </div>
+          <div class="icon-text">
+            <img src="/public/img/icon/Group.png" alt="Icon 4" class="icon" />
+            <p style="font-size: 16px">Dễ lựa tuyền bay</p>
+          </div>
+          <div class="icon-text">
+            <img src="/public/img/icon/Group.png" alt="Icon 5" class="icon" />
+            <p style="font-size: 16px">Phong cách trẻ trung, năng động</p>
+          </div>
         </div>
+      </div>
     </div>
     <!-- END BODY 4 -->
 
     <!-- FOOTER  -->
-    <div class="background-footer">
-        <img class="rmb" src="/public/img/image 7.png" alt="rmb">
-        <h1 class="headline gradient-text">Cùng Vietjet bay vào tương lai</h1>
-        <img class="DC" src="/public/img/Frame 1171275329.png" alt="DC">
-        <img class="flg" src="/public/img/image 16.png" alt="flg">
-        <img class="CN" src="/public/img/Frame 1171275336.png" alt="CN">
+    <div class="background-footer" style="width: 100">
+      <img src="/public/img/image 7.png" alt="lgmb" class="lgmb" />
+      <h1 class="gradient-text">Cùng Vietjet bay vào tương lai</h1>
+      <div class="space-fly-h48"></div>
+      <div class="content-container">
+        <div class="content-item">
+          <h1>120+</h1>
+          <p>Đường bay nội địa và quốc tế</p>
+        </div>
+        <div class="content-item">
+          <h1>400+</h1>
+          <p>Chuyến bay mỗi ngày</p>
+        </div>
+        <div class="content-item">
+          <h1>6000+</h1>
+          <p>Nhân viên thân thiện, tận tình</p>
+        </div>
+        <div class="content-item">
+          <h1>100+</h1>
+          <p>Tàu bay mới hiện đại, bảo vệ môi trường</p>
+        </div>
+        <div class="content-item">
+          <h1>7★</h1>
+          <p>Xếp hạng hàng không an toàn cao nhất thế giới mức 7 sao</p>
+        </div>
+      </div>
+      <div class="space-fly-h80"></div>
+      <img src="/public/img/image 16.png" alt="flg" class="flg" />
+      <div class="space-fly-h80"></div>
+      <div class="image-container">
+        <div class="image-item">
+          <img src="/public/img/image1.png" alt="image1" />
+          <p class="image-text">
+            Hãng hàng không chi phí thấp dẫn đầu Châu Á Thái Bình Dương
+          </p>
+        </div>
+        <div class="image-item">
+          <img src="/public/img/image2.png" alt="image2" />
+          <p class="image-text">
+            Doanh nghiệp tốt nhất Ngành Hàng không tại Đông Nam Á
+          </p>
+        </div>
+        <div class="image-item">
+          <img src="/public/img/image3.png" alt="image3" />
+          <p class="image-text">
+            Top các công ty niêm yết tốt nhất theo xếp hạng Forbes
+          </p>
+        </div>
+        <div class="image-item">
+          <img src="/public/img/image4.png" alt="image4" />
+          <p class="image-text">Thương hiệu tốt nhất Châu Á</p>
+        </div>
+        <div class="image-item">
+          <img src="/public/img/image5.png" alt="image5" />
+          <p class="image-text">Môi trường làm việc tốt nhất Châu Á</p>
+        </div>
+        <div class="image-item">
+          <img src="/public/img/image6.png" alt="image6" />
+          <p class="image-text">Doanh nghiệp Phát triển bền vững</p>
+        </div>
+      </div>
     </div>
-    <script src="/public/js/script.js"></script>
-</body>
-
+    <script src="script.js"></script>
+  </body>
 </html>
