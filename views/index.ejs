@@ -61,8 +61,8 @@
                   border: 1px solid #ccc;
                   margin-left: 0%;
                 "
-                id="birth-hour"
-                name="birth-hour"
+                id="birth_hour"
+                name="birth_hour"
                 required
               >
                 <option value="" disabled selected>hh</option>
@@ -78,8 +78,8 @@
                   font-size: 16px;
                   border: 1px solid #ccc;
                 "
-                id="birth-minute"
-                name="birth-minute"
+                id="birth_minute"
+                name="birth_minute"
                 required
               >
                 <option value="" disabled selected>mm</option>
@@ -87,8 +87,8 @@
             </div>
             <script>
               document.addEventListener("DOMContentLoaded", function () {
-                const hourSelect = document.getElementById("birth-hour");
-                const minuteSelect = document.getElementById("birth-minute");
+                const hourSelect = document.getElementById("birth_hour");
+                const minuteSelect = document.getElementById("birth_minute");
 
                 if (hourSelect && minuteSelect) {
                   for (let i = 0; i <= 23; i++) {

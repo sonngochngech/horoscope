@@ -73,12 +73,12 @@ body {
   border-radius: 5px;
 }
 
-#birth-hour {
+#birth_hour {
   width: 45%;
   padding: 10px;
 }
 
-#birth-minute {
+#birth_minute {
   width: 45%;
   padding: 10px;
 }

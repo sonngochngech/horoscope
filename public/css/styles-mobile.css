@@ -53,8 +53,8 @@
     /* Đảm bảo mỗi trường chiếm hết chiều rộng container */
   }
 
-  #birth-hour,
-  #birth-minute {
+  #birth_hour,
+  #birth_minute {
     width: 48%;
   }
 
