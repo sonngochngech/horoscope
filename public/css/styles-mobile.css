@@ -1,4 +1,4 @@
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 800px) {
   body,
   html {
     margin: 0;
@@ -31,13 +31,14 @@
     /* Chiều rộng với khoảng cách 5% mỗi bên */
     max-width: 600px;
     /* Đặt giới hạn chiều rộng tối đa để form không quá rộng */
-    height: auto;
+    height: max-content;
     padding: 15px;
     background-color: rgba(255, 255, 255, 0.9);
     border-radius: 10px;
     box-sizing: border-box;
     /* Đảm bảo padding không làm tăng chiều rộng của form */
     border: 2px solid #f0f0f0;
+    margin-bottom: 20px;
   }
 
   .form-group {
@@ -145,11 +146,13 @@
   .small-content {
     width: 90%;
     text-align: left;
-    margin-top: 20px;
+    margin-top: 10%;
     margin-left: 5%;
     padding: 10px;
     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
       sans-serif;
+    margin-top: 20px;
+    margin-left: auto;
   }
 
   .small-content h1 {
@@ -174,6 +177,7 @@
     scroll-behavior: smooth;
     width: 100%;
     box-sizing: border-box;
+    height: 500px;
   }
 
   .frame {

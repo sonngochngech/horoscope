@@ -9,7 +9,7 @@ body {
 /* HEADER FORM  */
 
 .background-image {
-  background: url("/public/images/page1/banner1.png") no-repeat center center;
+  background: url("/public/images/page1/banner1.png") no-repeat left center;
   background-size: cover;
   height: 120vh; /* Đảm bảo chiều cao của phần tử đủ để phủ toàn bộ chiều cao của trang */
   width: 100vw;
@@ -76,11 +76,13 @@ body {
 #birth_hour {
   width: 45%;
   padding: 10px;
+  height: 65px;
 }
 
 #birth_minute {
   width: 45%;
   padding: 10px;
+  height: 65px;
 }
 
 .form-container input,
