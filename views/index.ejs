@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vn">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -19,7 +19,7 @@
     <!-- HEADER FORM  -->
     <div class="background-image">
       <div class="form-container">
-        <form>
+        <form method="POST" action="/information">
           <h2 style="font-size: 24px">Vận may sẽ dẫn bạn tới đâu?</h2>
           <div style="height: 5px"></div>
           <label>Thông tin cơ bản</label>
@@ -130,7 +130,7 @@
           </select>
           <script>
             document.addEventListener("DOMContentLoaded", function () {
-              fetch("data/provinces.json")
+              fetch("/public/data/provinces.json")
                 .then((response) => response.json())
                 .then((data) => {
                   const provinceSelect = document.getElementById("ns");
