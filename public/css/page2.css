@@ -1,384 +1,375 @@
 .top-10 {
-    top: 6% !important;
-  }
+  top: 6% !important;
+}
 .top-15 {
-top: 8% !important;
+  top: 8% !important;
 }
 .start-30 {
-left: 30% !important;
+  left: 30% !important;
 }
 .start-15 {
-left: 15% !important;
+  left: 15% !important;
 }
 .top-20 {
-    top: 68% !important;
+  top: 68% !important;
 }
 
 .start-20 {
-    left: 20% !important;
+  left: 20% !important;
 }
-.start-80{
-    left: 80% !important;
+.start-80 {
+  left: 80% !important;
 }
-.end-10{
-    right:10% !important ;
+.end-10 {
+  right: 10% !important ;
 }
-.special-img{
-    width: 628px !important;
-    height: 420px;
-    gap: 0px;
-    border-radius: 16px 16px 16px 16px;
-    opacity: 0px;
-    margin-right: 16px; 
-    
-
+.special-img {
+  width: 628px !important;
+  height: 420px;
+  gap: 0px;
+  border-radius: 16px 16px 16px 16px;
+  opacity: 0px;
+  margin-right: 16px;
 }
-.normal-img{
-    width: 411px !important;
-    height: 275px;
-    gap: 0px;
-    border-radius: 16px 16px 16px 16px;
-    opacity: 0px;
-    
+.normal-img {
+  width: 411px !important;
+  height: 275px;
+  gap: 0px;
+  border-radius: 16px 16px 16px 16px;
+  opacity: 0px;
 }
-.mr-16{
-    margin-right: 16px; 
+.mr-16 {
+  margin-right: 16px;
 }
-.w-10{
-    width: 30% !important;
+.w-10 {
+  width: 30% !important;
 }
-.arrow-container{
-    width: 128px;
-    height: 56px;
-    gap: 16px;
-    opacity: 0px;
-
+.arrow-container {
+  width: 128px;
+  height: 56px;
+  gap: 16px;
+  opacity: 0px;
 }
 
 .custom-chair {
-    /* width: 411px; */
-    height: 659px;
-    padding: 40px 24px 24px 24px;
-    gap: 24px;
-    border-radius: 16px 16px 16px 16px;
-    border-width: 8px 0px 0px 0px; /* Specify border width */
-    border-style: solid; /* You may also need to specify the border style */
-    border-color:   #FF1018 ;
-    background-color: #FFDB59;
-    margin-right: 16px;
- 
+  /* width: 411px; */
+  height: 659px;
+  padding: 40px 24px 24px 24px;
+  gap: 24px;
+  border-radius: 16px 16px 16px 16px;
+  border-width: 8px 0px 0px 0px; /* Specify border width */
+  border-style: solid; /* You may also need to specify the border style */
+  border-color: #ff1018;
+  background-color: #ffdb59;
+  margin-right: 16px;
 }
-.font-chair{
-    font-family: 'Barlow', sans-serif;
-    font-size: 64px;
-    font-weight: 700;
-    line-height: 72px;
-    letter-spacing: -0.03em;
-    text-align: center;
+.font-chair {
+  font-family: "Barlow", sans-serif;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 72px;
+  letter-spacing: -0.03em;
+  text-align: center;
 }
-.inner-chair{
-
-        background-color: #FFECA8;
-        width: 363px;
-        height: 363px;
-        gap: 0px;
-        border-radius: 15px 15px 15px 15px;
-        border-width: 0px 0px 0px 0px; /* Specifying the border width */
-        border-style: solid; /* You may need to specify the border style */
-   
-    
+.inner-chair {
+  background-color: #ffeca8;
+  width: 363px;
+  height: 363px;
+  gap: 0px;
+  border-radius: 15px 15px 15px 15px;
+  border-width: 0px 0px 0px 0px; /* Specifying the border width */
+  border-style: solid; /* You may need to specify the border style */
 }
 .chair-button {
-    width: 363px;
-    height: 56px;
-    padding: 10px 24px;
-    
-    border-radius: 8px 8px 8px 8px;
-    border-width: 0px 0px 0px 0px;
-    background-color: #DA0530;
+  width: 363px;
+  height: 56px;
+  padding: 10px 24px;
+
+  border-radius: 8px 8px 8px 8px;
+  border-width: 0px 0px 0px 0px;
+  background-color: #da0530;
 }
 
-.end-90{
-    right: 60% !important;
+.end-90 {
+  right: 60% !important;
 }
 
 .desktop-bold-64 {
-    font-family: 'Barlow', sans-serif;
-    font-size: 64px;
-    font-weight: 700;
-    line-height: 72px;
-    letter-spacing: -0.03em;
-    text-align: left;
-    /* Gradient text color */
-    background: linear-gradient(112.96deg, #FF1018 0.76%, #FF8125 102.73%);
-    -webkit-background-clip: text; /* Clip the background to the text */
-    -webkit-text-fill-color: transparent;
-  
+  font-family: "Barlow", sans-serif;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 72px;
+  letter-spacing: -0.03em;
+  text-align: left;
+  /* Gradient text color */
+  background: linear-gradient(112.96deg, #ff1018 0.76%, #ff8125 102.73%);
+  -webkit-background-clip: text; /* Clip the background to the text */
+  -webkit-text-fill-color: transparent;
 }
 .desktop-semiBold-48 {
-    font-family: 'Barlow', sans-serif;
-    font-size: 48px;
-    font-weight: 600;
-    line-height: 56px;
-    letter-spacing: -0.03em;
-    text-align: left;
+  font-family: "Barlow", sans-serif;
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 56px;
+  letter-spacing: -0.03em;
+  text-align: left;
 }
 
 .desktop-semiBold-40 {
-    font-family: 'Barlow', sans-serif;
-    font-size: 40px;
-    font-weight: 600;
-    line-height: 48px;
-    letter-spacing: -0.03em;
-    text-align: left;
+  font-family: "Barlow", sans-serif;
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 48px;
+  letter-spacing: -0.03em;
+  text-align: left;
 
-    /* Gradient background */
-    background: linear-gradient(112.96deg, #FF1018 0.76%, #FF8125 102.73%);
-    -webkit-background-clip: text; /* Clip the background to the text */
-    -webkit-text-fill-color: transparent; /* Make the text transparent to show the gradient */
+  /* Gradient background */
+  background: linear-gradient(112.96deg, #ff1018 0.76%, #ff8125 102.73%);
+  -webkit-background-clip: text; /* Clip the background to the text */
+  -webkit-text-fill-color: transparent; /* Make the text transparent to show the gradient */
 }
 
 .desktop-semiBold-16 {
-    font-family: 'Barlow', sans-serif;
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 24px;
-    text-align: center;
-    color: #FFFFFF;
+  font-family: "Barlow", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  text-align: center;
+  color: #ffffff;
 }
 
 .desktop-regular-24 {
-    font-family: 'Barlow', sans-serif;
-    font-size: 24px;
-    font-weight: 400;
-    line-height: 32px;
-    letter-spacing: -0.03em;
-    text-align: left;
+  font-family: "Barlow", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 32px;
+  letter-spacing: -0.03em;
+  text-align: left;
 }
 
 .desktop-regular-20 {
-    font-family: 'Barlow', sans-serif;
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 28px;
-    letter-spacing: -0.03em;
-    text-align: left;
+  font-family: "Barlow", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: -0.03em;
+  text-align: left;
 }
-.end-5{
-    right: 5% !important;
+.end-5 {
+  right: 5% !important;
 }
 
 .desktop-quote {
-    display: block !important;
+  display: block !important;
 }
 
 /* Styles for mobile quotes */
 .mobile-quote {
-    display: none !important;
+  display: none !important;
 }
 
 /* Media query for mobile screens */
 @media (max-width: 768px) {
-    .desktop-quote {
-        display: none !important;
-    }
-    .mobile-quote {
-        display: block !important;
-    }
+  .desktop-quote {
+    display: none !important;
+  }
+  .mobile-quote {
+    display: block !important;
+  }
 }
 
-.mobile-img{
-    width: 275px;
-    height: 184px;
-    gap: 0px;
-    border-radius: 16px 16px 16px 16px;
-    opacity: 0px;
-    margin-right: 16px; 
-    
-
+.mobile-img {
+  width: 275px;
+  height: 184px;
+  gap: 0px;
+  border-radius: 16px 16px 16px 16px;
+  opacity: 0px;
+  margin-right: 16px;
 }
 .span-text-regular {
-    color: #DA0530;
-    font-family: 'Barlow', sans-serif;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 24px;
-    text-align: left;
-  }
-
-.brand-vj{
-    color: #DA0530;
-}
-.p-row{
- padding-right: 80px !important;
+  color: #da0530;
+  font-family: "Barlow", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
 }
 
-.vietjet-main-title, .vietjet-sub-title, .footer {
-    font-family: 'Barlow', sans-serif; /* Apply Barlow font to specific classes */
+.brand-vj {
+  color: #da0530;
+}
+.p-row {
+  padding-right: 80px !important;
+}
+
+.vietjet-main-title,
+.vietjet-sub-title,
+.footer {
+  font-family: "Barlow", sans-serif; /* Apply Barlow font to specific classes */
 }
 .vietjet-main-title {
-    font-size: 48px;
-    background: linear-gradient(45deg, #FF1018, #FF8125); /* Màu gradient từ #FF1018 đến #FF8125, đường chéo 45 độ */
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin: 5px 0;
-    font-weight: 600;
-    padding-top: 24px;
-
+  font-size: 48px;
+  background: linear-gradient(
+    45deg,
+    #ff1018,
+    #ff8125
+  ); /* Màu gradient từ #FF1018 đến #FF8125, đường chéo 45 độ */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 5px 0;
+  font-weight: 600;
+  padding-top: 24px;
 }
 
 .vietjet-sub-title {
-    font-size: 48px;
-    color: #222222; /* Đổi màu sang #222222 */
-    margin: 10px 0;
-    font-weight: 600;
+  font-size: 48px;
+  color: #222222; /* Đổi màu sang #222222 */
+  margin: 10px 0;
+  font-weight: 600;
 }
 
 .vietjet-text-container {
-    width: 100%;
-    text-align: left; /* Căn lề trái */
-
+  width: 100%;
+  text-align: left; /* Căn lề trái */
 }
 
 .vietjet-features-container {
-    flex: 1;
-    padding-left: 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  flex: 1;
+  padding-left: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .vietjet-features {
-    margin: 30px 0;
-    text-align: left;
+  margin: 30px 0;
+  text-align: left;
 }
 
 .vietjet-features div {
-    display: flex;
-    align-items: center;
-    font-size: 18px;
-    margin: 10px 0;
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  margin: 10px 0;
 }
 
 .vietjet-image-container {
-    flex: 0 0 849px;
-    height: 422px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  flex: 0 0 849px;
+  height: 422px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .vietjet-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    flex-grow: 1; /* Đảm bảo phần nội dung chiếm không gian còn lại */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  flex-grow: 1; /* Đảm bảo phần nội dung chiếm không gian còn lại */
 }
 
 .section-container {
-    position: relative;
-    background-image: url('/public/images/page2/icons/fly.svg'); 
-    background-repeat: no-repeat;
-    background-size: cover; 
-    background-position: bottom; 
-    background-color: #DA0530; 
-    min-height: 224px; 
-    width: 100%; 
-    display: flex;
-    /* justify-content: center;  */
-    /* align-items: center;  */
-    padding-left: 298px; /* Căn chỉnh phần nội dung từ bên trái */
+  position: relative;
+  background-image: url("/public/images/page2/icons/fly.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+  background-color: #da0530;
+  min-height: 224px;
+  width: 100%;
+  display: flex;
+  /* justify-content: center;  */
+  /* align-items: center;  */
+  padding-left: 298px; /* Căn chỉnh phần nội dung từ bên trái */
 }
 
 .text-button-container {
-    display: flex;
-    align-items: center; /* Căn giữa nội dung theo chiều dọc */
-    justify-content: center; /* Căn giữa nội dung theo chiều ngang */
-    padding-left: 100px; /* Dịch chuyển toàn bộ container sang phải 100px */
+  display: flex;
+  align-items: center; /* Căn giữa nội dung theo chiều dọc */
+  justify-content: center; /* Căn giữa nội dung theo chiều ngang */
+  padding-left: 100px; /* Dịch chuyển toàn bộ container sang phải 100px */
 }
 .feature-icon {
-    width: 24px;
-    height: 24px;
-    margin-right: 10px;
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
 }
 
 .section-text {
-    font-size: 32px;
-    line-height: 40px;
-    font-weight: 600px;
-    color: #fff; /* Màu chữ trắng */
-    margin-right: 56px; /* Khoảng cách giữa text và nút */
-    max-width: 600px; /* Tăng độ rộng tối đa cho text */
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 600px;
+  color: #fff; /* Màu chữ trắng */
+  margin-right: 56px; /* Khoảng cách giữa text và nút */
+  max-width: 600px; /* Tăng độ rộng tối đa cho text */
 }
 
 .vietjet-container {
-    width: 1439px; /* Kích thước chiều rộng */
-    height: 808px; /* Kích thước chiều cao */
-    background-color: #FFFFFF;
-    border-radius: 16px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    margin: auto; /* Căn giữa container */
+  width: 1439px; /* Kích thước chiều rộng */
+  height: 808px; /* Kích thước chiều cao */
+  background-color: #ffffff;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  margin: auto; /* Căn giữa container */
 }
 .button-icon {
-    width: 24px; /* Điều chỉnh kích thước icon */
-    height: 24px;
-    margin-right: 10px; /* Khoảng cách giữa icon và chữ trong nút */
+  width: 24px; /* Điều chỉnh kích thước icon */
+  height: 24px;
+  margin-right: 10px; /* Khoảng cách giữa icon và chữ trong nút */
 }
 .khamphangay-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #ffffff;
-    border: none;
-    border-radius: 8px;
-    color: #222222;
-    font-size: 16px;
-    font-weight: 600;
-    width: 264px; /* Chiều rộng của nút */
-    height: 64px; /* Chiều cao của nút */
-    cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  color: #222222;
+  font-size: 16px;
+  font-weight: 600;
+  width: 264px; /* Chiều rộng của nút */
+  height: 64px; /* Chiều cao của nút */
+  cursor: pointer;
 }
 
 .footer-container {
-    width: 100%;
-    margin: 0;
-    padding: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
-.pr-10{
-    padding-left: 5% !important;
+.pr-10 {
+  padding-left: 5% !important;
 }
-.pe-10{
-    padding-right: 5% !important;
+.pe-10 {
+  padding-right: 5% !important;
 }
-.w-32{
-    width: 32% !important;
+.w-32 {
+  width: 32% !important;
 }
 
-.pt-80{
-    padding-top: 80px;
-    padding-bottom: 80px;
+.pt-80 {
+  padding-top: 80px;
+  padding-bottom: 80px;
 }
 .custom-image-item {
-    width: 845px;
-    height: 422px;
-    left: 4px;
-    gap: 0px;
-    border-radius: 16px 0px 0px 0px;
-/* Note: opacity of 0 means the item will be completely transparent */
-  }
+  width: 845px;
+  height: 422px;
+  left: 4px;
+  gap: 0px;
+  border-radius: 16px 0px 0px 0px;
+}
 
+.custom-carousel-inner {
+  width: 1500px !important;
+}
+
+@media (max-width: 1500px) {
   .custom-carousel-inner {
-    width: 1500px !important;
+    width: 100% !important;
+    max-width: none;
   }
-
-  /* Fluid width for smaller screens */
-  @media (max-width: 1500px) {
-    .custom-carousel-inner {
-      width: 100% !important;
-      max-width: none; /* Remove any max-width constraints */
-    }
-  }
+}

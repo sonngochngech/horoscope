@@ -13,7 +13,7 @@
     "@llm-tools/embedjs": "^0.0.91",
     "dotenv": "^16.4.5",
     "ejs": "^3.1.10",
-    "embedjs": "^0.0.11",
+    "embedjs": "^0.0.4",
     "express": "^4.19.2",
     "lmdb": "^3.0.12",
     "mongodb": "^6.8.0",
