@@ -1,4 +1,5 @@
 @media screen and (max-width: 800px) {
+
   body,
   html {
     margin: 0;
@@ -10,8 +11,7 @@
 
   /* FFORM */
   .background-image {
-    background: url("/public/images/page1/img-m/banner.png") no-repeat center
-      center;
+    background: url("/public/images/page1/img-m/banner.png") no-repeat left center;
     background-size: cover;
     /* Đảm bảo hình ảnh nền bao phủ toàn bộ phần tử */
     height: 160vh;
@@ -229,8 +229,7 @@
   /* BODY 2 */
 
   .background-body-image2 {
-    background: url("/public/images/page1/Rectangle\ 45660.png") no-repeat
-      center center;
+    background: url("/public/images/page1/Rectangle\ 45660.png") no-repeat center center;
     background-size: cover;
     height: auto;
     /* Chiều cao tự động điều chỉnh dựa trên nội dung */
@@ -258,7 +257,7 @@
     color: #ffffff;
     line-height: 1.5;
     max-width: 100%;
-    text-align: left;
+    text-align: center;
     margin-bottom: 3vh;
     margin-top: 3vh;
     padding: 0 5%;
@@ -377,28 +376,35 @@
   }
 
   .wapper {
-    flex-direction: column; /* Đổi từ hàng ngang sang hàng dọc */
-    align-items: flex-start; /* Căn chỉnh phần tử bắt đầu từ trái */
-    gap: 10px; /* Điều chỉnh khoảng cách giữa các phần tử nếu cần */
+    flex-direction: column;
+    /* Đổi từ hàng ngang sang hàng dọc */
+    align-items: flex-start;
+    /* Căn chỉnh phần tử bắt đầu từ trái */
+    gap: 10px;
+    /* Điều chỉnh khoảng cách giữa các phần tử nếu cần */
   }
 
   .bottom-left-image {
-    width: 90vw; /* Điều chỉnh lại kích thước ảnh cho phù hợp màn hình nhỏ */
+    width: 90vw;
+    /* Điều chỉnh lại kích thước ảnh cho phù hợp màn hình nhỏ */
     height: auto;
-    margin: 0 auto; /* Căn giữa ảnh */
+    margin: 0 auto;
+    /* Căn giữa ảnh */
     left: 0;
     margin-top: 2vh;
     margin-bottom: 2vh;
   }
 
   .icon-text-container {
-    width: 90vw; /* Điều chỉnh chiều rộng của phần chứa văn bản và biểu tượng */
+    width: 90vw;
+    /* Điều chỉnh chiều rộng của phần chứa văn bản và biểu tượng */
     margin-left: 0;
   }
 
   .top-left-text {
     margin-left: 0;
-    font-size: 3vw; /* Tăng kích thước font chữ để dễ đọc trên màn hình nhỏ */
+    font-size: 3vw;
+    /* Tăng kích thước font chữ để dễ đọc trên màn hình nhỏ */
     text-align: left;
     margin-top: 20px;
   }
@@ -419,7 +425,8 @@
   }
 
   .icon-text .icon {
-    width: 4vw; /* Thay đổi kích thước icon theo viewport */
+    width: 4vw;
+    /* Thay đổi kích thước icon theo viewport */
     height: 4vw;
     margin-right: 2vw;
   }
@@ -463,14 +470,17 @@
     width: 80%;
     height: auto;
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Chia container thành 3 cột */
+    grid-template-columns: repeat(2, 1fr);
+    /* Chia container thành 3 cột */
     align-items: flex-start;
   }
 
   .content-item {
-    color: #333333; /* Màu chữ */
+    color: #333333;
+    /* Màu chữ */
     text-align: center;
-    flex: 1; /* Đảm bảo các mục nội dung có cùng kích thước */
+    flex: 1;
+    /* Đảm bảo các mục nội dung có cùng kích thước */
   }
 
   .content-item h1 {
@@ -481,8 +491,10 @@
   .content-item p {
     font-size: 0.5rem;
   }
+
   .content-item.special {
-    grid-column: span 2; /* Chiếm 2 cột */
+    grid-column: span 2;
+    /* Chiếm 2 cột */
   }
 
   .flg {
@@ -492,22 +504,29 @@
   }
 
   .image-container {
-    margin-top: 10vh; /* Khoảng cách giữa gradient-text và content-container */
-    background-color: #ffffff; /* Màu nền trắng */
+    margin-top: 10vh;
+    /* Khoảng cách giữa gradient-text và content-container */
+    background-color: #ffffff;
+    /* Màu nền trắng */
     padding: 20px;
-    border-radius: 10px; /* Bo tròn các góc */
-    width: 80%; /* Điều chỉnh chiều rộng của container */
+    border-radius: 10px;
+    /* Bo tròn các góc */
+    width: 80%;
+    /* Điều chỉnh chiều rộng của container */
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Chia container thành 3 cột */
+    grid-template-columns: repeat(2, 1fr);
+    /* Chia container thành 3 cột */
     align-items: flex-start;
   }
 
   .image-item {
     display: flex;
-    flex-direction: column; /* Đặt hình ảnh và nội dung chữ theo chiều dọc */
+    flex-direction: column;
+    /* Đặt hình ảnh và nội dung chữ theo chiều dọc */
     align-items: center;
     text-align: center;
-    max-width: 100%; /* Kích thước mỗi hình ảnh, có thể điều chỉnh theo nhu cầu */
+    max-width: 100%;
+    /* Kích thước mỗi hình ảnh, có thể điều chỉnh theo nhu cầu */
     height: auto;
     flex: 1;
     margin: 0 10px;
@@ -519,8 +538,13 @@
   }
 
   .image-text {
-    margin-top: 10px; /* Khoảng cách giữa hình ảnh và nội dung chữ */
+    margin-top: 10px;
+    /* Khoảng cách giữa hình ảnh và nội dung chữ */
     font-size: 1rem;
     color: #333333;
+  }
+
+  .space-mobile-20h{
+    height: 20px;
   }
 }

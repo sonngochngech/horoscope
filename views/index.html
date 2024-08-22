@@ -54,7 +54,6 @@
               <label>Giờ sinh:</label>
               <select
                 style="
-                  height: 65px;
                   border-radius: 8px;
                   background-color: #ffffff;
                   font-size: 16px;
@@ -72,7 +71,6 @@
 
               <select
                 style="
-                  height: 65px;
                   border-radius: 8px;
                   background-color: #ffffff;
                   font-size: 16px;
@@ -85,6 +83,7 @@
                 <option value="" disabled selected>mm</option>
               </select>
             </div>
+            
             <script>
               document.addEventListener("DOMContentLoaded", function () {
                 const hourSelect = document.getElementById("birth_hour");
@@ -111,23 +110,47 @@
             </script>
           </div>
 
-          <label for="birthplace">Nơi sinh</label>
-          <select
-            style="
-              height: 65px;
-              background-color: #ffffff;
-              font-size: 16px;
-              width: 96%;
-              border: 1px solid #ccc;
-              padding: 10px;
-            "
-            id="ns"
-            name="ns"
-            required
-            id="birthplace"
-          >
-            <option value="" disabled selected>Nơi sinh</option>
-          </select>
+          <div class="form-group">
+            <div style="flex: 1;">
+              <label for="birthplace">Nơi sinh</label>
+              <select
+                style="
+                  background-color: #ffffff;
+                  font-size: 16px;
+                  width: 100%;
+                  border: 1px solid #ccc;
+                  padding: 10px;
+                "
+                id="ns"
+                name="ns"
+                required
+              >
+                <option value="" disabled selected>Nơi sinh</option>
+              </select>
+            </div>
+          
+            <div style="flex: 0.5; margin-left: 10px;">
+              <label for="gender">Giới tính</label>
+              <select
+                style="
+                  background-color: #ffffff;
+                  font-size: 16px;
+                  width: 80%;
+                  border: 1px solid #ccc;
+                  padding: 10px;
+                "
+                id="gender"
+                name="gender"
+                required
+              >
+                <option value="" disabled selected>Giới tính</option>
+                <option value="male">Nam</option>
+                <option value="female">Nữ</option>
+                <option value="other">Khác</option>
+              </select>
+            </div>
+          </div>
+          
           <script>
             document.addEventListener("DOMContentLoaded", function () {
               fetch("/public/data/provinces.json")
@@ -215,6 +238,7 @@
     <!-- BODY 1  -->
     <div class="background-body-image1">
       <div class="background-inbody">
+        <div class="space-mobile-20h"></div>
         <img class="bq" src="/public/images/page1/icon/yin-yang.png" alt="bq" />
         <h1 class="headline" style="color: #da0530">Du lịch theo phong thủy</h1>
         <h1 class="headline">Xu thế “chữa lành”</h1>
