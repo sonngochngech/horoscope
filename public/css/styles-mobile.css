@@ -1,4 +1,5 @@
 @media screen and (max-width: 480px) {
+
   body,
   html {
     margin: 0;
@@ -10,8 +11,7 @@
 
   /* FFORM */
   .background-image {
-    background: url("/public/images/page1/img-m/banner.png") no-repeat center
-      center;
+    background: url("/public/images/page1/img-m/banner.png") no-repeat left center;
     background-size: cover;
     /* Đảm bảo hình ảnh nền bao phủ toàn bộ phần tử */
     height: 160vh;
@@ -26,18 +26,15 @@
     bottom: auto;
     left: 50%;
     transform: translateX(-50%);
-    /* Căn giữa theo chiều ngang */
     width: 90%;
-    /* Chiều rộng với khoảng cách 5% mỗi bên */
     max-width: 600px;
-    /* Đặt giới hạn chiều rộng tối đa để form không quá rộng */
-    height: auto;
+    height: max-content;
     padding: 15px;
     background-color: rgba(255, 255, 255, 0.9);
     border-radius: 10px;
     box-sizing: border-box;
-    /* Đảm bảo padding không làm tăng chiều rộng của form */
     border: 2px solid #f0f0f0;
+    margin-bottom: 20px;
   }
 
   .form-group {
@@ -56,6 +53,7 @@
   #birth_hour,
   #birth_minute {
     width: 48%;
+    height: 60px;
   }
 
   .form-group input[type="date"] {
@@ -69,15 +67,16 @@
   #name {
     width: 100%;
     box-sizing: border-box;
-    height: 50px;
+    height: 60px;
     padding: 10px;
     font-size: 16px;
+    margin-bottom: 10px;
   }
 
   #phone-basic {
     width: 100%;
     box-sizing: border-box;
-    height: 50px;
+    height: 60px;
     padding: 10px;
     font-size: 16px;
   }
@@ -86,7 +85,7 @@
     width: 100%;
     box-sizing: border-box;
     /* Đảm bảo padding không làm tăng chiều rộng */
-    height: 50px;
+    height: 60px;
     /* Tăng chiều cao của hộp */
     padding: 10px;
     /* Đảm bảo khoảng cách bên trong */
@@ -94,31 +93,15 @@
     /* Điều chỉnh kích thước chữ nếu cần */
   }
 
-  #birth-hour {
-    width: 48%;
-    box-sizing: border-box;
-    height: 48px;
-    padding: 10px;
-    font-size: 16px;
-  }
-
-  #birth-minute {
-    width: 48%;
-    box-sizing: border-box;
-    /* Đảm bảo padding không làm tăng chiều rộng */
-    height: 48px;
-    /* Tăng chiều cao của hộp */
-    padding: 10px;
-    /* Đảm bảo khoảng cách bên trong */
-    font-size: 16px;
-    /* Điều chỉnh kích thước chữ nếu cần */
+  #gender{
+    width: 100%;
   }
 
   #ns {
     width: 100%;
     box-sizing: border-box;
     /* Đảm bảo padding không làm tăng chiều rộng */
-    height: 50px;
+    height: 65px;
     /* Tăng chiều cao của hộp */
     padding: 10px;
     /* Đảm bảo khoảng cách bên trong */
@@ -140,16 +123,21 @@
     cursor: pointer;
   }
 
+  .gender-human{
+    margin-left: 0px;
+  }
+
   /* Small content  */
 
   .small-content {
     width: 90%;
     text-align: left;
-    margin-top: 20px;
+    margin-top: 35%;
     margin-left: 5%;
     padding: 10px;
     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
       sans-serif;
+    margin-left: auto;
   }
 
   .small-content h1 {
@@ -174,6 +162,7 @@
     scroll-behavior: smooth;
     width: 100%;
     box-sizing: border-box;
+    height: 500px;
   }
 
   .frame {
@@ -225,8 +214,7 @@
   /* BODY 2 */
 
   .background-body-image2 {
-    background: url("/public/images/page1/Rectangle\ 45660.png") no-repeat
-      center center;
+    background: url("/public/images/page1/Rectangle\ 45660.png") no-repeat center center;
     background-size: cover;
     height: auto;
     /* Chiều cao tự động điều chỉnh dựa trên nội dung */
@@ -254,7 +242,7 @@
     color: #ffffff;
     line-height: 1.5;
     max-width: 100%;
-    text-align: left;
+    text-align: center;
     margin-bottom: 3vh;
     margin-top: 3vh;
     padding: 0 5%;
@@ -373,28 +361,35 @@
   }
 
   .wapper {
-    flex-direction: column; /* Đổi từ hàng ngang sang hàng dọc */
-    align-items: flex-start; /* Căn chỉnh phần tử bắt đầu từ trái */
-    gap: 10px; /* Điều chỉnh khoảng cách giữa các phần tử nếu cần */
+    flex-direction: column;
+    /* Đổi từ hàng ngang sang hàng dọc */
+    align-items: flex-start;
+    /* Căn chỉnh phần tử bắt đầu từ trái */
+    gap: 10px;
+    /* Điều chỉnh khoảng cách giữa các phần tử nếu cần */
   }
 
   .bottom-left-image {
-    width: 90vw; /* Điều chỉnh lại kích thước ảnh cho phù hợp màn hình nhỏ */
+    width: 90vw;
+    /* Điều chỉnh lại kích thước ảnh cho phù hợp màn hình nhỏ */
     height: auto;
-    margin: 0 auto; /* Căn giữa ảnh */
+    margin: 0 auto;
+    /* Căn giữa ảnh */
     left: 0;
     margin-top: 2vh;
     margin-bottom: 2vh;
   }
 
   .icon-text-container {
-    width: 90vw; /* Điều chỉnh chiều rộng của phần chứa văn bản và biểu tượng */
+    width: 90vw;
+    /* Điều chỉnh chiều rộng của phần chứa văn bản và biểu tượng */
     margin-left: 0;
   }
 
   .top-left-text {
     margin-left: 0;
-    font-size: 3vw; /* Tăng kích thước font chữ để dễ đọc trên màn hình nhỏ */
+    font-size: 3vw;
+    /* Tăng kích thước font chữ để dễ đọc trên màn hình nhỏ */
     text-align: left;
     margin-top: 20px;
   }
@@ -415,7 +410,8 @@
   }
 
   .icon-text .icon {
-    width: 4vw; /* Thay đổi kích thước icon theo viewport */
+    width: 4vw;
+    /* Thay đổi kích thước icon theo viewport */
     height: 4vw;
     margin-right: 2vw;
   }
@@ -438,6 +434,7 @@
   .lgmb {
     max-width: 22vh;
     height: auto;
+    margin-bottom: -20px;
   }
 
   .gradient-text {
@@ -459,14 +456,17 @@
     width: 80%;
     height: auto;
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Chia container thành 3 cột */
+    grid-template-columns: repeat(2, 1fr);
+    /* Chia container thành 3 cột */
     align-items: flex-start;
   }
 
   .content-item {
-    color: #333333; /* Màu chữ */
+    color: #333333;
+    /* Màu chữ */
     text-align: center;
-    flex: 1; /* Đảm bảo các mục nội dung có cùng kích thước */
+    flex: 1;
+    /* Đảm bảo các mục nội dung có cùng kích thước */
   }
 
   .content-item h1 {
@@ -477,8 +477,10 @@
   .content-item p {
     font-size: 0.5rem;
   }
+
   .content-item.special {
-    grid-column: span 2; /* Chiếm 2 cột */
+    grid-column: span 2;
+    /* Chiếm 2 cột */
   }
 
   .flg {
@@ -488,22 +490,29 @@
   }
 
   .image-container {
-    margin-top: 10vh; /* Khoảng cách giữa gradient-text và content-container */
-    background-color: #ffffff; /* Màu nền trắng */
+    margin-top: 10vh;
+    /* Khoảng cách giữa gradient-text và content-container */
+    background-color: #ffffff;
+    /* Màu nền trắng */
     padding: 20px;
-    border-radius: 10px; /* Bo tròn các góc */
-    width: 80%; /* Điều chỉnh chiều rộng của container */
+    border-radius: 10px;
+    /* Bo tròn các góc */
+    width: 80%;
+    /* Điều chỉnh chiều rộng của container */
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Chia container thành 3 cột */
+    grid-template-columns: repeat(2, 1fr);
+    /* Chia container thành 3 cột */
     align-items: flex-start;
   }
 
   .image-item {
     display: flex;
-    flex-direction: column; /* Đặt hình ảnh và nội dung chữ theo chiều dọc */
+    flex-direction: column;
+    /* Đặt hình ảnh và nội dung chữ theo chiều dọc */
     align-items: center;
     text-align: center;
-    max-width: 100%; /* Kích thước mỗi hình ảnh, có thể điều chỉnh theo nhu cầu */
+    max-width: 100%;
+    /* Kích thước mỗi hình ảnh, có thể điều chỉnh theo nhu cầu */
     height: auto;
     flex: 1;
     margin: 0 10px;
@@ -515,8 +524,266 @@
   }
 
   .image-text {
-    margin-top: 10px; /* Khoảng cách giữa hình ảnh và nội dung chữ */
+    margin-top: 10px;
+    /* Khoảng cách giữa hình ảnh và nội dung chữ */
     font-size: 1rem;
     color: #333333;
   }
+
+  .space-mobile-20h{
+    height: 20px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .form-container {
+    position: absolute;
+    bottom: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 600px;
+    height: max-content;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-sizing: border-box;
+    border: 2px solid #f0f0f0;
+    margin-bottom: 20px;
+  }
+
+  .small-content {
+    width: 90%;
+    text-align: left;
+    margin-top: 50%;
+    margin-left: 5%;
+    padding: 10px;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+      sans-serif;
+    margin-left: auto;
+  }
+
+  #birth_hour,
+  #birth_minute {
+    width: 47.9%;
+    height: 60px;
+  }
+/* BODY 1  */
+
+.background-body-image1 {
+  margin-top: 5%;
+  background-color: #ffdb59;
+  height: 110vh;
+  width: 100vw;
+  position: relative;
+}
+.background-inbody {
+  background: url("/public/images/page1/bg\ yin-yang.png") no-repeat center
+    center;
+  background-size: cover;
+  height: 110vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+  gap: 1px;
+}
+
+
+
+  /* FOOTER  */
+  .background-footer {
+    background: url("/public/images/page1/haiz.png") no-repeat center top;
+    background-size: cover;
+    height: 250vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+    padding-top: 20px;
+  }
+
+
+}
+
+@media screen and (max-width: 380px) {
+  .small-content {
+    width: 90%;
+    text-align: left;
+    margin-top: 90%;
+    margin-left: 5%;
+    padding: 10px;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+      sans-serif;
+    margin-left: auto;
+  }
+
+  #birth_hour,
+  #birth_minute {
+    width: 47.8%;
+    height: 60px;
+  }
+
+  /* BODY 1  */
+
+.background-body-image1 {
+  margin-top: 5%;
+  background-color: #ffdb59;
+  height: 140vh;
+  width: 100vw;
+  position: relative;
+}
+.background-inbody {
+  background: url("/public/images/page1/bg\ yin-yang.png") no-repeat center
+    center;
+  background-size: cover;
+  height: 140vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+  gap: 1px;
+}
+
+/* BODY 2  */
+.description {
+  font-size: 22px;
+  color: #ffffff;
+  line-height: 1.5;
+  max-width: 100%;
+  text-align: center;
+  margin-bottom: 3vh;
+  margin-top: 3vh;
+  padding: 0 5%;
+  margin-left: -20%;
+}
+
+.cta-button {
+  margin: 5% auto 60% auto;
+  background-color: #ffffff;
+  color: #000000;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-left: -30%;
+}
+
+/* FOOTER  */
+.background-footer {
+  background: url("/public/images/page1/haiz.png") no-repeat center top;
+  background-size: cover;
+  height: 300vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+  padding-top: 20px;
+  margin-top: 25%;
+}
+}
+
+@media screen and (max-width: 360px) {
+  .small-content {
+    width: 90%;
+    text-align: left;
+    margin-top: 85%;
+    margin-left: 5%;
+    padding: 10px;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+      sans-serif;
+    margin-left: auto;
+  }
+
+  #birth_hour,
+  #birth_minute {
+    width: 47.7%;
+    height: 60px;
+  }
+
+  /* BODY 1  */
+
+.background-body-image1 {
+  margin-top: 5%;
+  background-color: #ffdb59;
+  height: 140vh;
+  width: 100vw;
+  position: relative;
+}
+.background-inbody {
+  background: url("/public/images/page1/bg\ yin-yang.png") no-repeat center
+    center;
+  background-size: cover;
+  height: 140vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+  gap: 1px;
+}
+
+/* BODY 2  */
+.description {
+  font-size: 22px;
+  color: #ffffff;
+  line-height: 1.5;
+  max-width: 100%;
+  text-align: center;
+  margin-bottom: 3vh;
+  margin-top: 3vh;
+  padding: 0 5%;
+  margin-left: -30%;
+}
+
+.cta-button {
+  margin: 5% auto 60% auto;
+  background-color: #ffffff;
+  color: #000000;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-left: -40%;
+}
+
+/* FOOTER  */
+.background-footer {
+  background: url("/public/images/page1/haiz.png") no-repeat center top;
+  background-size: cover;
+  height: 300vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+  padding-top: 20px;
+  margin-top: 25%;
+}
 }

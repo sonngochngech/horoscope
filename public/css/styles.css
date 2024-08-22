@@ -9,7 +9,7 @@ body {
 /* HEADER FORM  */
 
 .background-image {
-  background: url("/public/images/page1/banner1.png") no-repeat center center;
+  background: url("/public/images/page1/banner1.png") no-repeat left center;
   background-size: cover;
   height: 120vh; /* Đảm bảo chiều cao của phần tử đủ để phủ toàn bộ chiều cao của trang */
   width: 100vw;
@@ -51,7 +51,6 @@ body {
 .form-group {
   display: flex;
   justify-content: space-between;
-  gap: 10px;
   margin-bottom: 10px;
 }
 
@@ -59,38 +58,64 @@ body {
   flex: 1;
 }
 
-.form-group input[type="date"] {
-  width: 90%;
-  padding: 8px;
+#name {
+  width: 47%;
+  height: 65px;
   border: 1px solid #dadada;
   border-radius: 5px;
 }
 
-.form-group input[type="number"] {
-  width: 50%;
-  padding: 8px;
+#phone-basic{
+  width: 46.5%;
+  height: 65px;
+  border: 1px solid #dadada;
+  border-radius: 5px;
+}
+
+#dob {
+  width: 87%;
+  padding: 10px;
+  height: 45px;
   border: 1px solid #dadada;
   border-radius: 5px;
 }
 
 #birth_hour {
-  width: 45%;
+  width: 44%;
   padding: 10px;
-}
-
-#birth_minute {
-  width: 45%;
-  padding: 10px;
-}
-
-.form-container input,
-.form-container textarea {
-  width: 45%;
-  padding: 8px;
-  margin-bottom: 10px;
+  height: 57%;
   border: 1px solid #dadada;
   border-radius: 5px;
 }
+
+#birth_minute {
+  width: 44%;
+  padding: 10px;
+  height: 57%;
+  border: 1px solid #dadada;
+  border-radius: 5px;
+}
+
+#ns {
+  background-color: #ffffff;
+  font-size: 16px;
+  width: 95%;
+  height: 65px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+#gender {
+  background-color: #ffffff;
+  font-size: 16px;
+  width: 100%;
+  height: 65px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+}
+
 
 .form-container button:hover {
   background-color: #b30323;
@@ -146,6 +171,10 @@ body {
 
 .form-container button img.button-icon {
   margin-right: 10px;
+}
+
+#gender{
+  width: 90%;
 }
 
 /* END FORM  */
@@ -506,7 +535,7 @@ body {
   background: url("/public/images/page1/bgBannerHomePage.72a61446\ 1.png")
     no-repeat center center;
   background-size: cover;
-  height: 150vh;
+  height: 180vh;
   width: 100vw;
   display: flex;
   align-items: center;
@@ -520,6 +549,7 @@ body {
 .lgmb {
   max-width: 22vh;
   height: auto;
+  margin-bottom: 60px ;
 }
 
 .gradient-text {
