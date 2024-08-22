@@ -9,7 +9,7 @@ import { fileURLToPath } from 'url';
 import dotenv from 'dotenv';
 dotenv.config();
 const app=express();
-const port=3000;
+const port=3001;
 
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));

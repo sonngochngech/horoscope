@@ -1,0 +1,53 @@
+@media screen and (max-width: 768px) {
+    /* chair */
+    .custom-chair {
+        width: 275px;
+        height: 459px;
+    }
+    .inner-chair {
+        width: 243px;
+      height: 243px;
+    }
+    .chair-img {
+       height: 198px;
+       width: 198px;
+    }
+    .chair-button{
+        width: 243px;
+        height: 48px;
+    }
+    /* visit day  */
+    .visit-day-box{
+        width: 165px;
+        height: 156px;
+        
+      }
+      .visit-day-button{
+        width: 149px;
+        height: 36px;
+        padding: 8px 8px 8px 8px;
+        gap: 8px;
+        border-radius: 16px 16px 16px 16px;
+       
+      }
+      .visit-day-img{
+         width: 64px;
+         height: 64px;
+      }
+      /*discount */
+      .discount-box{
+        height: 412px;
+      }
+      .discount-button {
+        width: 327px;
+      }
+      .discount-height{
+        height: 132px;
+      }
+      /* img */
+      .custom-image-item{
+        height: 172px;
+        width: 343px;
+
+      }
+}
