@@ -787,3 +787,37 @@
   margin-top: 25%;
 }
 }
+
+@media screen and (max-width: 420px) {
+  .background-footer {
+    background: url("/public/images/page1/haiz.png") no-repeat center top;
+    background-size: cover;
+    height: 250vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+    padding-top: 20px;
+    margin-top: 35%;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .background-footer {
+    background: url("/public/images/page1/haiz.png") no-repeat center top;
+    background-size: cover;
+    height: 350vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+    padding-top: 20px;
+    margin-top: 60%;
+  }
+}
