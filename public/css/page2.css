@@ -280,6 +280,12 @@ html {
   width: 224px;
   height:  104px;
 }
+.feature-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right:  0.8rem;
+  
+}
 
 
 
@@ -381,7 +387,7 @@ html {
 .pr-5 {
   padding-left: 5% !important;
 }
-.pe-10 {
+.pl-5 {
   padding-right: 5% !important;
 }
 .w-32 {
@@ -395,7 +401,7 @@ html {
 .custom-image-item {
   width: 845px;
   height: 422px;
-  border-radius: 16px 0px 0px 0px;
+  border-radius: 16px 16px 16px 16px;
 }
 
 .custom-carousel-inner {

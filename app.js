@@ -7,6 +7,7 @@ import router from "./src/routes.js";
 import { setRagApp } from "./src/routes.js";
 import { fileURLToPath } from 'url';
 import dotenv from 'dotenv';
+import { LmdbCache } from "@llm-tools/embedjs/cache/lmdb";
 dotenv.config();
 const app=express();
 const port=3001;
@@ -26,6 +27,7 @@ const ragApp=await new  RAGApplicationBuilder()
                 .setModel(SIMPLE_MODELS["OPENAI_GPT4_O"])
                 .addLoader(new PdfLoader({filePathOrUrl: path.resolve('./src/RAG/data/1.pdf')}))
                 .setVectorDb(new LanceDb({path: path.resolve('./src/RAG/pdfDB')}))
+                .setCache(new LmdbCache({ path: path.resolve('./src/RAG/cache') }))
                 .build();
 
 
