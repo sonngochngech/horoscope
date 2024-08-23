@@ -589,6 +589,10 @@ body {
   font-size: 3rem;
 }
 
+.content-item p {
+  font-size: 18px;
+}
+
 .flg {
   margin-top: 10vh;
   max-width: 60vw;
@@ -625,6 +629,6 @@ body {
 
 .image-text {
   margin-top: 10px; /* Khoảng cách giữa hình ảnh và nội dung chữ */
-  font-size: 1rem;
+  font-size: 18px;
   color: #333333;
 }
