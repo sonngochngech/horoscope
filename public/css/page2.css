@@ -93,6 +93,19 @@ html {
   letter-spacing: -0.03em;
   text-align: left;
 }
+.desktop-semiBold-48-red{
+  font-family: "Barlow", sans-serif;
+  font-size: 3rem;
+  font-weight: 600;
+  line-height: 3.5rem;
+  letter-spacing: -0.03em;
+  text-align: left;
+
+  background: linear-gradient(112.96deg, #ff1018 0.76%, #ff8125 102.73%);
+  -webkit-background-clip: text; /* Clip the background to the text */
+  -webkit-text-fill-color: transparent;
+
+}
 
 
 .top-10 {
@@ -146,6 +159,15 @@ html {
   height: 56px;
   gap: 16px;
   opacity: 0px;
+}
+/* top banner */
+.sun-img{
+  background-image: url("/public/images/page2/icons/sun.svg"); /* Replace with your image URL */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  
+
 }
 
 /* chair  */
@@ -247,8 +269,17 @@ html {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  
 }
 
+.banner-img{
+   width: 350px;
+   height: 151px;
+}
+.banner-flight-img{
+  width: 224px;
+  height:  104px;
+}
 
 
 

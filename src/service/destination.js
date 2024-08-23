@@ -25,7 +25,10 @@ export async function destination(thanhpho, hythan, ragApp) {
         let queryRes;
         while (attempt < maxRetries) {
             try {
-                queryRes = extractAndParseJSON((await ragApp.query(query)).content);
+                let response=(await ragApp.query(query)).content;
+                console.log(response);
+
+                queryRes = extractAndParseJSON(response);
                 break; // Exit the loop if successful
             } catch (error) {
                 attempt++;
@@ -37,8 +40,7 @@ export async function destination(thanhpho, hythan, ragApp) {
                 }
             }
         }
-
-
+        console.log(queryRes);
         let provinces = queryRes[ten_tinh];
         let provincesDescriptions = queryRes[mo_ta_tinh];
         const cities = getCities(provinces, provincesDescriptions);

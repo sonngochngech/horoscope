@@ -19,13 +19,13 @@ export const locationQuery=
                     Đà Nẵng là một trong năm thành phố trực thuộc trung ương của Việt Nam, nằm tại vùng Duyên hải Nam Trung Bộ. Đây là thành phố trung tâm và lớn nhất của toàn bộ khu vực Miền Trung, đóng vai trò là hạt nhân quan trọng của Vùng kinh tế trọng điểm Miền Trung,
                     Nha Trang là một thành phố ven biển và là trung tâm hành chính của tỉnh Khánh Hòa, Việt Nam. Trước đây, vùng đất Nha Trang vốn thuộc về Chiêm Thành, do đó các di tích của người Chăm vẫn còn tồn tại nhiều nơi ở Nha Trang,
     )
-      Hãy trả lời thật chi tiết như ví dụ trên theo format json : {
-      Điểm mạnh:
-      Cải thiện: 
-      Hướng:
-      Đặc trưng của địa điểm: liên quan ...
-      Lý do: 
-      Tên các tỉnh: [ tỉnh 1, tỉnh 2, tỉnh 3]
+      Hãy trả lời thật chi tiết như ví dụ trên dưới dạng json : {
+      Điểm mạnh:...,
+      Cải thiện:...,
+      Hướng:...,
+      Đặc trưng của địa điểm: liên quan ...,
+      Lý do: ...,
+      Tên các tỉnh: [ tỉnh 1, tỉnh 2, tỉnh 3],
       Mô tả các tỉnh: [câu văn mô tả tỉnh 1,câu văn mô tả tỉnh 1,câu văn mô tả tỉnh 1]
     }
     Đặc biệt lưu ý : lý do và mỗi câu văn miêu tả tỉnh phải có ít nhất hơn 200 chữ   
