@@ -38,7 +38,7 @@ router.post("/information",async(req,res)=>{
     const [menh,dungHythan]=await calculate(formattedDate,parseInt(birth_hour),parseInt(birth_minute),sex);
     const [cities,gptRes]=await destination(ns,dungHythan,menh);
 
-    console.log(cities);
+    // console.log(cities);
 
     
     customer["mệnh"]=menh;

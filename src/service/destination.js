@@ -12,15 +12,15 @@ const __dirname = path.dirname(__filename);
 console.log(__filename);
 console.log(__dirname);
 
-export async function destination(thanhpho, hythan,my_menh) {
+export async function destination(thanhpho, hythan, my_menh) {
     try {
-      
-        const menh=hythan.charAt(0).toUpperCase() + hythan.slice(1);
-        const city=city_array[parseInt(thanhpho)-1];
-        const new_city={
+
+        const menh = hythan.charAt(0).toUpperCase() + hythan.slice(1);
+        const city = city_array[parseInt(thanhpho) - 1];
+        const new_city = {
             name: city.name,
             "Dụng_Hỷ_Thần": {
-            [menh]: city["Dụng_Hỷ_Thần"][menh]
+                [menh]: city["Dụng_Hỷ_Thần"][menh]
             }
         }
         const query = `Bạn trả lời tôi với cương vị là một nhà văn. Tôi sinh ở  ${new_city.name}, Dụng - Hỷ Thần của tôi là ${hythan}. Từ Bảng 2: Các tỉnh trong nước di chuyển tới tốt theo Dụng - Hỷ Thần xin vui lòng liệt kê đúng 3 tỉnh mà tôi có thể di chuyển tới tốt, mỗi tỉnh phải được viết đầy đủ tên với dấu và được tách biệt bằng dấu phẩy, không có chữ tỉnh trước tên các tỉnh. Kết quả trả về được dùng để hoàn thành câu sau: 
@@ -37,17 +37,17 @@ export async function destination(thanhpho, hythan,my_menh) {
         let queryRes;
         while (attempt < maxRetries) {
             try {
-                let response=(await createCompletion('Kiến thức:' + JSON.stringify(new_city)+query));
-        
-                queryRes = extractAndParseJSON(response.content);
+                let response = (await createCompletion('Kiến thức:' + JSON.stringify(new_city) + query));
+                // console.log(response);
+                queryRes = extractAndConvertToJSON(response.content);
                 break;
             } catch (error) {
                 attempt++;
                 console.error(`Attempt ${attempt} failed:`, error);
                 if (attempt >= maxRetries) {
                     console.error('Max retries reached. Handling error.');
-                    
-                    throw new Error(error.message ||" Undefined message");
+
+                    throw new Error(error.message || " Undefined message");
                 }
             }
         }
@@ -57,7 +57,7 @@ export async function destination(thanhpho, hythan,my_menh) {
         const cities = getCities(provinces, provincesDescriptions);
 
         return [cities, queryRes];
-    
+
 
     } catch (error) {
         console.error('An error occurred:', error); // Log the error for debugging
@@ -80,7 +80,7 @@ function getCities(provinceNames, provincesDescriptions) {
                     description: provincesDescriptions[index]
                 };
             } else {
-                 throw new Error(error.message || 'An unexpected error occurred');
+                throw new Error(error.message || 'An unexpected error occurred');
             }
         });
 
@@ -97,50 +97,75 @@ function getCities(provinceNames, provincesDescriptions) {
 
 
 // Function to extract data
-export function extractAndParseJSON(text) {
-    try {
-        
-        const jsonMatch = text.match(/{[\s\S]*}/);
-        // Kiểm tra xem có khớp nào không
-        if (jsonMatch) {
-            const jsonString = jsonMatch[0];
+// export function extractAndParseJSON(text) {
+//     try {
 
-            // Xóa bỏ các ký tự không cần thiết như \n' +\n và chuyển đổi thành JSON
-            const cleanedJsonString = jsonString
-                .replace(/\\n/g, '')    // Loại bỏ các ký tự xuống dòng
-                .replace(/\\'/g, "'")   // Thay thế \\' bằng '
-                .replace(/'/g, '"')
-                .replace(/,\s*([}\]])/g, '$1');    // Thay thế ' bằng "
-            // Chuyển đổi thành đối tượng JSON
-            const jsonObject = JSON.parse(cleanedJsonString);
-            return jsonObject;
+//         const jsonMatch = text.match(/{[\s\S]*}/);
+//         // Kiểm tra xem có khớp nào không
+//         if (jsonMatch) {
+//             const jsonString = jsonMatch[0];
+
+//             // Xóa bỏ các ký tự không cần thiết như \n' +\n và chuyển đổi thành JSON
+//             const cleanedJsonString = jsonString
+//                 .replace(/\\n/g, '')    // Loại bỏ các ký tự xuống dòng
+//                 .replace(/\\'/g, "'")   // Thay thế \\' bằng '
+//                 .replace(/'/g, '"')
+//                 .replace(/,\s*([}\]])/g, '$1');    // Thay thế ' bằng "
+//             // Chuyển đổi thành đối tượng JSON
+//             const jsonObject = JSON.parse(cleanedJsonString);
+//             return jsonObject;
+//         } else {
+//             console.log("Không tìm thấy chuỗi JSON trong văn bản.");
+//             return null;
+//         }
+//     } catch (error) {
+//         console.error('An error occurred:', error); // Log the error for debugging
+//         throw new Error(error.message || 'An unexpected error occurred');
+
+//     }
+//     // Biểu thức chính quy để trích xuất nội dung giữa { và }
+
+// }
+function extractAndConvertToJSON(inputString) {
+    try {
+        // Regular expression to match JSON object enclosed in {}
+        const jsonMatch = inputString.match(/\{[^]*\}/);
+
+        if (jsonMatch) {
+            const jsonString = jsonMatch[0]; // The first match (the JSON string)
+
+            try {
+                // Parse the JSON string into an object
+                const jsonObject = JSON.parse(jsonString);
+                return jsonObject;
+            } catch (error) {
+                console.error("Error parsing JSON:", error);
+                return null; // Return null or handle the error as needed
+            }
         } else {
-            console.log("Không tìm thấy chuỗi JSON trong văn bản.");
-            return null;
+            console.error("No valid JSON found in the string.");
+            return null; // Return null or handle the case when JSON is not found
         }
     } catch (error) {
         console.error('An error occurred:', error); // Log the error for debugging
         throw new Error(error.message || 'An unexpected error occurred');
 
     }
-    // Biểu thức chính quy để trích xuất nội dung giữa { và }
-
 }
-
 export function getPositionNumber(hy_tan) {
-    try{
+    try {
         let letters = position[hy_tan]["letters"];
         let numbers = position[hy_tan]["numbers"];
 
         return ['1' + numbers[0] + letters[0], '1' + numbers[1] + letters[0], '2' + numbers[0] + letters[0]];
 
-    }catch(error){
+    } catch (error) {
         console.error('An error occurred:', error); // Log the error for debugging
         throw new Error(error.message || 'An unexpected error occurred');
 
     }
 
-    
+
 
 }
 
