@@ -22,7 +22,7 @@ router.get("/hello",async (req, res) => {
 
 
 
-router.get("/information",async(req,res)=>{
+router.post("/information",async(req,res)=>{
   try{
     const{name,ns,dob,birth_minute,birth_hour,gender}=req.body;
     const [year, month, day] = dob.split('-');
@@ -62,9 +62,7 @@ router.get("/information",async(req,res)=>{
 
   }catch(error){
     console.log(error);
-    res.status(200).send({
-       "error": "The system get some trouble, please go back the home page and fill again "
-    })
+    res.render('error')
 
   }
   

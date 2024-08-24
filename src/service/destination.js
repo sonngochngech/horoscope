@@ -38,8 +38,7 @@ export async function destination(thanhpho, hythan,my_menh) {
         while (attempt < maxRetries) {
             try {
                 let response=(await createCompletion('Kiến thức:' + JSON.stringify(new_city)+query));
-                console.log(response);
-
+        
                 queryRes = extractAndParseJSON(response.content);
                 break;
             } catch (error) {
@@ -52,7 +51,7 @@ export async function destination(thanhpho, hythan,my_menh) {
                 }
             }
         }
-        console.log(queryRes);
+
         let provinces = queryRes[ten_tinh];
         let provincesDescriptions = queryRes[mo_ta_tinh];
         const cities = getCities(provinces, provincesDescriptions);
