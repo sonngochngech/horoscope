@@ -43,6 +43,28 @@
             "path": "/public/images/cities/Bà Rịa – Vũng Tàu 3.jpg"
           }
     ],
+    "Bà Rịa - Vũng Tàu": [
+        {
+            "name": "Bà Rịa – Vũng Tàu 1.jpg",
+            "path": "/public/images/cities/Bà Rịa – Vũng Tàu 1.jpg"
+          },
+          {
+            "name": "Bà Rịa – Vũng Tàu 2.jpg",
+            "path": "/public/images/cities/Bà Rịa – Vũng Tàu 2.jpg"
+          },
+          {
+            "name": "Bà Rịa – Vũng Tàu 4.jpg",
+            "path": "/public/images/cities/Bà Rịa – Vũng Tàu 4.jpg"
+          },
+          {
+            "name": "Bà Rịa – Vũng Tàu 5.jpg",
+            "path": "/public/images/cities/Bà Rịa – Vũng Tàu 5.jpg"
+          },
+          {
+            "name": "Bà Rịa - Vũng Tàu3.jpg",
+            "path": "/public/images/cities/Bà Rịa – Vũng Tàu 3.jpg"
+          }
+    ],
     "Bạc Liêu": [
         {
             "name": "Bạc Liêu1.png",
@@ -575,6 +597,28 @@
             "path": "/public/images/cities/hbinh5.jpg"
           }
     ],
+    "TP Hồ Chí Minh": [
+        {
+            "name": "hcm1.jpg",
+            "path": "/public/images/cities/hcm1.jpg"
+          },
+          {
+            "name": "hcm2.jpg",
+            "path": "/public/images/cities/hcm2.jpg"
+          },
+          {
+            "name": "hcm4.webp",
+            "path": "/public/images/cities/hcm4.webp"
+          },
+          {
+            "name": "hcm5.jpg",
+            "path": "/public/images/cities/hcm5.jpg"
+          },
+          {
+            "name": "hcn3.jpg",
+            "path": "/public/images/cities/hcn3.jpg"
+          }
+    ],
     "TP. Hồ Chí Minh": [
         {
             "name": "hcm1.jpg",
@@ -707,7 +751,29 @@
             "path": "/public/images/cities/htinh5.jpg"
           }
     ],
-    "Huế": [
+    "Thừa Thiên Huế": [
+        {
+            "name": "hue1.jpg",
+            "path": "/public/images/cities/hue1.jpg"
+          },
+          {
+            "name": "hue2.jpeg",
+            "path": "/public/images/cities/hue2.jpeg"
+          },
+          {
+            "name": "hue3.jpg",
+            "path": "/public/images/cities/hue3.jpg"
+          },
+          {
+            "name": "hue4.jpg",
+            "path": "/public/images/cities/hue4.jpg"
+          },
+          {
+            "name": "hue5.webp",
+            "path": "/public/images/cities/hue5.webp"
+          }
+    ],
+    "Thừa Thiên - Huế": [
         {
             "name": "hue1.jpg",
             "path": "/public/images/cities/hue1.jpg"

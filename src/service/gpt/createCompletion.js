@@ -8,7 +8,7 @@ const openai = new OpenAI({
     apiKey: OPEN_AI_TOKEN, 
 });
 
-const modelName = "gpt-4"; // Correct model name
+const modelName = "gpt-4o"; // Correct model name
 
 export const createCompletion = async (prompt) => {
     try {
@@ -17,7 +17,7 @@ export const createCompletion = async (prompt) => {
             temperature: 0.7,
             messages: [{ role: 'user', content: prompt }],
         });
-        return response.choices[0].message.content;
+        return response.choices[0].message;
     } catch (error) {
         console.error("Error creating completion:", error.response?.data || error.message);
         return null;

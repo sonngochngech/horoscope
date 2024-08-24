@@ -16,6 +16,10 @@
         width: 243px;
         height: 48px;
     }
+    .yin-yang-img{
+      height: 150px ;
+      width:248px ;
+    }
     /* visit day  */
     .visit-day-box{
         width: 165px;
@@ -35,9 +39,9 @@
          height: 64px;
       }
       /*discount */
-      .discount-box{
-        height: 412px;
-      }
+      /* .discount-box{
+        min-height: 450px;
+      } */
       .discount-button {
         width: 327px;
       }

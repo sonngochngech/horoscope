@@ -20,6 +20,7 @@
     "nodemon": "^3.1.0",
     "openai": "^4.55.5",
     "pdf-merger-js": "^5.1.2",
+    "pdf2json": "^3.1.4",
     "vectordb": "^0.5.0"
   },
   "type": "module"

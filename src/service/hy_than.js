@@ -14,6 +14,7 @@ const calculate = async (birthdate, hour, minute, sex) => {
         const [day, month, year] = birthdate.split('/').map(Number);
         const dirPath = path.join(__dirname, `../RAG/webDB/${randomNumber}`);
         await fs.promises.mkdir(dirPath, { recursive: true });
+        const new_dirPath=path.resolve(`./src/RAG/webDB/${randomNumber}`);
         const ragApp = await new RAGApplicationBuilder()
             .setVectorDb(new LanceDb({path: path.resolve(`./src/RAG/webDB/${randomNumber}`)}))
             .addLoader(new WebLoader({ urlOrContent: `https://www.xemlicham.com/am-lich/nam/${year}/thang/${month}/ngay/${day}` }))
@@ -26,11 +27,11 @@ const calculate = async (birthdate, hour, minute, sex) => {
             "ngày_âm_lịch":"14/06/2003"
             }`);
         const parseData = JSON.parse(res.content);
+        await fs.promises.rm(dirPath, { recursive: true, force: true });
     
         let { năm: can_chi_nam, tháng: can_chi_thang, ngày: can_chi_ngay, ngày_âm_lịch: ngay_am_lich } = parseData;
         let can_chi_gio=calculate_gio_sinh(hour,minute,can_chi_ngay.split(' ')[0]);
-        console.log(ngay_am_lich);
-        console.log(can_chi_gio);
+ 
     
         const [day_am, month_am, year_am] = ngay_am_lich.split('/').map(Number);
     
@@ -63,10 +64,9 @@ const calculate = async (birthdate, hour, minute, sex) => {
         let elements = [kim, thuy, hoa, tho, moc];
         let nc = calculate_Nc(thien_can_keys, dia_chi_keys, tc_dv, dc_dv, day_am, month_am);
         let per_nc = Math.floor((nc / (moc + hoa + tho + kim + thuy)) * 100);
-        console.log(per_nc);
+  
         let menh_cc = get_menh(can_chi_nam);
-        console.log(menh_cc);
-        console.log("per_nc",per_nc);
+
         let hy_than;
         if (per_nc < 8) {
             let maxElement = Math.max(...elements);
@@ -91,7 +91,7 @@ const calculate = async (birthdate, hour, minute, sex) => {
             if (index===0) hy_than= menh_sinh[menh_sinh.length -1];
             else hy_than= menh_sinh[index - 1];
         }
-        console.log(hy_than);
+       
         return [menh_cc,hy_than];
     }catch(error){
         console.log(error);
@@ -128,7 +128,7 @@ const calculate_gio_sinh=(hour, minute,thien_can_ngay)=>{
     } else if (hour >= 21 && hour < 23) {
         timeSlot = "21:00 - 22:59";
     }
-    console.log(timeSlot);
+    
     const dia_chi = gio_sinh_map.get(timeSlot);
     const tc_gio_ty=thien_can_ngay_gio[thien_can_ngay];
     const index=gio_sinh_array.indexOf(dia_chi);
@@ -230,11 +230,7 @@ const calculate_nguyen_to = (thien_can, can_tang) => {
     thuy += (can_tang['nhâm'] || 0) + (can_tang['quý'] || 0);
 
     // Output the results
-    // console.log('Tổng số điểm hành Mộc:', moc);
-    // console.log('Tổng số điểm hành Hỏa:', hoa);
-    // console.log('Tổng số điểm hành Thổ:', tho);
-    // console.log('Tổng số điểm hành Kim:', kim);
-    // console.log('Tổng số điểm hành Thủy:', thuy);
+
 
     return [kim, thuy, hoa, tho, moc];
 
@@ -250,7 +246,7 @@ const calculate_Nc = (thien_can_keys, dia_chi_keys, thien_can_dv, dia_chi_dv, da
 
     const nhat_chu_sao = nhat_chu[tc_2]["thiên_can"];
     let nhat_can_point = (1 + get_per_thien_can(thien_can_dv, tc_2, day_am, month_am, cc_2) / 100) * 36;
-    console.log(nhat_can_point);
+  
     let ke_sat_point = 0;
     let cach_tru_point = 0;
     let gan_tru_point = 0;
@@ -296,7 +292,7 @@ const calculate_Nc = (thien_can_keys, dia_chi_keys, thien_can_dv, dia_chi_dv, da
     let ct_thang = 0;
     can_tang_array[dc_1].forEach((e) => {
         let nc_ct = nhat_chu_sao[e];
-        console.log("quý", nc_ct);
+       
         if ((nc_ct === "tỷ" || nc_ct === "kiếp")) {
             let value = (1 + get_per_can_tang(dia_chi_dv, dc_1, e, day_am, month_am, cc_1) / 100) * dia_chi_diem_co_ban[dc_1]["can_tang"][e];
 
@@ -309,7 +305,7 @@ const calculate_Nc = (thien_can_keys, dia_chi_keys, thien_can_dv, dia_chi_dv, da
 
     can_tang_array[dc_0].forEach((e) => {
         let value = (1 + get_per_can_tang(dia_chi_dv, dc_0, e, day_am, month_am, cc_0) / 100) * dia_chi_diem_co_ban[dc_0]["can_tang"][e];
-        console.log(get_per_can_tang(dia_chi_dv, dc_0, e, day_am, month_am, cc_0));
+     
 
         ct_nam += value > 0 ? value : 0;
     })
