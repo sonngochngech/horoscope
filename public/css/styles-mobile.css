@@ -130,14 +130,12 @@
   /* Small content  */
 
   .small-content {
+    margin-top: 55%; 
     width: 90%;
     text-align: left;
-    margin-top: 35%;
     margin-left: 5%;
     padding: 10px;
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
-      sans-serif;
-    margin-left: auto;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   }
 
   .small-content h1 {
@@ -216,7 +214,7 @@
   .background-body-image2 {
     background: url("/public/images/page1/Rectangle\ 45660.png") no-repeat center center;
     background-size: cover;
-    height: auto;
+    height: 60vh;
     /* Chiều cao tự động điều chỉnh dựa trên nội dung */
     width: auto;
     display: flex;
@@ -230,39 +228,69 @@
   }
 
   .body2 {
-    width: auto;
-    height: auto;
     display: flex;
-    flex-direction: column;
-    right: 30%;
+    flex-direction: column; /* Thay đổi hướng Flexbox thành cột */
+    justify-content: space-between; /* Căn chỉnh khoảng cách đều giữa các hàng */
+    align-items: center; /* Căn giữa nội dung theo chiều ngang */
+    width: 100%;
+    height: 100%;
+    position: relative; /* Vị trí tương đối để các cột con có thể căn chỉnh tuyệt đối nếu cần */
   }
-
+  
+  .column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Chiều rộng chiếm toàn bộ */
+    box-sizing: border-box;
+  }
+  
+  .column-center {
+    order: 1; /* Đặt cột center ở trên cùng */
+  }
+  
+  .column-right {
+    order: 2; /* Đặt cột right ở giữa */
+  }
+  
+  .column-left {
+    order: 3; /* Đặt cột left ở dưới cùng */
+    position: relative; /* Đặt vị trí tương đối cho hình ảnh .mb bên trong */
+  }
+  
+  .mb {
+    margin: 0;
+    position: absolute; /* Vị trí tuyệt đối để căn chỉnh xuống góc dưới bên trái của column-left */
+    bottom: 0; /* Căn sát đáy */
+    left: 0; /* Căn sát bên trái */
+    height: auto;
+    width: auto;
+    z-index: 0; /* Đảm bảo hình ảnh .mb ở dưới nội dung */
+  }
+  
   .description {
-    font-size: 22px;
+    font-size: 20px;
     color: #ffffff;
     line-height: 1.5;
-    max-width: 100%;
-    text-align: center;
-    margin-bottom: 3vh;
-    margin-top: 3vh;
-    padding: 0 5%;
-    margin-left: -35%;
+    margin: 0;
+    text-align: center; /* Căn giữa văn bản */
   }
-
+  
   .cta-button {
-    margin: 5% auto 60% auto;
+    padding: 25px 60px;
     background-color: #ffffff;
     color: #000000;
     border: none;
     border-radius: 10px;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 20px;
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
-    margin-left: -42%;
+    position: relative;
+    margin-bottom: 20%;
+    width: 90%;
   }
 
   .cta-button .button-icon {
@@ -278,7 +306,7 @@
   .mb {
     position: absolute;
     bottom: -20px;
-    left: 50%;
+    left: 20%;
     transform: translateX(-50%);
     height: auto;
     width: auto;
@@ -352,7 +380,7 @@
     background-size: cover;
     height: 65vh;
     width: 100vw;
-
+    margin-bottom: 10%;
     align-items: flex-start;
     justify-content: space-between;
     flex-direction: column;
@@ -420,7 +448,7 @@
   .background-footer {
     background: url("/public/images/page1/haiz.png") no-repeat center top;
     background-size: cover;
-    height: 200vh;
+    height: 250vh; /* Điều chỉnh chiều cao tự động */
     width: 100vw;
     display: flex;
     align-items: center;
@@ -429,12 +457,14 @@
     position: relative;
     z-index: 1;
     padding-top: 20px;
+    padding-bottom: 20px;
   }
 
   .lgmb {
     max-width: 22vh;
     height: auto;
     margin-bottom: -20px;
+    position: relative;
   }
 
   .gradient-text {
@@ -447,6 +477,7 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
     text-align: center;
+    position: relative;
   }
 
   .content-container {
@@ -459,6 +490,7 @@
     grid-template-columns: repeat(2, 1fr);
     /* Chia container thành 3 cột */
     align-items: flex-start;
+    position: relative;
   }
 
   .content-item {
@@ -535,290 +567,11 @@
   }
 }
 
-@media screen and (max-width: 400px) {
-  .form-container {
-    position: absolute;
-    bottom: auto;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%;
-    max-width: 600px;
-    height: max-content;
-    padding: 15px;
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 10px;
-    box-sizing: border-box;
-    border: 2px solid #f0f0f0;
-    margin-bottom: 20px;
-  }
 
-  .small-content {
-    width: 90%;
-    text-align: left;
-    margin-top: 50%;
-    margin-left: 5%;
-    padding: 10px;
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
-      sans-serif;
-    margin-left: auto;
-  }
-
+@media screen and (max-width: 400px){
   #birth_hour,
   #birth_minute {
-    width: 47.9%;
+    width: 47%;
     height: 60px;
   }
-/* BODY 1  */
-
-.background-body-image1 {
-  margin-top: 5%;
-  background-color: #ffdb59;
-  height: 110vh;
-  width: 100vw;
-  position: relative;
 }
-.background-inbody {
-  background: url("/public/images/page1/bg\ yin-yang.png") no-repeat center
-    center;
-  background-size: cover;
-  height: 110vh;
-  width: 100vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  position: relative;
-  z-index: 1;
-  gap: 1px;
-}
-
-
-
-  /* FOOTER  */
-  .background-footer {
-    background: url("/public/images/page1/haiz.png") no-repeat center top;
-    background-size: cover;
-    height: 250vh;
-    width: 100vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    position: relative;
-    z-index: 1;
-    padding-top: 20px;
-  }
-
-
-}
-
-@media screen and (max-width: 380px) {
-  .small-content {
-    width: 90%;
-    text-align: left;
-    margin-top: 90%;
-    margin-left: 5%;
-    padding: 10px;
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
-      sans-serif;
-    margin-left: auto;
-  }
-
-  #birth_hour,
-  #birth_minute {
-    width: 47.8%;
-    height: 60px;
-  }
-
-  /* BODY 1  */
-
-.background-body-image1 {
-  margin-top: 5%;
-  background-color: #ffdb59;
-  height: 140vh;
-  width: 100vw;
-  position: relative;
-}
-.background-inbody {
-  background: url("/public/images/page1/bg\ yin-yang.png") no-repeat center
-    center;
-  background-size: cover;
-  height: 140vh;
-  width: 100vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  position: relative;
-  z-index: 1;
-  gap: 1px;
-}
-
-/* BODY 2  */
-.description {
-  font-size: 22px;
-  color: #ffffff;
-  line-height: 1.5;
-  max-width: 100%;
-  text-align: center;
-  margin-bottom: 3vh;
-  margin-top: 3vh;
-  padding: 0 5%;
-  margin-left: -20%;
-}
-
-.cta-button {
-  margin: 5% auto 60% auto;
-  background-color: #ffffff;
-  color: #000000;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  font-size: 18px;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  margin-left: -30%;
-}
-
-/* FOOTER  */
-.background-footer {
-  background: url("/public/images/page1/haiz.png") no-repeat center top;
-  background-size: cover;
-  height: 300vh;
-  width: 100vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  position: relative;
-  z-index: 1;
-  padding-top: 20px;
-  margin-top: 25%;
-}
-}
-
-@media screen and (max-width: 360px) {
-  .small-content {
-    width: 90%;
-    text-align: left;
-    margin-top: 85%;
-    margin-left: 5%;
-    padding: 10px;
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
-      sans-serif;
-    margin-left: auto;
-  }
-
-  #birth_hour,
-  #birth_minute {
-    width: 47.7%;
-    height: 60px;
-  }
-
-  /* BODY 1  */
-
-.background-body-image1 {
-  margin-top: 5%;
-  background-color: #ffdb59;
-  height: 140vh;
-  width: 100vw;
-  position: relative;
-}
-.background-inbody {
-  background: url("/public/images/page1/bg\ yin-yang.png") no-repeat center
-    center;
-  background-size: cover;
-  height: 140vh;
-  width: 100vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  position: relative;
-  z-index: 1;
-  gap: 1px;
-}
-
-/* BODY 2  */
-.description {
-  font-size: 22px;
-  color: #ffffff;
-  line-height: 1.5;
-  max-width: 100%;
-  text-align: center;
-  margin-bottom: 3vh;
-  margin-top: 3vh;
-  padding: 0 5%;
-  margin-left: -30%;
-}
-
-.cta-button {
-  margin: 5% auto 60% auto;
-  background-color: #ffffff;
-  color: #000000;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  font-size: 18px;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  margin-left: -40%;
-}
-
-/* FOOTER  */
-.background-footer {
-  background: url("/public/images/page1/haiz.png") no-repeat center top;
-  background-size: cover;
-  height: 300vh;
-  width: 100vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  position: relative;
-  z-index: 1;
-  padding-top: 20px;
-  margin-top: 25%;
-}
-}
-
-@media screen and (max-width: 420px) {
-  .background-footer {
-    background: url("/public/images/page1/haiz.png") no-repeat center top;
-    background-size: cover;
-    height: 250vh;
-    width: 100vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    position: relative;
-    z-index: 1;
-    padding-top: 20px;
-    margin-top: 35%;
-  }
-}
-
-@media screen and (max-width: 320px) {
-  .background-footer {
-    background: url("/public/images/page1/haiz.png") no-repeat center top;
-    background-size: cover;
-    height: 350vh;
-    width: 100vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    position: relative;
-    z-index: 1;
-    padding-top: 20px;
-    margin-top: 60%;
-  }
-}
-

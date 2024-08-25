@@ -305,9 +305,8 @@ body {
 
 /* BODY 2  */
 .background-body-image2 {
-  background: url("/public/images/page1/Rectangle\ 45660.png") no-repeat center
-    center;
-  background-size: cover;
+  background: linear-gradient(to right, #F67F29
+  , #DA0530);
   height: auto;
   width: 100vw;
   display: flex;
@@ -318,17 +317,36 @@ body {
 }
 
 .body2 {
-  position: relative;
-  width: auto;
-  height: auto;
   display: flex;
-  justify-content: flex-start;
+  width: 100%;
+  justify-content: space-between; /* Chia đều khoảng cách giữa các cột */
   align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; /* Đảm bảo nội dung trong mỗi cột được căn giữa theo chiều dọc */
+  box-sizing: border-box;
+}
+
+.column-left,
+.column-right {
+  flex: 1; /* Kích thước của các cột trái và phải sẽ nhỏ hơn */
+}
+
+.column-center {
+  flex: 2; /* Kích thước của cột giữa sẽ lớn hơn */
 }
 
 .mb {
-  margin-left: 0;
-  margin-right: 0;
+  margin: 0;
+  position: relative; /* Vị trí tuyệt đối để căn chỉnh xuống góc dưới bên trái của background */
+  bottom: 0; /* Căn sát đáy */
+  left: -30%; /* Căn sát bên trái */
   height: auto;
   width: auto;
 }
@@ -338,36 +356,34 @@ body {
   color: #ffffff;
   line-height: 1.5;
   margin: 0;
-  max-width: 40%; /* Giới hạn chiều rộng của văn bản để không vượt quá nửa chiều rộng màn hình */
-  position: relative;
-  left: 20vh;
+  max-width: 100%; /* Cho phép văn bản mở rộng đến giới hạn của cột */
 }
 
 .cta-button {
-  padding: 25px 60px; /* Tăng kích thước padding để nút lớn hơn */
+  padding: 25px 60px;
   background-color: #ffffff;
   color: #000000;
   border: none;
-  border-radius: 10px; /* Tăng kích thước border-radius để nút trông mềm mại hơn */
+  border-radius: 10px;
   cursor: pointer;
-  font-size: 20px; /* Tăng kích thước font để văn bản trong nút lớn hơn */
+  font-size: 20px;
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative; /* Giữ vị trí tương đối trong container */
-  left: 30vh;
+  position: relative;
 }
 
 .cta-button .button-icon {
   width: 25px;
   height: 25px;
-  margin-right: 10px; /* Khoảng cách giữa biểu tượng và văn bản */
+  margin-right: 10px;
 }
 
 .cta-button:hover {
   transform: scale(1.05);
 }
+
 
 /* END BODY 2 */
 
