@@ -16,147 +16,135 @@
   <div class="background-image">
     <div class="hidden-background">
       <div class="column-left">
-
       </div>
-
       <!-- Cột phải -->
       <div class="column-right">
         <form class="info-form">
           <form method="POST" action="/information">
-          <h2>Vận may sẽ dẫn bạn tới đâu?</h2>
-
-          <!-- Họ và Tên, Số điện thoại -->
-          <p>Thông tin cơ bản</p>
-          <div class="form-row">
-            <div class="form-column">
-              <label for="name"></label>
-              <input type="text" id="name" name="name" placeholder="Họ và tên" required>
-            </div>
-            <div class="form-column">
-              <label for="phone">
-              </label>
-              <input type="tel" id="phone" name="phone" placeholder="Số điện thoại" required>
-            </div>
-          </div>
-
-          <!-- Ngày tháng năm sinh, Giờ sinh -->
-          <div class="form-row">
-            <div class="form-column">
-              <label for="dob">Ngày tháng năm sinh:</label>
-              <input type="date" id="dob" name="dob" required>
-            </div>
-            <div class="form-column">
-              <label for="birth-time">Giờ sinh:</label>
-              <div class="time-input">
-                <select id="hour" name="hour" required>
-                  <option value="" disabled selected>hh</option>
-                </select>
-                <span class="time-separator">:</span>
-                <select id="minute" name="minute" required>
-                  <option value="" disabled selected>mm</option>
-                </select>
+            <h2>Vận may sẽ dẫn bạn tới đâu?</h2>
+            <!-- Họ và Tên, Số điện thoại -->
+            <p>Thông tin cơ bản</p>
+            <div class="form-row">
+              <div class="form-column">
+                <label for="name"></label>
+                <input type="text" id="name" name="name" placeholder="Họ và tên" required>
               </div>
-            </div>
-          </div>
-
-          <script>
-            // Populate hours
-            const hourSelect = document.getElementById('hour');
-            for (let i = 0; i <= 23; i++) {
-              const option = document.createElement('option');
-              option.value = i < 10 ? '0' + i : i;
-              option.textContent = i < 10 ? '0' + i : i;
-              hourSelect.appendChild(option);
-            }
-
-            // Populate minutes
-            const minuteSelect = document.getElementById('minute');
-            for (let i = 0; i <= 59; i++) {
-              const option = document.createElement('option');
-              option.value = i < 10 ? '0' + i : i;
-              option.textContent = i < 10 ? '0' + i : i;
-              minuteSelect.appendChild(option);
-            }
-          </script>
-
-
-          <!-- Nơi sinh -->
-          <div class="form-row">
-            <div class="form-column full-width">
-              <label for="birthplace">Nơi sinh:</label>
-              <select id="birthplace" name="birthplace" required>
-              </select>
-            </div>
-          </div>
-
-          <script>
-            fetch('/public/data/provinces.json')
-              .then(response => response.json())
-              .then(data => {
-                const birthplaceSelect = document.getElementById('birthplace');
-                data.forEach(province => {
-                  const option = document.createElement('option');
-                  option.value = province.code;
-                  option.textContent = province.name;
-                  birthplaceSelect.appendChild(option);
-                });
-              })
-              .catch(error => console.error('Error loading provinces:', error));
-          </script>
-
-
-          <!-- Giới tính -->
-          <div class="form-row">
-            <div class="form-column full-width">
-              <label for="gender">Giới tính:</label>
-              <select id="gender" name="gender" required>
-                <option value="" disabled selected>Chọn giới tính</option>
-                <option value="male">Nam</option>
-                <option value="female">Nữ</option>
-                <option value="other">Khác</option>
-              </select>
-            </div>
-          </div>
-
-          <!-- Checkboxes -->
-          <div class="form-row">
-            <div class="form-column">
-              <div class="checkbox-group">
-                <label>
-                  <input type="checkbox" name="location" id="domestic" class="location-checkbox">
-                  <b>Trong nước</b>
+              <div class="form-column">
+                <label for="phone">
                 </label>
+                <input type="tel" id="phone" name="phone" placeholder="Số điện thoại" required>
               </div>
             </div>
-            <div class="form-column">
-              <div class="checkbox-group">
-                <label>
-                  <input type="checkbox" name="location" id="international" class="location-checkbox">
-                  <b>Ngoài nước</b>
-                </label>
+            <!-- Ngày tháng năm sinh, Giờ sinh -->
+            <div class="form-row">
+              <div class="form-column">
+                <label for="dob">Ngày tháng năm sinh:</label>
+                <input type="date" id="dob" name="dob" required>
+              </div>
+              <div class="form-column">
+                <label for="birth-time">Giờ sinh:</label>
+                <div class="time-input">
+                  <select id="hour" name="hour" required>
+                    <option value="" disabled selected>hh</option>
+                  </select>
+                  <span class="time-separator">:</span>
+                  <select id="minute" name="minute" required>
+                    <option value="" disabled selected>mm</option>
+                  </select>
+                </div>
               </div>
             </div>
-          </div>
+            <script>
+              // Populate hours
+              const hourSelect = document.getElementById('hour');
+              for (let i = 0; i <= 23; i++) {
+                const option = document.createElement('option');
+                option.value = i < 10 ? '0' + i : i;
+                option.textContent = i < 10 ? '0' + i : i;
+                hourSelect.appendChild(option);
+              }
 
-          <script>
-            document.querySelectorAll('.location-checkbox').forEach(checkbox => {
-              checkbox.addEventListener('change', function () {
-                if (this.checked) {
-                  document.querySelectorAll('.location-checkbox').forEach(cb => {
-                    if (cb !== this) cb.checked = false;
+              // Populate minutes
+              const minuteSelect = document.getElementById('minute');
+              for (let i = 0; i <= 59; i++) {
+                const option = document.createElement('option');
+                option.value = i < 10 ? '0' + i : i;
+                option.textContent = i < 10 ? '0' + i : i;
+                minuteSelect.appendChild(option);
+              }
+            </script>
+            <!-- Nơi sinh -->
+            <div class="form-row">
+              <div class="form-column full-width">
+                <label for="birthplace">Nơi sinh:</label>
+                <select id="birthplace" name="birthplace" required>
+                </select>
+              </div>
+            </div>
+            <script>
+              fetch('/public/data/provinces.json')
+                .then(response => response.json())
+                .then(data => {
+                  const birthplaceSelect = document.getElementById('birthplace');
+                  data.forEach(province => {
+                    const option = document.createElement('option');
+                    option.value = province.code;
+                    option.textContent = province.name;
+                    birthplaceSelect.appendChild(option);
                   });
-                }
+                })
+                .catch(error => console.error('Error loading provinces:', error));
+            </script>
+            <!-- Giới tính -->
+            <div class="form-row">
+              <div class="form-column full-width">
+                <label for="gender">Giới tính:</label>
+                <select id="gender" name="gender" required>
+                  <option value="" disabled selected>Chọn giới tính</option>
+                  <option value="male">Nam</option>
+                  <option value="female">Nữ</option>
+                  <option value="other">Khác</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Checkboxes -->
+            <div class="form-row">
+              <div class="form-column">
+                <div class="checkbox-group">
+                  <label>
+                    <input type="checkbox" name="location" id="domestic" class="location-checkbox">
+                    <b>Trong nước</b>
+                  </label>
+                </div>
+              </div>
+              <div class="form-column">
+                <div class="checkbox-group">
+                  <label>
+                    <input type="checkbox" name="location" id="international" class="location-checkbox">
+                    <b>Ngoài nước</b>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <script>
+              document.querySelectorAll('.location-checkbox').forEach(checkbox => {
+                checkbox.addEventListener('change', function () {
+                  if (this.checked) {
+                    document.querySelectorAll('.location-checkbox').forEach(cb => {
+                      if (cb !== this) cb.checked = false;
+                    });
+                  }
+                });
               });
-            });
-          </script>
-
-
-          <!-- Nút gửi -->
-          <button type="submit" class="submit-button">
-            <img src="/public/images/page1/icon/flight@2x.png" alt="iconmb" class="button-icon">
-            Khám phá ngay
-          </button>
-        </form>
+            </script>
+            <!-- Nút gửi -->
+            <button type="submit" class="submit-button">
+              <img src="/public/images/page1/icon/flight@2x.png" alt="iconmb" class="button-icon">
+              Khám phá ngay
+            </button>
+          </form>
         </form>
       </div>
     </div>
