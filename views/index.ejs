@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/public/css/styles.css" />
-  <link rel="stylesheet" href="/public/css/styles-mobile.css" />
+  <link rel="stylesheet" href="/public/css/styles-responsive.css" />
   <title>Lucky Trip</title>
 </head>
 
@@ -14,122 +14,151 @@
   <!-- HEADER FORM  -->
 
   <div class="background-image">
-    <div class="form-container">
-      <form method="POST" action="/information">
-        <h2 style="font-size: 24px">Vận may sẽ dẫn bạn tới đâu?</h2>
-        <label>Thông tin cơ bản</label>
-        <input type="text" id="name" name="name" placeholder="  Họ và tên" required />
-        <input type="text" id="phone-basic" name="phone-basic" placeholder="  Số Điện Thoại" required />
-        <div class="form-group">
-          <div>
-            <label for="dob">Ngày / tháng / năm sinh</label>
-            <input type="date" id="dob" name="dob" required />
+    <div class="hidden-background">
+      <div class="column-left">
+
+      </div>
+
+      <!-- Cột phải -->
+      <div class="column-right">
+        <form class="info-form">
+          <form method="POST" action="/information">
+          <h2>Vận may sẽ dẫn bạn tới đâu?</h2>
+
+          <!-- Họ và Tên, Số điện thoại -->
+          <p>Thông tin cơ bản</p>
+          <div class="form-row">
+            <div class="form-column">
+              <label for="name"></label>
+              <input type="text" id="name" name="name" placeholder="Họ và tên" required>
+            </div>
+            <div class="form-column">
+              <label for="phone">
+              </label>
+              <input type="tel" id="phone" name="phone" placeholder="Số điện thoại" required>
+            </div>
           </div>
-          <div>
-            <label>Giờ sinh:</label>
-            <select id="birth_hour" name="birth_hour" required>
-              <option value="" disabled selected>hh</option>
-            </select>
-            :
-            <select id="birth_minute" name="birth_minute" required>
-              <option value="" disabled selected>mm</option>
-            </select>
+
+          <!-- Ngày tháng năm sinh, Giờ sinh -->
+          <div class="form-row">
+            <div class="form-column">
+              <label for="dob">Ngày tháng năm sinh:</label>
+              <input type="date" id="dob" name="dob" required>
+            </div>
+            <div class="form-column">
+              <label for="birth-time">Giờ sinh:</label>
+              <div class="time-input">
+                <select id="hour" name="hour" required>
+                  <option value="" disabled selected>hh</option>
+                </select>
+                <span class="time-separator">:</span>
+                <select id="minute" name="minute" required>
+                  <option value="" disabled selected>mm</option>
+                </select>
+              </div>
+            </div>
           </div>
+
           <script>
-            document.addEventListener("DOMContentLoaded", function () {
-              const hourSelect = document.getElementById("birth_hour");
-              const minuteSelect = document.getElementById("birth_minute");
+            // Populate hours
+            const hourSelect = document.getElementById('hour');
+            for (let i = 0; i <= 23; i++) {
+              const option = document.createElement('option');
+              option.value = i < 10 ? '0' + i : i;
+              option.textContent = i < 10 ? '0' + i : i;
+              hourSelect.appendChild(option);
+            }
 
-              if (hourSelect && minuteSelect) {
-                for (let i = 0; i <= 23; i++) {
-                  const option = document.createElement("option");
-                  option.value = i;
-                  option.textContent = i;
-                  hourSelect.appendChild(option);
-                }
-
-                for (let i = 0; i <= 59; i++) {
-                  const option = document.createElement("option");
-                  option.value = i;
-                  option.textContent = i;
-                  minuteSelect.appendChild(option);
-                }
-              } else {
-                console.error("Select elements not found");
-              }
-            });
+            // Populate minutes
+            const minuteSelect = document.getElementById('minute');
+            for (let i = 0; i <= 59; i++) {
+              const option = document.createElement('option');
+              option.value = i < 10 ? '0' + i : i;
+              option.textContent = i < 10 ? '0' + i : i;
+              minuteSelect.appendChild(option);
+            }
           </script>
-        </div>
 
-        <div class="form-group">
-          <div style="flex: 1;">
-            <label for="birthplace">Nơi sinh</label>
-            <select id="ns" name="ns" required>
-              <option value="" disabled selected>Nơi sinh</option>
-            </select>
+
+          <!-- Nơi sinh -->
+          <div class="form-row">
+            <div class="form-column full-width">
+              <label for="birthplace">Nơi sinh:</label>
+              <select id="birthplace" name="birthplace" required>
+              </select>
+            </div>
           </div>
-          <div style="flex: 1;">
-            <label for="gender">Giới tính</label>
-            <select id="gender" name="gender" required>
-              <option value="" disabled selected>Giới tính</option>
-              <option value="male">Nam</option>
-              <option value="female">Nữ</option>
-            </select>
-          </div>
-        </div>
-        <script>
-          document.addEventListener("DOMContentLoaded", function () {
-            fetch("/public/data/provinces.json")
-              .then((response) => response.json())
-              .then((data) => {
-                const provinceSelect = document.getElementById("ns");
-                data.forEach((province) => {
-                  const option = document.createElement("option");
+
+          <script>
+            fetch('/public/data/provinces.json')
+              .then(response => response.json())
+              .then(data => {
+                const birthplaceSelect = document.getElementById('birthplace');
+                data.forEach(province => {
+                  const option = document.createElement('option');
                   option.value = province.code;
-                  option.text = province.name;
-                  provinceSelect.appendChild(option);
+                  option.textContent = province.name;
+                  birthplaceSelect.appendChild(option);
                 });
               })
-              .catch((error) =>
-                console.error("Error loading provinces:", error)
-              );
-          });
-        </script>
-        <label> Bạn muốn du lịch</label>
-        <div class="checkbox-group">
-          <label>
-            <input type="checkbox" id="abroad" name="travel" value="abroad" />
-            Ngoài nước
-          </label>
-          <label>
-            <input type="checkbox" id="domestic" name="travel" value="domestic" />
-            Trong nước
-          </label>
-        </div>
-        <script>
-          document.addEventListener("DOMContentLoaded", function () {
-            const abroadCheckbox = document.getElementById("abroad");
-            const domesticCheckbox = document.getElementById("domestic");
+              .catch(error => console.error('Error loading provinces:', error));
+          </script>
 
-            abroadCheckbox.addEventListener("change", function () {
-              if (this.checked) {
-                domesticCheckbox.checked = false;
-              }
+
+          <!-- Giới tính -->
+          <div class="form-row">
+            <div class="form-column full-width">
+              <label for="gender">Giới tính:</label>
+              <select id="gender" name="gender" required>
+                <option value="" disabled selected>Chọn giới tính</option>
+                <option value="male">Nam</option>
+                <option value="female">Nữ</option>
+                <option value="other">Khác</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Checkboxes -->
+          <div class="form-row">
+            <div class="form-column">
+              <div class="checkbox-group">
+                <label>
+                  <input type="checkbox" name="location" id="domestic" class="location-checkbox">
+                  <b>Trong nước</b>
+                </label>
+              </div>
+            </div>
+            <div class="form-column">
+              <div class="checkbox-group">
+                <label>
+                  <input type="checkbox" name="location" id="international" class="location-checkbox">
+                  <b>Ngoài nước</b>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <script>
+            document.querySelectorAll('.location-checkbox').forEach(checkbox => {
+              checkbox.addEventListener('change', function () {
+                if (this.checked) {
+                  document.querySelectorAll('.location-checkbox').forEach(cb => {
+                    if (cb !== this) cb.checked = false;
+                  });
+                }
+              });
             });
+          </script>
 
-            domesticCheckbox.addEventListener("change", function () {
-              if (this.checked) {
-                abroadCheckbox.checked = false;
-              }
-            });
-          });
-        </script>
 
-        <button type="submit">
-          <img src="/public/images/page1/icon/flight@2x.png" alt="Icon" class="button-icon" style="font-size: 24px" />
-          Khám phá vận may
-        </button>
-      </form>
+          <!-- Nút gửi -->
+          <button type="submit" class="submit-button">
+            <img src="/public/images/page1/icon/flight@2x.png" alt="iconmb" class="button-icon">
+            Khám phá ngay
+          </button>
+        </form>
+        </form>
+      </div>
     </div>
   </div>
 
@@ -234,7 +263,7 @@
 
   <!-- BODY 3 -->
   <div class="background-body-image3">
-    <img src="/public/images/page1/icon/pave way.png" alt="paveway" style="width: 48px; height: 48px" />
+    <img src="/public/images/page1/icon/pave way.png" alt="paveway" style="width: 48px; height: 48px" class="pw" />
     <div style="height: 24px"></div>
     <h1 class="headline" style="color: #ff1018">Để vận may dẫn bạn</h1>
     <div style="height: 8px"></div>
@@ -255,101 +284,89 @@
 
   <!-- BODY 4 -->
   <div class="background-body-image4">
-    <div class="top-left-text">
-      <h1 class="red-text">Thoải mái healing cùng Vietjet Air</h1>
-      <h1 class="black-text">Vé máy bay SIÊU HỜI<br />Du lịch ĐÃ ĐỜI</h1>
+    <div class="column-left-2">
+      <p class="gradient-text-2">Thoải mái healing cùng Vietjet Air</p>
+      <p class="sub-text">Vé máy bay <strong>SIÊU HỜI</strong><br>Du lịch <strong>ĐÃ ĐỜI</strong></p>
+      <img src="/public/images/page1/img.png" alt="Mô tả ảnh" class="responsive-image">
     </div>
-    <div class="wapper">
-      <img src="/public/images/page1/img.png" alt="Image" class="bottom-left-image" />
-      <div class="icon-text-container">
-        <div class="icon-text">
-          <img src="/public/images/page1/icon/Group.png" alt="Icon 1" class="icon" />
-          <p style="font-size: 16px">Thủ tục nhanh chóng</p>
-        </div>
-        <div class="icon-text">
-          <img src="/public/images/page1/icon/Group.png" alt="Icon 2" class="icon" />
-          <p style="font-size: 16px">Giá cả phải chăng</p>
-        </div>
-        <div class="icon-text">
-          <img src="/public/images/page1/icon/Group.png" alt="Icon 3" class="icon" />
-          <p style="font-size: 16px">Chuyến bay đúng giờ</p>
-        </div>
-        <div class="icon-text">
-          <img src="/public/images/page1/icon/Group.png" alt="Icon 4" class="icon" />
-          <p style="font-size: 16px">Dễ lựa tuyền bay</p>
-        </div>
-        <div class="icon-text">
-          <img src="/public/images/page1/icon/Group.png" alt="Icon 5" class="icon" />
-          <p style="font-size: 16px">Phong cách trẻ trung, năng động</p>
-        </div>
-      </div>
+    <div class="column-right-2">
+      <ul class="icon-text-list">
+        <li><img src="/public/images/page1/icon/Group.png" alt="Icon 1" class="icon"> Thủ tục nhanh chóng</li>
+        <li><img src="/public/images/page1/icon/Group.png" alt="Icon 2" class="icon"> Giá cả phải chăng</li>
+        <li><img src="/public/images/page1/icon/Group.png" alt="Icon 3" class="icon"> Chuyến bay đúng giờ</li>
+        <li><img src="/public/images/page1/icon/Group.png" alt="Icon 4" class="icon"> Dễ lựa tuyền bay</li>
+        <li><img src="/public/images/page1/icon/Group.png" alt="Icon 5" class="icon"> Phong cách trẻ trung, năng động
+        </li>
+      </ul>
     </div>
+
   </div>
   <!-- END BODY 4 -->
 
-  <!-- FOOTER  -->
   <div class="background-footer">
-    <img src="/public/images/page1/image 7.png" alt="lgmb" class="lgmb" />
-    <h1 class="gradient-text">Cùng Vietjet bay vào tương lai</h1>
-    <div class="space-fly-h48"></div>
-    <div class="content-container">
-      <div class="content-item">
-        <h1>120+</h1>
-        <p>Đường bay nội địa và quốc tế</p>
+    <div class="row"></div>
+    <div class="row row-second">
+      <img src="/public/images/page1/image 7.png" alt="Vietjet Logo" class="logo">
+      <p class="gradient-text">Cùng Vietjet bay vào tương lai</p>
+    </div>
+    <div class="row row-white-background">
+      <div class="column">
+        <strong class="column-title">120+</strong>
+        <p class="column-text">Đường bay nội địa và quốc tế</p>
       </div>
-      <div class="content-item">
-        <h1>400+</h1>
-        <p>Chuyến bay mỗi ngày</p>
+      <div class="column">
+        <strong class="column-title">400+</strong>
+        <p class="column-text">Chuyến bay mỗi ngày</p>
       </div>
-      <div class="content-item">
-        <h1>6000+</h1>
-        <p>Nhân viên thân thiện, tận tình</p>
+      <div class="column">
+        <strong class="column-title">6000+</strong>
+        <p class="column-text">Nhân viên thân thiện, tận tình</p>
       </div>
-      <div class="content-item">
-        <h1>100+</h1>
-        <p>Tàu bay mới hiện đại, bảo vệ môi trường</p>
+      <div class="column">
+        <strong class="column-title">100+</strong>
+        <p class="column-text">Tàu bay mới hiện đại, bảo vệ môi trường</p>
       </div>
-      <div class="content-item special">
-        <h1>7★</h1>
-        <p>Xếp hạng hàng không an toàn cao nhất thế giới mức 7 sao</p>
+      <div class="column column-7-star">
+        <strong class="column-title">7★</strong>
+        <p class="column-text">Xếp hạng hàng không an toàn cao nhất thế giới mức 7 sao</p>
       </div>
     </div>
-    <div class="space-fly-h80"></div>
-    <img src="/public/images/page1/image 16.png" alt="flg" class="flg" />
-    <div class="space-fly-h80"></div>
-    <div class="image-container">
-      <div class="image-item">
-        <img src="/public/images/page1/image1.png" alt="image1" />
-        <p class="image-text">
-          Hãng hàng không chi phí thấp dẫn đầu Châu Á Thái Bình Dương
-        </p>
-      </div>
-      <div class="image-item">
-        <img src="/public/images/page1/image2.png" alt="image2" />
-        <p class="image-text">
-          Doanh nghiệp tốt nhất Ngành Hàng không tại Đông Nam Á
-        </p>
-      </div>
-      <div class="image-item">
-        <img src="/public/images/page1/image3.png" alt="image3" />
-        <p class="image-text">
-          Top các công ty niêm yết tốt nhất theo xếp hạng Forbes
-        </p>
-      </div>
-      <div class="image-item">
-        <img src="/public/images/page1/image4.png" alt="image4" />
-        <p class="image-text">Thương hiệu tốt nhất Châu Á</p>
-      </div>
-      <div class="image-item">
-        <img src="/public/images/page1/image5.png" alt="image5" />
-        <p class="image-text">Môi trường làm việc tốt nhất Châu Á</p>
-      </div>
-      <div class="image-item">
-        <img src="/public/images/page1/image6.png" alt="image6" />
-        <p class="image-text">Doanh nghiệp Phát triển bền vững</p>
+    <div class="row">
+      <img src="/public/images/page1/image 16.png" alt="flg" class="flg">
+    </div>
+    <div class="row">
+      <div class="row row-fifth">
+        <!-- Container chứa 6 cột -->
+        <div class="fifth-column">
+          <img src="/public/images/page1/image1.png" alt="Icon 1">
+          <p class="column-text">Hãng hàng không chi phí thấp dẫn đầu Châu Á Thái Bình Dương</p>
+        </div>
+        <div class="fifth-column">
+          <img src="/public/images/page1/image2.png" alt="Icon 2">
+          <p class="column-text">Doanh nghiệp tốt nhất Ngành Hàng không tại Đông Nam Á</p>
+        </div>
+        <div class="fifth-column">
+          <img src="/public/images/page1/image3.png" alt="Icon 3">
+          <p class="column-text">Top các công ty niêm yết tốt nhất theo xếp hạng Forbes</p>
+        </div>
+        <div class="fifth-column">
+          <img src="/public/images/page1/image4.png" alt="Icon 4">
+          <p class="column-text">Thương hiệu tốt nhất Châu Á</p>
+        </div>
+        <div class="fifth-column">
+          <img src="/public/images/page1/image5.png" alt="Icon 5">
+          <p class="column-text">Môi trường làm việc tốt nhất Châu Á</p>
+        </div>
+        <div class="fifth-column">
+          <img src="/public/images/page1/image6.png" alt="Icon 6">
+          <p class="column-text">Doanh nghiệp Phát triển bền vững</p>
+        </div>
       </div>
     </div>
+    <div class="row"></div>
   </div>
+  <!-- FOOTER  -->
+
   <script src="/public/js/script.js"></script>
 </body>
 
