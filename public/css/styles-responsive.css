@@ -1,0 +1,572 @@
+@media  (min-width: 1431px) and (max-width: 1600px) {
+  .background-image {
+      
+      justify-content: flex-start; /* Căn nội dung từ đầu */
+      background-position: left; /* Điều chỉnh để hiển thị phần bên trái của hình ảnh */
+      background-size: cover; /* Đảm bảo hình ảnh phủ kín toàn bộ vùng chứa */
+      height: 1000px; /* Cho phép chiều cao thay đổi tự động */
+      padding: 20px 15px; /* Thêm khoảng đệm trái phải để căn nội dung */
+  
+  
+  }
+  .hidden-background .column-left {
+      flex: 2; /* Chiếm 2 phần của không gian */
+      width: 48%;
+    }
+    
+    .hidden-background .column-right {
+      flex: 1; /* Chiếm 1 phần của không gian */
+      width: 48%;
+    }
+
+}
+
+@media (min-width: 1001px) and (max-width: 1430px) {
+  .column-left-1, .column-right-1 {
+      flex: 1; /* Mỗi cột chiếm 50% chiều rộng */
+      display: flex; /* Đảm bảo nội dung trong cột được căn giữa */
+      align-items: center;
+      justify-content: right;
+      padding-right: 50px;
+    }
+    
+    .hidden-background {
+      flex-direction: column; /* Chuyển từ hàng ngang sang cột dọc */
+      align-items: flex-start; /* Căn trái toàn bộ nội dung */
+      padding: 10px; /* Giảm padding khi màn hình nhỏ */
+    }
+  
+    .hidden-background .column-left,
+    .hidden-background .column-right {
+      width: 100%; /* Đặt chiều rộng 100% cho các cột khi màn hình nhỏ */
+      height: auto; /* Cho phép chiều cao tự động để các cột chồng lên nhau */
+      justify-content: center; 
+      margin-top: 400px;
+    }
+  .small-content {
+      margin-top: 500px; 
+    }
+
+        /* BODY 2 */
+        .frame-container {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          grid-template-rows: repeat(2, auto);
+          gap: 24px;
+          justify-items: center;
+          align-items: center;
+          width: auto;
+          padding-bottom: 50px;
+        }
+        
+        .frame {
+          width: 550px;
+          height: 200px;
+          background-color: #ffffff;
+          border-radius: 16px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 18px;
+          color: #333333;
+          overflow: hidden;
+          transition: transform 0.3s ease;
+        }
+        
+        .frame img {
+          flex: 1;
+          display: flex;
+          margin-right: 10px;
+          height: 100%;
+        }
+        
+        .frame:hover {
+          transform: scale(1.05);
+        }
+        
+        .text-content {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          padding: 10px;
+        }
+        
+        .text-content strong {
+          display: block;
+          font-size: clamp(0.5rem, 1.5vw, 1rem);
+          margin-bottom: 5px;
+        }
+        
+        .text-content p {
+          font-size: 5px;
+          color: #666666;
+        }
+
+        .card {
+          width: 200px;
+          height: 200px;
+        }
+
+        
+        
+        
+}
+
+@media (min-width: 768px) and (max-width: 1000px) {
+  .background-image {
+  background: url("/public/images/page1/banner1.png") no-repeat left center;
+    flex-direction: column; 
+    align-items: center; 
+    width: 100%;
+    height: 800px;
+  }
+
+  .hidden-background {
+      flex-direction: column; /* Chuyển từ hàng ngang sang cột dọc */
+      align-items: flex-start; /* Căn trái toàn bộ nội dung */
+      padding: 10px; /* Giảm padding khi màn hình nhỏ */
+    }
+  
+    .hidden-background .column-left,
+    .hidden-background .column-right {
+      width: 100%; /* Đặt chiều rộng 100% cho các cột khi màn hình nhỏ */
+      height: auto; /* Cho phép chiều cao tự động để các cột chồng lên nhau */
+      justify-content: center; /* Căn trái nội dung */
+      margin-top: 300px;
+    }
+  .small-content {
+      margin-top: 500px; 
+    }
+
+  /* //body 1 */
+  .frame-container {
+      display: flex; 
+      flex-direction: column; 
+      align-items: center; 
+      gap: 16px; 
+    }
+  
+    .frame {
+      width: 80%; /* Đặt chiều rộng frame nhỏ hơn để phù hợp với màn hình nhỏ */
+      max-width: 100%; /* Đảm bảo frame không vượt quá chiều rộng màn hình */
+    }
+
+  /* body 2 */
+  
+  .description {
+      font-size: 15px;
+      color: #ffffff;
+      line-height: 1.5;
+      margin: 0;
+      max-width: 100%; /* Cho phép văn bản mở rộng đến giới hạn của cột */
+      margin-right: 50px;
+    }
+
+    .cta-button {
+      padding: 10px 40px;
+      background-color: #ffffff;
+      color: #000000;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    /* body 3 */
+
+    .pw{
+      width: 48px;
+      height: 48px;
+      padding-top: 100px;
+    }
+    .card-container {
+      display: grid; /* Chuyển sang dùng CSS Grid */
+      grid-template-columns: repeat(2, 1fr); /* 2 cột với mỗi cột chiếm 50% chiều rộng */
+      grid-template-rows: repeat(2, auto); /* 2 hàng tự động dựa trên nội dung */
+      gap: 16px; /* Khoảng cách giữa các card */
+      justify-items: center; /* Căn giữa các phần tử trong ô lưới */
+    }
+  
+    .card {
+      width: 250px; /* Giảm chiều rộng để phù hợp với lưới */
+      height: 250px;
+      max-width: 100%; /* Đảm bảo không vượt quá chiều rộng của lưới */
+    }
+
+    /* body 4 */
+    .background-body-image4 {
+      flex-direction: column; /* Chuyển từ hàng ngang sang cột dọc */
+      align-items: flex-start; /* Căn trái toàn bộ nội dung */
+      padding: 10px; /* Giảm padding khi màn hình nhỏ */
+      gap: 10px; /* Giảm khoảng cách giữa các cột khi ở chế độ di động */
+    }
+  
+    .column-left-2,
+    .column-right-2 {
+      width: 100%; /* Đặt chiều rộng 100% cho các cột khi màn hình nhỏ */
+      flex: none; /* Vô hiệu hóa flex để không chiếm theo tỷ lệ đã định nghĩa */
+      padding: 10px; /* Giảm padding để tiết kiệm không gian */
+    }
+    .icon-text-list {
+      list-style: none; 
+      padding: 0; 
+      margin: 0; 
+      margin-top: 0;
+    }
+
+    
+
+}
+
+@media (max-width: 767px) {
+  
+  .background-image {
+      background: url("/public/images/page1/img-m/banner.png") no-repeat left center;
+      justify-content: flex-start; /* Căn nội dung từ đầu */
+      background-position: left; /* Điều chỉnh để hiển thị phần bên trái của hình ảnh */
+      background-size: cover; /* Đảm bảo hình ảnh phủ kín toàn bộ vùng chứa */
+      height: 1700px; /* Cho phép chiều cao thay đổi tự động */
+      width: 100%;
+      padding: 20px 15px; /* Thêm khoảng đệm trái phải để căn nội dung */
+     
+  }
+
+  .hidden-background {
+      flex-direction: column; /* Chuyển từ hàng ngang sang cột dọc */
+      align-items: flex-start; /* Căn trái toàn bộ nội dung */
+      padding: 10px; /* Giảm padding khi màn hình nhỏ */
+    }
+  
+    .hidden-background .column-left,
+    .hidden-background .column-right {
+      width: 100%; /* Đặt chiều rộng 100% cho các cột khi màn hình nhỏ */
+      height: auto; /* Cho phép chiều cao tự động để các cột chồng lên nhau */
+      justify-content: center; 
+      margin-top: 800px;
+    }
+
+    .form-row:nth-of-type(1) { /* Chỉ nhắm đến hàng đầu tiên (vì các hàng được tính từ 1) */
+      flex-direction: column; /* Chuyển từ hàng sang cột */
+    }
+  
+    .form-row:nth-of-type(1) .form-column {
+      width: 100%; /* Đảm bảo các cột chiếm toàn bộ chiều rộng */
+      margin-bottom: 10px; /* Thêm khoảng cách dưới mỗi cột để tạo không gian giữa chúng */
+    }
+
+    .info-form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start; 
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      box-sizing: border-box;
+    }
+
+    .small-content {
+      margin-top: -200px; 
+      width: 90%;
+    }
+    .small-content p {
+      width: 90%;
+      font-size: 16px;
+      color: #666666;
+      line-height: 1.5;
+    }
+
+/* BODY 1 */
+.frame-container {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  padding: 10px;
+  scroll-behavior: smooth;
+  width: 100%;
+  box-sizing: border-box;
+  height: 500px;
+}
+
+.frame {
+  min-width: 300px;
+  height: 400px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 18px;
+  color: #333333;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  margin: 0;
+  padding: 0;
+}
+
+.frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.text-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px;
+  text-align: center;
+  margin: 0;
+}
+
+.text-content strong {
+  display: block;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.text-content p {
+  font-size: 16px;
+  color: #666666;
+}
+
+    /* BODY 2 */
+
+.background-body-image2 {
+  background: url("/public/images/page1/Rectangle\ 45660.png") no-repeat center center;
+  background-size: cover;
+  height: 500px;
+  /* Chiều cao tự động điều chỉnh dựa trên nội dung */
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  /* Đẩy nội dung lên phía trên */
+  padding: 20px;
+  box-sizing: border-box;
+  position: relative;
+  /* Đặt vị trí tương đối để hỗ trợ định vị nút bấm */
+}
+
+.body2 {
+  display: flex;
+  flex-direction: column; /* Thay đổi hướng Flexbox thành cột */
+  justify-content: space-between; /* Căn chỉnh khoảng cách đều giữa các hàng */
+  align-items: center; /* Căn giữa nội dung theo chiều ngang */
+  width: 100%;
+  height: 100%;
+  position: relative; /* Vị trí tương đối để các cột con có thể căn chỉnh tuyệt đối nếu cần */
+}
+
+.column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%; /* Chiều rộng chiếm toàn bộ */
+  box-sizing: border-box;
+}
+
+.column-center {
+  order: 1; /* Đặt cột center ở trên cùng */
+}
+
+.column-right {
+  order: 2; /* Đặt cột right ở giữa */
+}
+
+.column-left {
+  order: 3; /* Đặt cột left ở dưới cùng */
+  position: relative; /* Đặt vị trí tương đối cho hình ảnh .mb bên trong */
+}
+
+.mb {
+  margin: 0;
+  position: absolute; /* Vị trí tuyệt đối để căn chỉnh xuống góc dưới bên trái của column-left */
+  bottom: 0; /* Căn sát đáy */
+  left: 0; /* Căn sát bên trái */
+  height: auto;
+  width: auto;
+  z-index: 0; /* Đảm bảo hình ảnh .mb ở dưới nội dung */
+}
+
+.description {
+  font-size: 20px;
+  color: #ffffff;
+  line-height: 1.5;
+  margin: 0;
+  text-align: center; /* Căn giữa văn bản */
+}
+
+.cta-button {
+  padding: 25px 60px;
+  background-color: #ffffff;
+  color: #000000;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 20%;
+  width: 90%;
+}
+
+.cta-button .button-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.cta-button:hover {
+  transform: scale(1.05);
+}
+
+.mb {
+  position: absolute;
+  bottom: -20px;
+  left: 10%;
+  transform: translateX(-50%);
+  height: auto;
+  width: auto;
+  max-width: 80%;
+}
+
+.cta-button:hover {
+  transform: scale(1.05);
+}
+
+/* BODY 3 */
+
+.background-body-image3 {
+  background-color: #f6f6f6;
+  background-size: cover;
+  height: auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: 20px;
+  width: 100%;
+  max-width: 800px;
+  margin-top: 20px;
+}
+
+.card {
+  width: 100%;
+  height: auto;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px 10px 0 0;
+  /* Bo tròn các góc trên */
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.ptsf {
+  position: absolute;
+  bottom: 10px;
+  left: 5%;
+  margin: 0;
+  width: 90%;
+  height: auto;
+}
+.background-body-image4 {
+  display: flex; /* Sử dụng Flexbox */
+  flex-direction: column; /* Đặt nội dung bên trong theo cột */
+  align-items: flex-start; /* Căn nội dung về bên trái */
+  padding: 20px; /* Thêm khoảng đệm cho không gian xung quanh */
+  width: 100%; /* Đảm bảo chiếm toàn bộ chiều rộng màn hình */
+}
+.icon-text-list {
+  list-style: none; 
+  padding: 0; 
+  margin: 0; 
+  margin-top: 0;
+}
+
+.background-footer {
+  display: grid;
+  grid-template-rows: repeat(6, auto); 
+  gap: 10px; 
+  background-image: url('/public/images/page1/haiz.png'); 
+  background-size: cover; 
+  background-repeat: no-repeat; 
+  background-position: center top; 
+  padding: 20px; 
+  color: #000000; 
+  height: auto;
+  margin-top: 50px;
+}
+.row-fifth {
+  width: 100%; /* Chiều rộng 100% của .background-footer trên màn hình nhỏ */
+}
+
+.row-fifth .fifth-column {
+  flex: 1 1 calc(50% - 20px); /* Mỗi cột chiếm khoảng 50% chiều rộng khi màn hình nhỏ hơn 768px */
+  max-width: calc(50% - 20px); /* Đảm bảo mỗi cột không vượt quá 50% chiều rộng */
+}
+
+
+.column-title {
+font-size: 48px; /* Kích thước chữ đậm */
+font-weight: bold; /* In đậm */
+color: #333333; /* Màu chữ đậm */
+margin-bottom: 10px; /* Khoảng cách dưới tiêu đề */
+}
+
+.column-text {
+font-size: 14px; /* Kích thước chữ thường */
+color: #666666; /* Màu chữ thường */
+margin: 0; /* Xóa khoảng cách mặc định */
+}
+
+.row-white-background {
+display: grid;
+grid-template-columns: 1fr 1fr; /* Tạo 2 cột */
+grid-template-rows: auto auto auto; /* Tạo 3 hàng, hàng cuối cùng cho mục "7★" */
+grid-gap: 10px; /* Khoảng cách giữa các cột và hàng */
+}
+
+.row-white-background .column {
+width: 100%; /* Đảm bảo mỗi cột chiếm toàn bộ chiều rộng trong grid */
+}
+
+/* Đặt mục chứa "7★" vào hàng cuối cùng và kéo dài qua 2 cột */
+.row-white-background .column-7-star {
+grid-column: span 2; /* Chiếm toàn bộ chiều rộng của 2 cột */
+grid-row: 3; /* Đặt ở hàng thứ 3 */
+}
+}
+

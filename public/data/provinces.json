@@ -1,5 +1,9 @@
 [
     {
+        "code": "00",
+        "name": "Nơi sinh"
+    },
+    {
         "code": "01",
         "name": "An Giang"
     },
