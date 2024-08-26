@@ -24,10 +24,11 @@ router.get("/hello",async (req, res) => {
 
 router.post("/information",async(req,res)=>{
   try{
-    const{name,ns,dob,birth_minute,birth_hour,gender}=req.body;
+    console.log(req.body);
+    const{name,birthplace,dob,minute,hour,gender}=req.body;
     const [year, month, day] = dob.split('-');
     const formattedDate = `${day}/${month}/${year}`;
-    const ns_number=parseInt(ns);
+    const ns_number=parseInt(birthplace);
     const hometown=city_array[ns_number-1]?.name;
     const sex=gender;
     let  customer={
@@ -35,8 +36,8 @@ router.post("/information",async(req,res)=>{
         birthdate: formattedDate,
         location: hometown
     }
-    const [menh,dungHythan]=await calculate(formattedDate,parseInt(birth_hour),parseInt(birth_minute),sex);
-    const [cities,gptRes]=await destination(ns,dungHythan,menh);
+    const [menh,dungHythan]=await calculate(formattedDate,parseInt(hour),parseInt(minute),sex);
+    const [cities,gptRes]=await destination(birthplace,dungHythan,menh);
 
     // console.log(cities);
 
