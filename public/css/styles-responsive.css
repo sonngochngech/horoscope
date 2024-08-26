@@ -4,13 +4,13 @@
       justify-content: flex-start; /* Căn nội dung từ đầu */
       background-position: left; /* Điều chỉnh để hiển thị phần bên trái của hình ảnh */
       background-size: cover; /* Đảm bảo hình ảnh phủ kín toàn bộ vùng chứa */
-      height: 1000px; /* Cho phép chiều cao thay đổi tự động */
+      height: 800px; /* Cho phép chiều cao thay đổi tự động */
       padding: 20px 15px; /* Thêm khoảng đệm trái phải để căn nội dung */
   
   
   }
   .hidden-background .column-left {
-      flex: 2; /* Chiếm 2 phần của không gian */
+      flex: 1; /* Chiếm 2 phần của không gian */
       width: 48%;
     }
     
@@ -18,6 +18,13 @@
       flex: 1; /* Chiếm 1 phần của không gian */
       width: 48%;
     }
+    .info-form {
+      width: 75%;
+      margin-left: 30px;
+      margin-bottom: 100px;
+    }
+
+    
 
 }
 
@@ -137,6 +144,19 @@
     }
   .small-content {
       margin-top: 500px; 
+      width: 70%;
+    }
+    .small-content h1 {
+      font-size: 30px;
+      color: #333333;
+      margin-bottom: 10px;
+    }
+    
+    .small-content p {
+      width: 68%;
+      font-size: 15px;
+      color: #666666;
+      line-height: 1.5;
     }
 
   /* //body 1 */
@@ -230,7 +250,7 @@
       justify-content: flex-start; /* Căn nội dung từ đầu */
       background-position: left; /* Điều chỉnh để hiển thị phần bên trái của hình ảnh */
       background-size: cover; /* Đảm bảo hình ảnh phủ kín toàn bộ vùng chứa */
-      height: 1700px; /* Cho phép chiều cao thay đổi tự động */
+      height: 1500px; /* Cho phép chiều cao thay đổi tự động */
       width: 100%;
       padding: 20px 15px; /* Thêm khoảng đệm trái phải để căn nội dung */
      
@@ -269,10 +289,11 @@
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       box-sizing: border-box;
+      margin-top: -100px;
     }
 
     .small-content {
-      margin-top: -200px; 
+      margin-top: -90px; 
       width: 90%;
     }
     .small-content p {
@@ -568,11 +589,29 @@ width: 100%; /* Đảm bảo mỗi cột chiếm toàn bộ chiều rộng trong
 grid-column: span 2; /* Chiếm toàn bộ chiều rộng của 2 cột */
 grid-row: 3; /* Đặt ở hàng thứ 3 */
 }
+.small-content h1 {
+  font-size: 24px;
+  color: #333333;
+  margin-bottom: 10px;
+}
+
+.small-content p {
+  width: 68%;
+  font-size: 14px;
+  color: #666666;
+  line-height: 1.5;
+}
 }
 
 @media (max-width: 405px) {
+  .background-image {
+    height: 1300px;
+  }
+  .info-form {
+    margin-top: -250px;
+  }
   .small-content {
-    margin-top: 0; 
+    margin-top: 150px; 
   }
 .form-row {
   flex-direction: column; 
