@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
+  font-family: 'Barlow', sans-serif;
   background-color: #ffffff;
   overflow-x: hidden;
 }
@@ -114,7 +114,7 @@ body {
   width: 48%;
 }
 .time-separator {
-  font-size: 24px;
+  font-size: 20px;
   line-height: 48px; /* Đảm bảo dấu hai chấm căn giữa theo chiều dọc */
 }
 
@@ -124,6 +124,32 @@ body {
   margin-bottom: 15px;
 }
 
+.checkbox-group {
+  position: relative;
+  display: flex; 
+  align-items: center; 
+}
+
+
+.checkbox-group input[type="checkbox"] {
+  margin: 0; 
+  padding: 0; 
+  width: 20px; 
+  height: 20px; 
+  vertical-align: middle; 
+  position: relative; 
+  top: -1.5px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Label styling */
+.checkbox-group label {
+  font-size: 14px; 
+  line-height: 1; 
+  display: inline-block; 
+  
+}
 .info-form button {
   padding: 10px 20px;
   background-color: #da0530;
@@ -141,6 +167,7 @@ body {
 
 .form-column.full-width {
   width: 100%; /* Chiếm toàn bộ chiều rộng */
+  font-size: 16px;
 }
 
 .submit-button {
@@ -179,7 +206,7 @@ body {
   margin-top: 10px;
   margin-left: 5%;
   padding: 10px;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-family: 'Barlow', sans-serif; /* Áp dụng font Barlow */
 }
 
 .small-content h1 {
@@ -233,7 +260,7 @@ body {
   color: #000000;
   margin: 5px 0;
   text-align: center;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-family: 'Barlow', sans-serif;
 }
 
 .tlba {
@@ -407,7 +434,7 @@ body {
   color: #000000;
   margin: 5px 0;
   text-align: center;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-family: 'Barlow', sans-serif;
 }
 
 .card-container {
@@ -569,7 +596,7 @@ body {
 }
 
 .gradient-text {
-  font-family: 'Arial', sans-serif;
+  font-family: 'Barlow', sans-serif;
   background: linear-gradient(to right, #DA0530, #FF8125); 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
