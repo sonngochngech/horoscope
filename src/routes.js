@@ -26,7 +26,7 @@ router.post("/information",async(req,res)=>{
   try{
     console.log(req.body);
     const{name,birthplace,dob,minute,hour,gender}=req.body;
-    const [day,month,year] = dob.split('/');
+    const [year, month, day] = dob.split('-');
     const formattedDate = `${day}/${month}/${year}`;
     const ns_number=parseInt(birthplace);
     const hometown=city_array[ns_number-1]?.name;
