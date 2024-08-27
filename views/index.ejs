@@ -38,8 +38,26 @@
             <div class="form-row">
               <div class="form-column">
                 <label for="dob">Ngày tháng năm sinh:</label>
-                <input type="text" id="dob" name="dob" required placeholder="dd/mm/yyyy" onfocus="(this.type='date')" onblur="(this.type='text'); formatDate(this)">
-              </div>
+                <input type="date" id="dob" name="dob" required>
+            </div>
+            
+            <script>
+            document.getElementById('dob').addEventListener('input', function() {
+                const date = new Date(this.value);
+                if (!isNaN(date)) {
+                    const day = ("0" + date.getDate()).slice(-2);
+                    const month = ("0" + (date.getMonth() + 1)).slice(-2);
+                    const year = date.getFullYear();
+                    // Display the formatted date in the console (or update the display somewhere else)
+                    console.log(`${day}/${month}/${year}`);
+                    // Alternatively, you can update the value directly back into the input field if needed:
+                    // this.value = `${year}-${month}-${day}`; // Format in 'YYYY-MM-DD' for input type 'date'
+                }
+            });
+            </script>
+            
+            
+            
               <div class="form-column">
                 <label for="birth-time">Giờ sinh:</label>
                 <div class="time-input">
@@ -53,17 +71,6 @@
                 </div>
               </div>
             </div>
-            <script>
-              function formatDate(input) {
-                const date = new Date(input.value);
-                if (isNaN(date)) return; // Kiểm tra nếu giá trị không phải là ngày hợp lệ
-                const day = String(date.getDate()).padStart(2, '0');
-                const month = String(date.getMonth() + 1).padStart(2, '0');
-                const year = date.getFullYear();
-                input.type = 'text'; // Chuyển input về type text
-                input.value = `${day}/${month}/${year}`;
-              }
-            </script>
             <script>
               // Populate hours
               const hourSelect = document.getElementById('hour');

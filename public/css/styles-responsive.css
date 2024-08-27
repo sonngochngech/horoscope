@@ -28,31 +28,36 @@
 
 }
 
-@media (min-width: 1001px) and (max-width: 1447px) {
-  .column-left-1, .column-right-1 {
-      flex: 1; /* Mỗi cột chiếm 50% chiều rộng */
-      display: flex; /* Đảm bảo nội dung trong cột được căn giữa */
-      align-items: center;
-      justify-content: right;
-      padding-right: 50px;
+@media (min-width: 1106px) and (max-width: 1447px) {
+  
+  .background-image {
+    background: url("/public/images/page1/banner1.png") no-repeat left center;
+      flex-direction: column; 
+      align-items: center; 
+      width: 100%;
+      height: 800px;
     }
-    
-    .hidden-background {
-      flex-direction: column; /* Chuyển từ hàng ngang sang cột dọc */
-      align-items: flex-start; /* Căn trái toàn bộ nội dung */
-      padding: 10px; /* Giảm padding khi màn hình nhỏ */
+   
+    .info-form {
+      width: 80%;
+      margin-left: 30px;
+      margin-top: -250px;
+    }
+
+    .info-form h2 {
+      margin-bottom: 0px;
+      font-size: 24px;
+      color: #DA0530;
+      font-family: 'Lobster', cursive;
+    }
+
+    .form-row {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 5px;
     }
   
-    .hidden-background .column-left,
-    .hidden-background .column-right {
-      width: 100%; /* Đặt chiều rộng 100% cho các cột khi màn hình nhỏ */
-      height: auto; /* Cho phép chiều cao tự động để các cột chồng lên nhau */
-      justify-content: center; 
-      margin-top: 400px;
-    }
-  .small-content {
-      margin-top: 500px; 
-    }
 
         /* BODY 2 */
         .frame-container {
@@ -120,7 +125,7 @@
         
 }
 
-@media (min-width: 768px) and (max-width: 1000px) {
+@media (min-width: 768px) and (max-width: 1106px) {
   .background-image {
   background: url("/public/images/page1/banner1.png") no-repeat left center;
     flex-direction: column; 
@@ -168,8 +173,17 @@
     }
   
     .frame {
-      width: 80%; /* Đặt chiều rộng frame nhỏ hơn để phù hợp với màn hình nhỏ */
+      width: 70%; /* Đặt chiều rộng frame nhỏ hơn để phù hợp với màn hình nhỏ */
       max-width: 100%; /* Đảm bảo frame không vượt quá chiều rộng màn hình */
+      
+    }
+
+    .frame img {
+      flex: 1;
+      display: flex;
+      margin-right: 10px;
+      height: 100%;
+      width: 60%;
     }
 
   /* body 2 */
@@ -239,6 +253,29 @@
       margin-top: 0;
     }
 
+    /* footer  */
+
+    .column-title {
+      font-size: 40px;
+    }
+    .row-fifth {
+      display: flex; 
+      justify-content: center; 
+      align-items: center; 
+      width: 90%;
+      margin: 0 auto; 
+      background-color: #ffffff; 
+      padding: 20px; 
+      flex-wrap: wrap; 
+      height: auto;
+      gap: 10px;
+    }
+
+    .row-fifth .fifth-column img {
+      width: auto; /* Đặt kích thước đồng nhất cho tất cả các icon */
+      height: 70px; /* Đặt chiều cao đồng nhất cho tất cả các icon */
+      margin-bottom: 5px; /* Khoảng cách dưới ảnh */
+    }
     
 
 }
