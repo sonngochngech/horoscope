@@ -36,9 +36,10 @@ export async function destination(thanhpho, hythan, my_menh) {
         let attempt = 0;
         let queryRes;
         while (attempt < maxRetries) {
+            console.log(`Attempt ${attempt + 1}`);
             try {
                 let response = (await createCompletion('Kiến thức:' + JSON.stringify(new_city) + query));
-                // console.log(response);
+                console.log(response);
                 queryRes = extractAndConvertToJSON(response.content);
                 break;
             } catch (error) {

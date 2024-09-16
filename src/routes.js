@@ -16,10 +16,6 @@ router.get("/landingPage",async(req,res)=>{
     res.render('index');
 })
 
-router.get("/hello",async (req, res) => {
-  return res.render('error');
-})
-
 
 
 router.post("/information",async(req,res)=>{

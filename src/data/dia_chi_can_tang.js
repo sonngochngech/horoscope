@@ -851,7 +851,9 @@ export const tri_so_can_chi = {
 
 
 export const thien_can_array = [ "giáp", "ất", "bính", "đinh", "mậu", "kỷ","canh", "tân", "nhâm", "quý"];
-export const gio_sinh_array=["tý","sửu","dần","mão","ngọ","thìn","tỵ","ngọ","mùi","thân","dậu","tuất","hợi"];
+export const tc_array=["canh","tân","nhâm","quý","giáp","ất","bính","đinh","mậu","kỷ"];
+export const dc_array=["dần","mão","ngọ","thìn","tỵ","mùi","thân","dậu","tuất","hợi","tý","sửu"];
+export const gio_sinh_array=["tý","sửu","dần","mão","ngọ","thìn","tỵ","mùi","thân","dậu","tuất","hợi"];
 
 export const dia_chi_array = ["thân", "dậu", "tuất", "hợi", "tý", "sửu", "dần", "mão", "thìn", "tỵ", "ngọ", "mùi"];
 export const thien_can_ngay_gio={

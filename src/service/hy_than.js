@@ -1,35 +1,14 @@
 
-import { RAGApplicationBuilder, TextLoader, WebLoader } from "@llm-tools/embedjs";
-import { LanceDb } from "@llm-tools/embedjs/vectorDb/lance";
-import path from 'path'
-import { calculate_can_chi_gio, can_chi_array, can_duong, can_menh, can_tang_array, chi_menh, dia_chi_dai_van, dia_chi_diem_co_ban, gio_sinh_array, gio_sinh_map, menh, menh_khac, menh_sinh, nguyet_lenh, nhat_chu, thien_can_array, thien_can_dai_van, thien_can_ngay_gio, tri_so_can_chi } from "../data/dia_chi_can_tang.js";
-import fs from 'fs';
-import { fileURLToPath } from 'url';
+import {  can_chi_array, can_duong, can_menh, can_tang_array, chi_menh, dc_array, dia_chi_array, dia_chi_dai_van, dia_chi_diem_co_ban, gio_sinh_array, gio_sinh_map, menh, menh_khac, menh_sinh, nguyet_lenh, nhat_chu, tc_array, thien_can_array, thien_can_dai_van, thien_can_ngay_gio, tri_so_can_chi } from "../data/dia_chi_can_tang.js";
+import { SolarDate } from "@nghiavuive/lunar_date_vi";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+
 const calculate = async (birthdate, hour, minute, sex) => {
     try{
-        const  randomNumber=Math.floor(Math.random()*1000000);
+      
         const [day, month, year] = birthdate.split('/').map(Number);
-        const dirPath = path.join(__dirname, `../RAG/webDB/${randomNumber}`);
-        await fs.promises.mkdir(dirPath, { recursive: true });
-        const new_dirPath=path.resolve(`./src/RAG/webDB/${randomNumber}`);
-        const ragApp = await new RAGApplicationBuilder()
-            .setVectorDb(new LanceDb({path: path.resolve(`./src/RAG/webDB/${randomNumber}`)}))
-            .addLoader(new WebLoader({ urlOrContent: `https://www.xemlicham.com/am-lich/nam/${year}/thang/${month}/ngay/${day}` }))
-            .build();
-        const res = await ragApp.query(`Hãy tính lịch can chi của tháng,năm, ngày  với case là  người A với ngày sinh  ${birthdate} lúc ${hour} giờ ${minute}
-            Chỉ ghi kết quả theo format 
-            {"năm": "quý mùi",
-            "tháng": "bính mùi",
-            "ngày": "ất dậu",
-            "ngày_âm_lịch":"14/06/2003"
-            }`);
-        const parseData = JSON.parse(res.content);
-        await fs.promises.rm(dirPath, { recursive: true, force: true });
-    
-        let { năm: can_chi_nam, tháng: can_chi_thang, ngày: can_chi_ngay, ngày_âm_lịch: ngay_am_lich } = parseData;
+       
+        let{can_chi_ngay,can_chi_thang,can_chi_nam,ngay_am_lich}=get_can_chi_ngay(day,month,year);
         let can_chi_gio=calculate_gio_sinh(hour,minute,can_chi_ngay.split(' ')[0]);
  
     
@@ -341,6 +320,36 @@ const get_menh = (can_chi) => {
     }
     let sum = i + j > 5 ? i + j - 5 : i + j;
     return menh[sum - 1];
+}  
+const get_can_chi_ngay=(day,month,year)=>{
+    let a,y,m;
+    if(month<2){
+        y=year-1;
+        m=month+12;
+    }else{
+        y=year;
+        m=month;
+    }
+    a=Math.floor(y/100);
+    let b=2-a+Math.floor(a/4);
+    let jdn = Math.floor(Math.floor(365.25 * (y + 4716)) +
+    Math.floor(30.6001 * (m + 1)) +
+    day + b - 1524.5)+1 ;
+    let can_chi_ngay=thien_can_array[(jdn+9)%10].toString()+' '+ gio_sinh_array[(jdn+1)%12].toString();
+    let can_chi_nam=tc_array[year%10].toString()+' '+ dia_chi_array[year%12].toString();
+    let soldate=new SolarDate({day:day,month:month,year:year});
+    let lunarDate=soldate.toLunarDate();
+    let lunarMonth=lunarDate.month;
+    const postion=thien_can_array.indexOf(tc_array[year%10]);
+    
+    let can_chi_thang=thien_can_array[((postion+1)%10*2+lunarMonth-1)%10].toString()+' '+ dc_array[lunarMonth-1].toString();
+    let ngay_am_lich=`${lunarDate.day}/${lunarMonth}/${lunarDate.year}`;
+    return {can_chi_ngay,can_chi_thang,can_chi_nam,ngay_am_lich}
+    
+    
 }
+
+
+
 
 export {calculate}
