@@ -28,7 +28,7 @@
 
 }
 
-@media (min-width: 1106px) and (max-width: 1447px) {
+@media (min-width: 1206px) and (max-width: 1447px) {
   
   .background-image {
     background: url("/public/images/page1/banner1.png") no-repeat left center;
@@ -125,7 +125,7 @@
         
 }
 
-@media (min-width: 768px) and (max-width: 1106px) {
+@media (min-width: 768px) and (max-width: 1206px) {
   .background-image {
   background: url("/public/images/page1/banner1.png") no-repeat left center;
     flex-direction: column; 
